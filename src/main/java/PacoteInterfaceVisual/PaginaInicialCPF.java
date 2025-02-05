@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package PacoteInterfaceVisual;
-
+import PacoteInterfaceVisual.Usuario.Usuario;
 /**
  *
  * @author CaioFSX
@@ -177,6 +177,12 @@ public class PaginaInicialCPF extends javax.swing.JFrame {
 
     private void BotaoEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoEntrarActionPerformed
         // TODO add your handling code here:
+        //CampoInserirCPF.setText("111");
+        this.dispose();
+        Usuario u1 = new Usuario();
+        u1.setCpf(CampoInserirCPF.getText().trim());
+        //PaginaPedirSenhaLogin p1 = new PaginaPedirSenhaLogin();
+        //p1.setVisible(true);
     }//GEN-LAST:event_BotaoEntrarActionPerformed
 
     /**
