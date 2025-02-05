@@ -29,6 +29,7 @@ public class PaginaPedirSenhaLogin extends javax.swing.JFrame {
         JPanelPedirSenha = new javax.swing.JPanel();
         InformeSuaSenha = new javax.swing.JTextField();
         CampoInserirSenha = new javax.swing.JTextField();
+        BotaoEsqueciSenha = new javax.swing.JButton();
         BotaoEntrarSenha = new javax.swing.JButton();
         PainelLogoPedirSenha = new javax.swing.JPanel();
         TituloBancoJava = new javax.swing.JTextField();
@@ -58,6 +59,17 @@ public class PaginaPedirSenhaLogin extends javax.swing.JFrame {
             }
         });
 
+        BotaoEsqueciSenha.setBackground(new java.awt.Color(0, 0, 0));
+        BotaoEsqueciSenha.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
+        BotaoEsqueciSenha.setForeground(new java.awt.Color(255, 255, 255));
+        BotaoEsqueciSenha.setText("Esqueci minha senha");
+        BotaoEsqueciSenha.setBorderPainted(false);
+        BotaoEsqueciSenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoEsqueciSenhaActionPerformed(evt);
+            }
+        });
+
         BotaoEntrarSenha.setBackground(new java.awt.Color(204, 0, 0));
         BotaoEntrarSenha.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         BotaoEntrarSenha.setForeground(new java.awt.Color(255, 255, 255));
@@ -74,17 +86,17 @@ public class PaginaPedirSenhaLogin extends javax.swing.JFrame {
         JPanelPedirSenhaLayout.setHorizontalGroup(
             JPanelPedirSenhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPanelPedirSenhaLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(JPanelPedirSenhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(JPanelPedirSenhaLayout.createSequentialGroup()
-                        .addGap(119, 119, 119)
-                        .addComponent(BotaoEntrarSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(JPanelPedirSenhaLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(InformeSuaSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(JPanelPedirSenhaLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(CampoInserirSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(BotaoEsqueciSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(InformeSuaSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CampoInserirSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(115, Short.MAX_VALUE))
+            .addGroup(JPanelPedirSenhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelPedirSenhaLayout.createSequentialGroup()
+                    .addContainerGap(129, Short.MAX_VALUE)
+                    .addComponent(BotaoEntrarSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(114, 114, 114)))
         );
         JPanelPedirSenhaLayout.setVerticalGroup(
             JPanelPedirSenhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -93,9 +105,14 @@ public class PaginaPedirSenhaLogin extends javax.swing.JFrame {
                 .addComponent(InformeSuaSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(CampoInserirSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(93, 93, 93)
-                .addComponent(BotaoEntrarSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(BotaoEsqueciSenha)
+                .addGap(147, 147, 147))
+            .addGroup(JPanelPedirSenhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelPedirSenhaLayout.createSequentialGroup()
+                    .addContainerGap(356, Short.MAX_VALUE)
+                    .addComponent(BotaoEntrarSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(36, 36, 36)))
         );
 
         PainelLogoPedirSenha.setBackground(new java.awt.Color(204, 0, 0));
@@ -176,6 +193,10 @@ public class PaginaPedirSenhaLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_CampoInserirSenhaActionPerformed
 
+    private void BotaoEsqueciSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoEsqueciSenhaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BotaoEsqueciSenhaActionPerformed
+
     private void BotaoEntrarSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoEntrarSenhaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BotaoEntrarSenhaActionPerformed
@@ -225,6 +246,7 @@ public class PaginaPedirSenhaLogin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotaoEntrarSenha;
+    private javax.swing.JButton BotaoEsqueciSenha;
     private javax.swing.JTextField CampoInserirSenha;
     private javax.swing.JLabel ImagemLogoJava;
     private javax.swing.JTextField InformeSuaSenha;
