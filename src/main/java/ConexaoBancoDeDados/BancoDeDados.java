@@ -7,17 +7,41 @@ package ConexaoBancoDeDados;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.Statement;
+import PacoteInterfaceVisual.Usuario.Usuario;
+import java.sql.ResultSet;
 
 /**
  *
  * @author CaioFSX
  */
 public class BancoDeDados {
-    public static void main(String[]args) throws ClassNotFoundException, SQLException{
-    Class.forName("com.mysql.cj.jdbc.Driver");
-    
-    try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/myDb", "user1", "pass")) {
-    // use con here
-    }
+
+    public void checarSeUsuarioContemCPF() throws ClassNotFoundException, SQLException {
+        Usuario usu1 = new Usuario();
+        Connection conexao1 = null;
+        try{
+            // use con here
+            //USEM ISSO AQUI PARA DML EM BANCO DE DADOS
+            ResultSet resultSet;
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            //Aqui é só alterar o link de conexão do MySQL
+            conexao1 = DriverManager.getConnection("jdbc:mysql://192.168.15.8:3306/?user=caiofsx", "caiofsx", "database123");
+            Statement statement = conexao1.createStatement();
+            resultSet = statement.executeQuery("SELECT cpfCliente from ContaBancaria where cpfCliente='"+usu1.getCpf()+"'");
+            if(resultSet.next()){
+                usu1.setCpf(resultSet.getString("cpfCliente"));
+            }
+        }
+        catch (ClassNotFoundException ex){
+            System.out.println("Driver do Banco de dados não localizado!");
+        }
+        catch (SQLException ex){
+            System.out.println("Erro durante a conexão com o banco de dados! Erro:"+ex.getMessage());
+        }
+        finally {
+            if(conexao1 != null){
+                conexao1.close();
+            }
     }
 }
