@@ -28,7 +28,7 @@ public class PaginaPerfilConfiguracoes extends javax.swing.JFrame {
 
         JPanelHOME = new javax.swing.JPanel();
         PerfilConfiguracoes = new javax.swing.JTextField();
-        BotaoRecarregarCelular = new javax.swing.JButton();
+        BotaoAlterarDados = new javax.swing.JButton();
         IconeLogo = new javax.swing.JLabel();
         NomeCliente = new javax.swing.JTextField();
         BotaoSeguranca = new javax.swing.JButton();
@@ -37,7 +37,7 @@ public class PaginaPerfilConfiguracoes extends javax.swing.JFrame {
         BotaoMeuCartao = new javax.swing.JButton();
         BotaoTermos = new javax.swing.JButton();
         BotaoSair = new javax.swing.JButton();
-        BotaoSeguranca1 = new javax.swing.JButton();
+        BotaoExcluirConta = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -56,14 +56,14 @@ public class PaginaPerfilConfiguracoes extends javax.swing.JFrame {
             }
         });
 
-        BotaoRecarregarCelular.setBackground(new java.awt.Color(204, 0, 0));
-        BotaoRecarregarCelular.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        BotaoRecarregarCelular.setForeground(new java.awt.Color(255, 255, 255));
-        BotaoRecarregarCelular.setText("Recarregar Celular");
-        BotaoRecarregarCelular.setBorderPainted(false);
-        BotaoRecarregarCelular.addActionListener(new java.awt.event.ActionListener() {
+        BotaoAlterarDados.setBackground(new java.awt.Color(204, 0, 0));
+        BotaoAlterarDados.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        BotaoAlterarDados.setForeground(new java.awt.Color(255, 255, 255));
+        BotaoAlterarDados.setText("Alterar Dados");
+        BotaoAlterarDados.setBorderPainted(false);
+        BotaoAlterarDados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotaoRecarregarCelularActionPerformed(evt);
+                BotaoAlterarDadosActionPerformed(evt);
             }
         });
 
@@ -149,12 +149,12 @@ public class PaginaPerfilConfiguracoes extends javax.swing.JFrame {
             }
         });
 
-        BotaoSeguranca1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        BotaoSeguranca1.setText("Excluir minha conta");
-        BotaoSeguranca1.setBorderPainted(false);
-        BotaoSeguranca1.addActionListener(new java.awt.event.ActionListener() {
+        BotaoExcluirConta.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        BotaoExcluirConta.setText("Excluir minha conta");
+        BotaoExcluirConta.setBorderPainted(false);
+        BotaoExcluirConta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotaoSeguranca1ActionPerformed(evt);
+                BotaoExcluirContaActionPerformed(evt);
             }
         });
 
@@ -179,7 +179,7 @@ public class PaginaPerfilConfiguracoes extends javax.swing.JFrame {
                 .addGap(32, 32, 32)
                 .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JPanelHOMELayout.createSequentialGroup()
-                        .addComponent(BotaoRecarregarCelular)
+                        .addComponent(BotaoAlterarDados)
                         .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(JPanelHOMELayout.createSequentialGroup()
                                 .addGap(61, 61, 61)
@@ -193,7 +193,7 @@ public class PaginaPerfilConfiguracoes extends javax.swing.JFrame {
                         .addComponent(BotaoSair, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(JPanelHOMELayout.createSequentialGroup()
                         .addGap(25, 25, 25)
-                        .addComponent(BotaoSeguranca1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(BotaoExcluirConta, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(34, 34, 34))
         );
         JPanelHOMELayout.setVerticalGroup(
@@ -212,7 +212,7 @@ public class PaginaPerfilConfiguracoes extends javax.swing.JFrame {
                 .addComponent(PerfilConfiguracoes, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33)
                 .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BotaoRecarregarCelular, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BotaoAlterarDados, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BotaoSeguranca, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BotaoDadosPessoais, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(46, 46, 46)
@@ -221,7 +221,7 @@ public class PaginaPerfilConfiguracoes extends javax.swing.JFrame {
                     .addComponent(BotaoTermos, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BotaoSair, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
-                .addComponent(BotaoSeguranca1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BotaoExcluirConta, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32))
         );
 
@@ -247,9 +247,12 @@ public class PaginaPerfilConfiguracoes extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_PerfilConfiguracoesActionPerformed
 
-    private void BotaoRecarregarCelularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoRecarregarCelularActionPerformed
+    private void BotaoAlterarDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoAlterarDadosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_BotaoRecarregarCelularActionPerformed
+        this.dispose();
+        PaginaAlterarDados p1 = new PaginaAlterarDados();
+        p1.setVisible(true);
+    }//GEN-LAST:event_BotaoAlterarDadosActionPerformed
 
     private void NomeClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NomeClienteActionPerformed
         // TODO add your handling code here:
@@ -257,10 +260,16 @@ public class PaginaPerfilConfiguracoes extends javax.swing.JFrame {
 
     private void BotaoSegurancaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoSegurancaActionPerformed
         // TODO add your handling code here:
+        this.dispose();
+        PaginaSeguranca p1 = new PaginaSeguranca();
+        p1.setVisible(true);
     }//GEN-LAST:event_BotaoSegurancaActionPerformed
 
     private void BotaoDadosPessoaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoDadosPessoaisActionPerformed
         // TODO add your handling code here:
+        this.dispose();
+        PaginaDadosPessoais p1 = new PaginaDadosPessoais();
+        p1.setVisible(true);
     }//GEN-LAST:event_BotaoDadosPessoaisActionPerformed
 
     private void PerguntasFrequentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PerguntasFrequentesActionPerformed
@@ -269,19 +278,31 @@ public class PaginaPerfilConfiguracoes extends javax.swing.JFrame {
 
     private void BotaoMeuCartaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoMeuCartaoActionPerformed
         // TODO add your handling code here:
+        this.dispose();
+        PaginaMeucartao p1 = new PaginaMeucartao();
+        p1.setVisible(true);
     }//GEN-LAST:event_BotaoMeuCartaoActionPerformed
 
     private void BotaoTermosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoTermosActionPerformed
         // TODO add your handling code here:
+        this.dispose();
+        PaginaTermosCondicoes p1 = new PaginaTermosCondicoes();
+        p1.setVisible(true);
     }//GEN-LAST:event_BotaoTermosActionPerformed
 
     private void BotaoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoSairActionPerformed
         // TODO add your handling code here:
+        this.dispose();
+        PaginaInicialCPF p1 = new PaginaInicialCPF();
+        p1.setVisible(true);
     }//GEN-LAST:event_BotaoSairActionPerformed
 
-    private void BotaoSeguranca1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoSeguranca1ActionPerformed
+    private void BotaoExcluirContaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoExcluirContaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_BotaoSeguranca1ActionPerformed
+        this.dispose();
+        PaginaExcluirConta p1 = new PaginaExcluirConta();
+        p1.setVisible(true);
+    }//GEN-LAST:event_BotaoExcluirContaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -327,12 +348,12 @@ public class PaginaPerfilConfiguracoes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BotaoAlterarDados;
     private javax.swing.JButton BotaoDadosPessoais;
+    private javax.swing.JButton BotaoExcluirConta;
     private javax.swing.JButton BotaoMeuCartao;
-    private javax.swing.JButton BotaoRecarregarCelular;
     private javax.swing.JButton BotaoSair;
     private javax.swing.JButton BotaoSeguranca;
-    private javax.swing.JButton BotaoSeguranca1;
     private javax.swing.JButton BotaoTermos;
     private javax.swing.JLabel IconeLogo;
     private javax.swing.JPanel JPanelHOME;

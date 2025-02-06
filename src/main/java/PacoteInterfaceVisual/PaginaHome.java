@@ -4,6 +4,8 @@
  */
 package PacoteInterfaceVisual;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author CaioFSX
@@ -26,36 +28,22 @@ public class PaginaHome extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        JPanelCPFInicio = new javax.swing.JPanel();
-        NomeCliente = new javax.swing.JTextField();
-        CampoInserirCPF = new javax.swing.JTextField();
+        JPanelHOME = new javax.swing.JPanel();
         BotaoConsultarExtrato = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        PerfilConfiguracoes = new javax.swing.JTextField();
+        IconeLogo = new javax.swing.JLabel();
+        NomeCliente = new javax.swing.JTextField();
+        BotaoParcerias = new javax.swing.JButton();
+        BotaoRecarregarCelular = new javax.swing.JButton();
+        BotaoPagar = new javax.swing.JButton();
+        BotaoAreaPIX = new javax.swing.JButton();
+        BotaoConsultarSaldo = new javax.swing.JButton();
+        PerguntasFrequentes = new javax.swing.JTextField();
+        BotaoPerfilConfiguracoes = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
 
-        JPanelCPFInicio.setBackground(new java.awt.Color(255, 255, 255));
-
-        NomeCliente.setEditable(false);
-        NomeCliente.setBackground(new java.awt.Color(255, 255, 255));
-        NomeCliente.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
-        NomeCliente.setText("PERFIL E CONFIGURAÇÕES");
-        NomeCliente.setBorder(null);
-        NomeCliente.setFocusable(false);
-        NomeCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NomeClienteActionPerformed(evt);
-            }
-        });
-
-        CampoInserirCPF.setText("000.000.000-00");
-        CampoInserirCPF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CampoInserirCPFActionPerformed(evt);
-            }
-        });
+        JPanelHOME.setBackground(new java.awt.Color(255, 255, 255));
 
         BotaoConsultarExtrato.setBackground(new java.awt.Color(204, 0, 0));
         BotaoConsultarExtrato.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -68,58 +56,156 @@ public class PaginaHome extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\NetBeansProjects\\sistema-bancario\\src\\main\\resources\\images\\logoCircular2.png")); // NOI18N
-        jLabel1.setText("jLabel1");
+        IconeLogo.setIcon(new javax.swing.ImageIcon("C:\\NetBeansProjects\\sistema-bancario\\src\\main\\resources\\images\\logoCircular2.png")); // NOI18N
+        IconeLogo.setText("jLabel1");
 
-        PerfilConfiguracoes.setEditable(false);
-        PerfilConfiguracoes.setBackground(new java.awt.Color(255, 255, 255));
-        PerfilConfiguracoes.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        PerfilConfiguracoes.setText("NomeCliente");
-        PerfilConfiguracoes.setBorder(null);
-        PerfilConfiguracoes.setFocusable(false);
-        PerfilConfiguracoes.addActionListener(new java.awt.event.ActionListener() {
+        NomeCliente.setEditable(false);
+        NomeCliente.setBackground(new java.awt.Color(255, 255, 255));
+        NomeCliente.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        NomeCliente.setText("NomeCliente");
+        NomeCliente.setBorder(null);
+        NomeCliente.setFocusable(false);
+        NomeCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PerfilConfiguracoesActionPerformed(evt);
+                NomeClienteActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout JPanelCPFInicioLayout = new javax.swing.GroupLayout(JPanelCPFInicio);
-        JPanelCPFInicio.setLayout(JPanelCPFInicioLayout);
-        JPanelCPFInicioLayout.setHorizontalGroup(
-            JPanelCPFInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JPanelCPFInicioLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addGroup(JPanelCPFInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(NomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(JPanelCPFInicioLayout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(PerfilConfiguracoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelCPFInicioLayout.createSequentialGroup()
-                .addContainerGap(264, Short.MAX_VALUE)
-                .addGroup(JPanelCPFInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelCPFInicioLayout.createSequentialGroup()
-                        .addComponent(CampoInserirCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(45, 45, 45))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelCPFInicioLayout.createSequentialGroup()
+        BotaoParcerias.setBackground(new java.awt.Color(204, 0, 0));
+        BotaoParcerias.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        BotaoParcerias.setForeground(new java.awt.Color(255, 255, 255));
+        BotaoParcerias.setText("Parcerias");
+        BotaoParcerias.setBorderPainted(false);
+        BotaoParcerias.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoParceriasActionPerformed(evt);
+            }
+        });
+
+        BotaoRecarregarCelular.setBackground(new java.awt.Color(255, 102, 0));
+        BotaoRecarregarCelular.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        BotaoRecarregarCelular.setForeground(new java.awt.Color(255, 255, 255));
+        BotaoRecarregarCelular.setText("RecarregarCelular");
+        BotaoRecarregarCelular.setBorderPainted(false);
+        BotaoRecarregarCelular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoRecarregarCelularActionPerformed(evt);
+            }
+        });
+
+        BotaoPagar.setBackground(new java.awt.Color(255, 102, 0));
+        BotaoPagar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        BotaoPagar.setForeground(new java.awt.Color(255, 255, 255));
+        BotaoPagar.setText("Pagar");
+        BotaoPagar.setBorderPainted(false);
+        BotaoPagar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoPagarActionPerformed(evt);
+            }
+        });
+
+        BotaoAreaPIX.setBackground(new java.awt.Color(255, 102, 0));
+        BotaoAreaPIX.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        BotaoAreaPIX.setForeground(new java.awt.Color(255, 255, 255));
+        BotaoAreaPIX.setText("Area Pix");
+        BotaoAreaPIX.setToolTipText("");
+        BotaoAreaPIX.setBorderPainted(false);
+        BotaoAreaPIX.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoAreaPIXActionPerformed(evt);
+            }
+        });
+
+        BotaoConsultarSaldo.setBackground(new java.awt.Color(204, 0, 0));
+        BotaoConsultarSaldo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        BotaoConsultarSaldo.setForeground(new java.awt.Color(255, 255, 255));
+        BotaoConsultarSaldo.setText("R$ 𖧼𖧼𖧼𖧼️");
+        BotaoConsultarSaldo.setBorderPainted(false);
+        BotaoConsultarSaldo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoConsultarSaldoActionPerformed(evt);
+            }
+        });
+
+        PerguntasFrequentes.setEditable(false);
+        PerguntasFrequentes.setBackground(new java.awt.Color(255, 255, 255));
+        PerguntasFrequentes.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
+        PerguntasFrequentes.setText("Perguntas Frequentes");
+        PerguntasFrequentes.setBorder(null);
+        PerguntasFrequentes.setFocusable(false);
+        PerguntasFrequentes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PerguntasFrequentesActionPerformed(evt);
+            }
+        });
+
+        BotaoPerfilConfiguracoes.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
+        BotaoPerfilConfiguracoes.setText("PERFIL E CONFIGURAÇÕES");
+        BotaoPerfilConfiguracoes.setBorderPainted(false);
+        BotaoPerfilConfiguracoes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoPerfilConfiguracoesActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout JPanelHOMELayout = new javax.swing.GroupLayout(JPanelHOME);
+        JPanelHOME.setLayout(JPanelHOMELayout);
+        JPanelHOMELayout.setHorizontalGroup(
+            JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelHOMELayout.createSequentialGroup()
+                .addContainerGap(82, Short.MAX_VALUE)
+                .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(BotaoAreaPIX, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BotaoConsultarSaldo, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE))
+                .addGap(32, 32, 32)
+                .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelHOMELayout.createSequentialGroup()
+                        .addComponent(BotaoPagar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(BotaoRecarregarCelular))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelHOMELayout.createSequentialGroup()
                         .addComponent(BotaoConsultarExtrato)
-                        .addGap(241, 241, 241))))
+                        .addGap(39, 39, 39)
+                        .addComponent(BotaoParcerias, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(JPanelHOMELayout.createSequentialGroup()
+                        .addGap(234, 234, 234)
+                        .addComponent(PerguntasFrequentes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(52, 52, 52))
+            .addGroup(JPanelHOMELayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(BotaoPerfilConfiguracoes)
+                    .addGroup(JPanelHOMELayout.createSequentialGroup()
+                        .addComponent(IconeLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(NomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        JPanelCPFInicioLayout.setVerticalGroup(
-            JPanelCPFInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JPanelCPFInicioLayout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addGroup(JPanelCPFInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(PerfilConfiguracoes, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+        JPanelHOMELayout.setVerticalGroup(
+            JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JPanelHOMELayout.createSequentialGroup()
+                .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JPanelHOMELayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(IconeLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(NomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(JPanelHOMELayout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(PerguntasFrequentes, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(NomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21)
-                .addComponent(BotaoConsultarExtrato, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(102, 102, 102)
-                .addComponent(CampoInserirCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(108, Short.MAX_VALUE))
+                .addComponent(BotaoPerfilConfiguracoes)
+                .addGap(34, 34, 34)
+                .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BotaoConsultarExtrato, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BotaoParcerias, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BotaoConsultarSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(47, 47, 47)
+                .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BotaoRecarregarCelular, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BotaoPagar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BotaoAreaPIX, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(139, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -127,34 +213,73 @@ public class PaginaHome extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(JPanelCPFInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(JPanelHOME, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(JPanelCPFInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(JPanelHOME, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void BotaoConsultarExtratoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoConsultarExtratoActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        PaginaConsultarExtrato p1 = new PaginaConsultarExtrato();
+        p1.setVisible(true);
+    }//GEN-LAST:event_BotaoConsultarExtratoActionPerformed
+
     private void NomeClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NomeClienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_NomeClienteActionPerformed
 
-    private void CampoInserirCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoInserirCPFActionPerformed
+    private void BotaoParceriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoParceriasActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_CampoInserirCPFActionPerformed
+        this.dispose();
+        PaginaParceiros p1 = new PaginaParceiros();
+        p1.setVisible(true);
+    }//GEN-LAST:event_BotaoParceriasActionPerformed
 
-    private void BotaoConsultarExtratoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoConsultarExtratoActionPerformed
+    private void BotaoRecarregarCelularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoRecarregarCelularActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_BotaoConsultarExtratoActionPerformed
+        this.dispose();
+        PaginaRecarregarCelular p1 = new PaginaRecarregarCelular();
+        p1.setVisible(true);
+    }//GEN-LAST:event_BotaoRecarregarCelularActionPerformed
 
-    private void PerfilConfiguracoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PerfilConfiguracoesActionPerformed
+    private void BotaoPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoPagarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_PerfilConfiguracoesActionPerformed
+        this.dispose();
+        PaginaPagar p1 = new PaginaPagar();
+        p1.setVisible(true);
+    }//GEN-LAST:event_BotaoPagarActionPerformed
+
+    private void BotaoAreaPIXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoAreaPIXActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        PaginaAreaPix p1 = new PaginaAreaPix();
+        p1.setVisible(true);
+    }//GEN-LAST:event_BotaoAreaPIXActionPerformed
+
+    private void BotaoConsultarSaldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoConsultarSaldoActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "R$ 0,00 exemplo", "Saldo da conta", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_BotaoConsultarSaldoActionPerformed
+
+    private void PerguntasFrequentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PerguntasFrequentesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PerguntasFrequentesActionPerformed
+
+    private void BotaoPerfilConfiguracoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoPerfilConfiguracoesActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        PaginaPerfilConfiguracoes p1 = new PaginaPerfilConfiguracoes();
+        p1.setVisible(true);
+    }//GEN-LAST:event_BotaoPerfilConfiguracoesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -196,11 +321,16 @@ public class PaginaHome extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BotaoAreaPIX;
     private javax.swing.JButton BotaoConsultarExtrato;
-    private javax.swing.JTextField CampoInserirCPF;
-    private javax.swing.JPanel JPanelCPFInicio;
+    private javax.swing.JButton BotaoConsultarSaldo;
+    private javax.swing.JButton BotaoPagar;
+    private javax.swing.JButton BotaoParcerias;
+    private javax.swing.JButton BotaoPerfilConfiguracoes;
+    private javax.swing.JButton BotaoRecarregarCelular;
+    private javax.swing.JLabel IconeLogo;
+    private javax.swing.JPanel JPanelHOME;
     private javax.swing.JTextField NomeCliente;
-    private javax.swing.JTextField PerfilConfiguracoes;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JTextField PerguntasFrequentes;
     // End of variables declaration//GEN-END:variables
 }

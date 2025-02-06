@@ -245,6 +245,9 @@ public class PaginaParceiros extends javax.swing.JFrame {
 
     private void BotaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoVoltarActionPerformed
         // TODO add your handling code here:
+        this.dispose();
+        PaginaHome p1 = new PaginaHome();
+        p1.setVisible(true);
     }//GEN-LAST:event_BotaoVoltarActionPerformed
 
     /**

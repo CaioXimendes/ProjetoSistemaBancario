@@ -29,7 +29,7 @@ public class PaginaRedefinirSenha extends javax.swing.JFrame {
         JPanelPedirSenha = new javax.swing.JPanel();
         InformeSuaSenha = new javax.swing.JTextField();
         CampoInserirNovaSenha = new javax.swing.JTextField();
-        BotaoEntrarSenha = new javax.swing.JButton();
+        BotaoConfirmar = new javax.swing.JButton();
         ConfirmarNovaSenha = new javax.swing.JTextField();
         CampoInserirConfirmacaoSenha = new javax.swing.JTextField();
         PainelLogoPedirSenha = new javax.swing.JPanel();
@@ -54,20 +54,21 @@ public class PaginaRedefinirSenha extends javax.swing.JFrame {
         });
 
         CampoInserirNovaSenha.setText(" **********");
+        CampoInserirNovaSenha.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         CampoInserirNovaSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CampoInserirNovaSenhaActionPerformed(evt);
             }
         });
 
-        BotaoEntrarSenha.setBackground(new java.awt.Color(204, 0, 0));
-        BotaoEntrarSenha.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        BotaoEntrarSenha.setForeground(new java.awt.Color(255, 255, 255));
-        BotaoEntrarSenha.setText("Confirmar");
-        BotaoEntrarSenha.setBorderPainted(false);
-        BotaoEntrarSenha.addActionListener(new java.awt.event.ActionListener() {
+        BotaoConfirmar.setBackground(new java.awt.Color(204, 0, 0));
+        BotaoConfirmar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        BotaoConfirmar.setForeground(new java.awt.Color(255, 255, 255));
+        BotaoConfirmar.setText("Confirmar");
+        BotaoConfirmar.setBorderPainted(false);
+        BotaoConfirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotaoEntrarSenhaActionPerformed(evt);
+                BotaoConfirmarActionPerformed(evt);
             }
         });
 
@@ -84,6 +85,7 @@ public class PaginaRedefinirSenha extends javax.swing.JFrame {
         });
 
         CampoInserirConfirmacaoSenha.setText(" **********");
+        CampoInserirConfirmacaoSenha.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         CampoInserirConfirmacaoSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CampoInserirConfirmacaoSenhaActionPerformed(evt);
@@ -102,14 +104,14 @@ public class PaginaRedefinirSenha extends javax.swing.JFrame {
                         .addComponent(InformeSuaSenha))
                     .addComponent(ConfirmarNovaSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(JPanelPedirSenhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(BotaoEntrarSenha)
+                        .addComponent(BotaoConfirmar)
                         .addComponent(CampoInserirConfirmacaoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(113, Short.MAX_VALUE))
         );
         JPanelPedirSenhaLayout.setVerticalGroup(
             JPanelPedirSenhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPanelPedirSenhaLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(139, Short.MAX_VALUE)
                 .addComponent(InformeSuaSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(CampoInserirNovaSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -117,8 +119,8 @@ public class PaginaRedefinirSenha extends javax.swing.JFrame {
                 .addComponent(ConfirmarNovaSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(CampoInserirConfirmacaoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(63, 63, 63)
-                .addComponent(BotaoEntrarSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(62, 62, 62)
+                .addComponent(BotaoConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36))
         );
 
@@ -200,9 +202,9 @@ public class PaginaRedefinirSenha extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_CampoInserirNovaSenhaActionPerformed
 
-    private void BotaoEntrarSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoEntrarSenhaActionPerformed
+    private void BotaoConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoConfirmarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_BotaoEntrarSenhaActionPerformed
+    }//GEN-LAST:event_BotaoConfirmarActionPerformed
 
     private void ConfirmarNovaSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmarNovaSenhaActionPerformed
         // TODO add your handling code here:
@@ -264,7 +266,7 @@ public class PaginaRedefinirSenha extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BotaoEntrarSenha;
+    private javax.swing.JButton BotaoConfirmar;
     private javax.swing.JTextField CampoInserirConfirmacaoSenha;
     private javax.swing.JTextField CampoInserirNovaSenha;
     private javax.swing.JTextField ConfirmarNovaSenha;

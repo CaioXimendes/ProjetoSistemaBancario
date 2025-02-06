@@ -4,16 +4,18 @@
  */
 package PacoteInterfaceVisual;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author CaioFSX
  */
-public class PaginaExcluirConta extends javax.swing.JFrame {
+public class PaginaAreaPix extends javax.swing.JFrame {
 
     /**
      * Creates new form InterfaceVisual
      */
-    public PaginaExcluirConta() {
+    public PaginaAreaPix() {
         initComponents();
     }
 
@@ -27,17 +29,27 @@ public class PaginaExcluirConta extends javax.swing.JFrame {
     private void initComponents() {
 
         JPanelHOME = new javax.swing.JPanel();
+        BotaoAREAPIX = new javax.swing.JButton();
         IconeLogo = new javax.swing.JLabel();
         NomeCliente = new javax.swing.JTextField();
         PerguntasFrequentes = new javax.swing.JTextField();
-        BotaoVoltar = new javax.swing.JButton();
-        NomeCliente1 = new javax.swing.JTextField();
-        BotaoConfirmarExcluirConta = new javax.swing.JButton();
+        BotaoPerfilConfiguracoes = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
 
         JPanelHOME.setBackground(new java.awt.Color(255, 255, 255));
+
+        BotaoAREAPIX.setBackground(new java.awt.Color(204, 0, 0));
+        BotaoAREAPIX.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        BotaoAREAPIX.setForeground(new java.awt.Color(255, 255, 255));
+        BotaoAREAPIX.setText("AREAPIX");
+        BotaoAREAPIX.setBorderPainted(false);
+        BotaoAREAPIX.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoAREAPIXActionPerformed(evt);
+            }
+        });
 
         IconeLogo.setIcon(new javax.swing.ImageIcon("C:\\NetBeansProjects\\sistema-bancario\\src\\main\\resources\\images\\logoCircular2.png")); // NOI18N
         IconeLogo.setText("jLabel1");
@@ -66,36 +78,12 @@ public class PaginaExcluirConta extends javax.swing.JFrame {
             }
         });
 
-        BotaoVoltar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        BotaoVoltar.setText("Voltar");
-        BotaoVoltar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        BotaoVoltar.setBorderPainted(false);
-        BotaoVoltar.addActionListener(new java.awt.event.ActionListener() {
+        BotaoPerfilConfiguracoes.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        BotaoPerfilConfiguracoes.setText("TODO");
+        BotaoPerfilConfiguracoes.setBorderPainted(false);
+        BotaoPerfilConfiguracoes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotaoVoltarActionPerformed(evt);
-            }
-        });
-
-        NomeCliente1.setEditable(false);
-        NomeCliente1.setBackground(new java.awt.Color(255, 255, 255));
-        NomeCliente1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        NomeCliente1.setText("Você tem certeza de que deseja excluir sua conta?");
-        NomeCliente1.setBorder(null);
-        NomeCliente1.setFocusable(false);
-        NomeCliente1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NomeCliente1ActionPerformed(evt);
-            }
-        });
-
-        BotaoConfirmarExcluirConta.setBackground(new java.awt.Color(255, 204, 0));
-        BotaoConfirmarExcluirConta.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        BotaoConfirmarExcluirConta.setText("Excluir minha conta");
-        BotaoConfirmarExcluirConta.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        BotaoConfirmarExcluirConta.setBorderPainted(false);
-        BotaoConfirmarExcluirConta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotaoConfirmarExcluirContaActionPerformed(evt);
+                BotaoPerfilConfiguracoesActionPerformed(evt);
             }
         });
 
@@ -104,27 +92,23 @@ public class PaginaExcluirConta extends javax.swing.JFrame {
         JPanelHOMELayout.setHorizontalGroup(
             JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPanelHOMELayout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(IconeLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(NomeCliente1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(NomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(145, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelHOMELayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(578, Short.MAX_VALUE)
+                .addComponent(PerguntasFrequentes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(JPanelHOMELayout.createSequentialGroup()
                 .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JPanelHOMELayout.createSequentialGroup()
-                        .addComponent(BotaoVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelHOMELayout.createSequentialGroup()
-                        .addComponent(PerguntasFrequentes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34))))
-            .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelHOMELayout.createSequentialGroup()
-                    .addContainerGap(251, Short.MAX_VALUE)
-                    .addComponent(BotaoConfirmarExcluirConta, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(231, 231, 231)))
+                        .addGap(14, 14, 14)
+                        .addComponent(IconeLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(NomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(JPanelHOMELayout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(BotaoAREAPIX)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelHOMELayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(BotaoPerfilConfiguracoes)
+                .addGap(292, 292, 292))
         );
         JPanelHOMELayout.setVerticalGroup(
             JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -138,16 +122,11 @@ public class PaginaExcluirConta extends javax.swing.JFrame {
                     .addGroup(JPanelHOMELayout.createSequentialGroup()
                         .addGap(32, 32, 32)
                         .addComponent(PerguntasFrequentes, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(44, 44, 44)
-                .addComponent(NomeCliente1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 206, Short.MAX_VALUE)
-                .addComponent(BotaoVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15))
-            .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelHOMELayout.createSequentialGroup()
-                    .addContainerGap(218, Short.MAX_VALUE)
-                    .addComponent(BotaoConfirmarExcluirConta, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(150, 150, 150)))
+                .addGap(93, 93, 93)
+                .addComponent(BotaoPerfilConfiguracoes)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 145, Short.MAX_VALUE)
+                .addComponent(BotaoAREAPIX, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -168,6 +147,10 @@ public class PaginaExcluirConta extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void BotaoAREAPIXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoAREAPIXActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BotaoAREAPIXActionPerformed
+
     private void NomeClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NomeClienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_NomeClienteActionPerformed
@@ -176,20 +159,12 @@ public class PaginaExcluirConta extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_PerguntasFrequentesActionPerformed
 
-    private void BotaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoVoltarActionPerformed
+    private void BotaoPerfilConfiguracoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoPerfilConfiguracoesActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        PaginaHome p1 = new PaginaHome();
+        PaginaPerfilConfiguracoes p1 = new PaginaPerfilConfiguracoes();
         p1.setVisible(true);
-    }//GEN-LAST:event_BotaoVoltarActionPerformed
-
-    private void NomeCliente1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NomeCliente1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_NomeCliente1ActionPerformed
-
-    private void BotaoConfirmarExcluirContaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoConfirmarExcluirContaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BotaoConfirmarExcluirContaActionPerformed
+    }//GEN-LAST:event_BotaoPerfilConfiguracoesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -208,13 +183,13 @@ public class PaginaExcluirConta extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PaginaExcluirConta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PaginaAreaPix.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PaginaExcluirConta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PaginaAreaPix.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PaginaExcluirConta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PaginaAreaPix.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PaginaExcluirConta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PaginaAreaPix.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -237,18 +212,17 @@ public class PaginaExcluirConta extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new PaginaExcluirConta().setVisible(true);
+                new PaginaAreaPix().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BotaoConfirmarExcluirConta;
-    private javax.swing.JButton BotaoVoltar;
+    private javax.swing.JButton BotaoAREAPIX;
+    private javax.swing.JButton BotaoPerfilConfiguracoes;
     private javax.swing.JLabel IconeLogo;
     private javax.swing.JPanel JPanelHOME;
     private javax.swing.JTextField NomeCliente;
-    private javax.swing.JTextField NomeCliente1;
     private javax.swing.JTextField PerguntasFrequentes;
     // End of variables declaration//GEN-END:variables
 }
