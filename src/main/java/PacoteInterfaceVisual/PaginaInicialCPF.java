@@ -3,7 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package PacoteInterfaceVisual;
+
 import PacoteInterfaceVisual.Usuario.Usuario;
+import PacoteRegraDeNegocio.ValidarInformacoesUsuario;
+import java.sql.SQLException;
+
 /**
  *
  * @author CaioFSX
@@ -177,12 +181,16 @@ public class PaginaInicialCPF extends javax.swing.JFrame {
 
     private void BotaoEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoEntrarActionPerformed
         // TODO add your handling code here:
-        //CampoInserirCPF.setText("111");
+        try{
         this.dispose();
         Usuario u1 = new Usuario();
         u1.setCpf(CampoInserirCPF.getText().trim());
-        //PaginaPedirSenhaLogin p1 = new PaginaPedirSenhaLogin();
-        //p1.setVisible(true);
+        ValidarInformacoesUsuario validacao1 = new ValidarInformacoesUsuario();
+        validacao1.checarUsuarioPeloCPF();
+        } catch(Exception e){
+            //TODO
+        }
+        
     }//GEN-LAST:event_BotaoEntrarActionPerformed
 
     /**
