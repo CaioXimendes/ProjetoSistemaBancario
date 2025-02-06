@@ -15,6 +15,7 @@ public class Usuario {
     private int senha;
     private int senha4digitos;
     private int numeroConta;
+    private boolean usuarioValido;
 
     public String getCpf() {
         return cpf;
@@ -62,5 +63,12 @@ public class Usuario {
 
     public void setNumeroConta(int numeroConta) {
         this.numeroConta = numeroConta;
+    }
+    
+    public boolean getUsuarioValido(){
+        return usuarioValido;
+    }
+    public void setUsuarioValido(boolean usuarioValido){
+        this.usuarioValido = usuarioValido;
     }
 }
