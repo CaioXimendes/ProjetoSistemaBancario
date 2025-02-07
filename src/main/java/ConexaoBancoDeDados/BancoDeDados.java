@@ -54,7 +54,7 @@ public class BancoDeDados {
 	    try {
 	        Class.forName("com.mysql.cj.jdbc.Driver");
 	        conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/bancojava?useTimezone=true&serverTimezone=UTC&useSSL=false", "root", "AbraSQL123");
-	        String sql = "INSERT INTO Usuarios (cpf, nome, email, senha, senha4digitos, numeroConta, usuarioValido) VALUES (?, ?, ?, ?, ?, ?, ?)";
+	        String sql = "INSERT INTO Usuarios (cpf, nome, email, senha, senha4digitos, numeroConta) VALUES (?, ?, ?, ?, ?, ?)";
 	        try (PreparedStatement stmt = conexao.prepareStatement(sql)) {
 	            stmt.setString(1, usuario.getCpf());
 	            stmt.setString(2, usuario.getNome());
@@ -62,7 +62,6 @@ public class BancoDeDados {
 	            stmt.setInt(4, usuario.getSenha());
 	            stmt.setInt(5, usuario.getSenha4Digitos());
 	            stmt.setInt(6, usuario.getNumeroConta());
-	            stmt.setBoolean(7, usuario.getUsuarioValido());
 
 	            int rowsAffected = stmt.executeUpdate();
 	            if (rowsAffected > 0) {
