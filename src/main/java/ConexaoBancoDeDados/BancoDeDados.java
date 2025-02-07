@@ -6,6 +6,7 @@ package ConexaoBancoDeDados;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 import PacoteInterfaceVisual.Usuario.Usuario;
@@ -44,6 +45,38 @@ public class BancoDeDados {
             }
         }
     }
+	
+	public void inserirUsuario(Usuario usuario) throws SQLException, ClassNotFoundException {
+	    Connection conexao = null;
+	    try {
+	        Class.forName("com.mysql.cj.jdbc.Driver");
+	        conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/bancojava?useTimezone=true&serverTimezone=UTC&useSSL=false", "root", "AbraSQL123");
+	        String sql = "INSERT INTO Usuarios (cpf, nome, email, senha, senha4digitos, numeroConta, usuarioValido) VALUES (?, ?, ?, ?, ?, ?, ?)";
+	        try (PreparedStatement stmt = conexao.prepareStatement(sql)) {
+	            stmt.setString(1, usuario.getCpf());
+	            stmt.setString(2, usuario.getNome());
+	            stmt.setString(3, usuario.getEmail());
+	            stmt.setInt(4, usuario.getSenha());
+	            stmt.setInt(5, usuario.getSenha4Digitos());
+	            stmt.setInt(6, usuario.getNumeroConta());
+	            stmt.setBoolean(7, usuario.getUsuarioValido());
+
+	            int rowsAffected = stmt.executeUpdate();
+	            if (rowsAffected > 0) {
+	                System.out.println("Usuário inserido com sucesso!");
+	            } else {
+	                System.out.println("Erro ao inserir usuário.");
+	            }
+	        }
+	    } catch (SQLException ex) {
+	        System.out.println("Erro durante a inserção no banco de dados: " + ex.getMessage());
+	    } finally {
+	        if (conexao != null) {
+	            conexao.close();
+	        }
+	    }
+	}
+
 	
     public void checarSeUsuarioContemCPF() throws ClassNotFoundException, SQLException {
         Usuario usu1 = new Usuario();
