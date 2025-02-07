@@ -16,6 +16,8 @@ import java.sql.ResultSet;
  *
  * @author CaioFSX
  */
+
+
 public class BancoDeDados {
 
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
@@ -45,6 +47,7 @@ public class BancoDeDados {
             }
         }
     }
+
 	
 	public void inserirUsuario(Usuario usuario) throws SQLException, ClassNotFoundException {
 	    Connection conexao = null;
