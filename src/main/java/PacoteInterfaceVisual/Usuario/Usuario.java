@@ -9,66 +9,66 @@ package PacoteInterfaceVisual.Usuario;
  * @author CaioFSX
  */
 public class Usuario {
-    private String cpf;
-    private String nome;
-    private String email;
-    private int senha;
-    private int senha4digitos;
-    private int numeroConta;
-    private boolean usuarioValido;
+    private static String cpf;
+    private static String nome;
+    private static String email;
+    private static int senha;
+    private static int senha4digitos;
+    private static int numeroConta;
+    private static boolean usuarioValido;
 
-    public String getCpf() {
+    public static String getCpf() {
         return cpf;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    public static void setCpf(String cpf) {
+        Usuario.cpf = cpf;
     }
 
-    public String getNome() {
+    public static String getNome() {
         return nome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public static void setNome(String nome) {
+        Usuario.nome = nome;
     }
 
-    public String getEmail() {
+    public static String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public static void setEmail(String email) {
+        Usuario.email = email;
     }
 
-    public int getSenha() {
+    public static int getSenha() {
         return senha;
     }
 
-    public void setSenha(int senha) {
-        this.senha = senha;
+    public static void setSenha(int senha) {
+        Usuario.senha = senha;
     }
     
-    public int getSenha4Digitos(){
+    public static int getSenha4Digitos(){
         return senha4digitos;
     }
     
-    public void setSenha4Digitos(int senha4digitos){
-        this.senha4digitos = senha4digitos;
+    public static void setSenha4Digitos(int senha4digitos){
+        Usuario.senha4digitos = senha4digitos;
     }
 
-    public int getNumeroConta() {
+    public static int getNumeroConta() {
         return numeroConta;
     }
 
-    public void setNumeroConta(int numeroConta) {
-        this.numeroConta = numeroConta;
+    public static void setNumeroConta(int numeroConta) {
+        Usuario.numeroConta = numeroConta;
     }
     
-    public boolean getUsuarioValido(){
+    public static boolean getUsuarioValido(){
         return usuarioValido;
     }
-    public void setUsuarioValido(boolean usuarioValido){
-        this.usuarioValido = usuarioValido;
+    public static void setUsuarioValido(boolean usuarioValido){
+        Usuario.usuarioValido = usuarioValido;
     }
 }

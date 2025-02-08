@@ -19,8 +19,7 @@ public class ValidarInformacoesUsuario {
     public void checarUsuarioPeloCPF() throws ClassNotFoundException, SQLException{
           BancoDeDados b1 = new BancoDeDados();
           b1.checarSeUsuarioContemCPF();
-          Usuario u1 = new Usuario();
-          if(u1.getUsuarioValido()){
+          if(Usuario.getUsuarioValido()){
               PaginaPedirSenhaLogin p1 = new PaginaPedirSenhaLogin();
               p1.setVisible(true);
           }
@@ -28,5 +27,8 @@ public class ValidarInformacoesUsuario {
               PaginaCriarConta p1 = new PaginaCriarConta();
               p1.setVisible(true);
           }
+    }
+    public void CadastrarUsuario(String cpf ,String nome, String email, int senha){
+        System.out.println("Usuario cadastrado com os registros:\ncpf:"+Usuario.getCpf()+"\nnome:"+Usuario.getNome()+"\nemail:"+Usuario.getEmail()+"\nsenha:"+Usuario.getSenha());
     }
 }

@@ -183,12 +183,12 @@ public class PaginaInicialCPF extends javax.swing.JFrame {
         // TODO add your handling code here:
         try{
         this.dispose();
-        Usuario u1 = new Usuario();
-        u1.setCpf(CampoInserirCPF.getText().trim());
+        Usuario.setCpf(CampoInserirCPF.getText().trim());
         ValidarInformacoesUsuario validacao1 = new ValidarInformacoesUsuario();
         validacao1.checarUsuarioPeloCPF();
         } catch(Exception e){
             //TODO
+            e.getStackTrace();
         }
         
     }//GEN-LAST:event_BotaoEntrarActionPerformed

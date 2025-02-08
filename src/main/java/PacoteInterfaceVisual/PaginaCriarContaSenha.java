@@ -4,6 +4,10 @@
  */
 package PacoteInterfaceVisual;
 
+import PacoteInterfaceVisual.Usuario.Usuario;
+import PacoteRegraDeNegocio.ValidarInformacoesUsuario;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author CaioFSX
@@ -207,6 +211,15 @@ public class PaginaCriarContaSenha extends javax.swing.JFrame {
 
     private void BotaoCriarContaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoCriarContaActionPerformed
         // TODO add your handling code here:
+        ValidarInformacoesUsuario v1 = new ValidarInformacoesUsuario();
+        if(Integer.parseInt(CampoDigitarSenha.getText()) == Integer.parseInt(CampoConfirmarSenha.getText())){
+            Usuario.setSenha(Integer.parseInt(CampoDigitarSenha.getText()));
+            JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso!", "Banco JAVA",JOptionPane.INFORMATION_MESSAGE);
+            v1.CadastrarUsuario(Usuario.getCpf(),Usuario.getNome(),Usuario.getEmail(),Usuario.getSenha());
+        } else{
+            JOptionPane.showMessageDialog(null, "Credenciais não conferem!", "Banco JAVA",JOptionPane.INFORMATION_MESSAGE);
+        }
+        //v1.CadastrarUsuario(u1.getCpf,u1.getNome(),u1.getEmail(),u1.getSenha());
     }//GEN-LAST:event_BotaoCriarContaActionPerformed
 
     private void ConfirmeSuaSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmeSuaSenhaActionPerformed

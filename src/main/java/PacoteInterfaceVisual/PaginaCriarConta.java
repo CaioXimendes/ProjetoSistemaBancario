@@ -4,6 +4,9 @@
  */
 package PacoteInterfaceVisual;
 
+import PacoteInterfaceVisual.Usuario.Usuario;
+import PacoteRegraDeNegocio.ValidarInformacoesUsuario;
+
 /**
  *
  * @author CaioFSX
@@ -205,6 +208,18 @@ public class PaginaCriarConta extends javax.swing.JFrame {
 
     private void BotaoAvancarCriarContaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoAvancarCriarContaActionPerformed
         // TODO add your handling code here:
+        try{
+        Usuario.setNome(CampoInserirNome.getText().trim());
+        Usuario.setEmail(CampoInserirEmail.getText().trim());
+            System.out.println(Usuario.getNome());
+            System.out.println(Usuario.getEmail());
+        this.dispose();
+        PaginaCriarContaSenha p1 = new PaginaCriarContaSenha();
+        p1.setVisible(true);
+        } catch(Exception e){
+            //TODO
+            e.getStackTrace();
+        }
     }//GEN-LAST:event_BotaoAvancarCriarContaActionPerformed
 
     private void InformeSeuEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InformeSeuEmailActionPerformed

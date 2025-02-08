@@ -18,7 +18,6 @@ import java.sql.ResultSet;
 public class BancoDeDados {
 
     public void checarSeUsuarioContemCPF() throws ClassNotFoundException, SQLException {
-        Usuario usu1 = new Usuario();
         Connection conexao1 = null;
         try {
             // use con here
@@ -27,10 +26,10 @@ public class BancoDeDados {
             Class.forName("com.mysql.cj.jdbc.Driver");
             conexao1 = DriverManager.getConnection("jdbc:mysql://192.168.15.8:3306/?user=caiofsx", "caiofsx", "database123");
             Statement statement = conexao1.createStatement();
-            resultSet = statement.executeQuery("SELECT cpfCliente from ContaBancaria where cpfCliente='" + usu1.getCpf() + "'");
+            resultSet = statement.executeQuery("SELECT cpfCliente from ContaBancaria where cpfCliente='" + Usuario.getCpf() + "'");
             if (resultSet.next()) {
-                usu1.setCpf(resultSet.getString(""));
-                usu1.setUsuarioValido(true);
+                Usuario.setCpf(resultSet.getString(""));
+                Usuario.setUsuarioValido(true);
             }
         } catch (ClassNotFoundException ex) {
             System.out.println("Driver do Banco de dados não localizado!");
