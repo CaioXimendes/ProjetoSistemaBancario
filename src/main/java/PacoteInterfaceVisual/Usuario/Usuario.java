@@ -12,11 +12,12 @@ public class Usuario {
     private static String cpf;
     private static String nome;
     private static String email;
+    private static double saldo;
     private static int senha;
     private static int senha4digitos;
     private static int numeroConta;
     private static boolean usuarioValido;
-
+    
     public static String getCpf() {
         return cpf;
     }
@@ -39,6 +40,14 @@ public class Usuario {
 
     public static void setEmail(String email) {
         Usuario.email = email;
+    }
+    
+    public static double getSaldo() {
+        return saldo;
+    }
+
+    public static void setSaldo(double saldo) {
+        Usuario.saldo = saldo;
     }
 
     public static int getSenha() {

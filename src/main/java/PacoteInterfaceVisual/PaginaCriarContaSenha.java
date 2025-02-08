@@ -215,7 +215,7 @@ public class PaginaCriarContaSenha extends javax.swing.JFrame {
         if(Integer.parseInt(CampoDigitarSenha.getText()) == Integer.parseInt(CampoConfirmarSenha.getText())){
             Usuario.setSenha(Integer.parseInt(CampoDigitarSenha.getText()));
             JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso!", "Banco JAVA",JOptionPane.INFORMATION_MESSAGE);
-            v1.CadastrarUsuario(Usuario.getCpf(),Usuario.getNome(),Usuario.getEmail(),Usuario.getSenha());
+            v1.CadastrarUsuario(Usuario.getCpf(),Usuario.getNome(),Usuario.getEmail(),Usuario.getSenha(),Usuario.getNumeroConta(),Usuario.getSaldo());
         } else{
             JOptionPane.showMessageDialog(null, "Credenciais não conferem!", "Banco JAVA",JOptionPane.INFORMATION_MESSAGE);
         }

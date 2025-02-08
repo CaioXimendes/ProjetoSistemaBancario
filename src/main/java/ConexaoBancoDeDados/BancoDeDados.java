@@ -24,12 +24,16 @@ public class BancoDeDados {
             //USEM ISSO AQUI PARA DML EM BANCO DE DADOS
             ResultSet resultSet;
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conexao1 = DriverManager.getConnection("jdbc:mysql://192.168.15.8:3306/?user=caiofsx", "caiofsx", "database123");
+            conexao1 = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/?user=root", "root", "1234");
             Statement statement = conexao1.createStatement();
-            resultSet = statement.executeQuery("SELECT cpfCliente from ContaBancaria where cpfCliente='" + Usuario.getCpf() + "'");
+            statement.execute("use bancojava");
+            resultSet = statement.executeQuery("SELECT cpf from Usuarios where cpf='" + Usuario.getCpf() + "'");
             if (resultSet.next()) {
-                Usuario.setCpf(resultSet.getString(""));
+                Usuario.setCpf(resultSet.getString("cpf"));
                 Usuario.setUsuarioValido(true);
+                System.out.println("OK, "+ Usuario.getUsuarioValido());
+            } else{
+                System.out.println("NOT OK, "+Usuario.getUsuarioValido());
             }
         } catch (ClassNotFoundException ex) {
             System.out.println("Driver do Banco de dados não localizado!");
