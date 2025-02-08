@@ -33,7 +33,10 @@ public class PaginaRecarregarCelular extends javax.swing.JFrame {
         IconeLogo = new javax.swing.JLabel();
         NomeCliente = new javax.swing.JTextField();
         PerguntasFrequentes = new javax.swing.JTextField();
-        BotaoPerfilConfiguracoes = new javax.swing.JButton();
+        RecarregarCelularTitulo = new javax.swing.JTextField();
+        CampoInserirNumeroCelular = new javax.swing.JTextField();
+        BotaoVoltar = new javax.swing.JButton();
+        CampoInserirQuantiaRecargaCelular = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -78,12 +81,41 @@ public class PaginaRecarregarCelular extends javax.swing.JFrame {
             }
         });
 
-        BotaoPerfilConfiguracoes.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        BotaoPerfilConfiguracoes.setText("TODO");
-        BotaoPerfilConfiguracoes.setBorderPainted(false);
-        BotaoPerfilConfiguracoes.addActionListener(new java.awt.event.ActionListener() {
+        RecarregarCelularTitulo.setEditable(false);
+        RecarregarCelularTitulo.setBackground(new java.awt.Color(255, 255, 255));
+        RecarregarCelularTitulo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        RecarregarCelularTitulo.setText("Recarregar Celular");
+        RecarregarCelularTitulo.setBorder(null);
+        RecarregarCelularTitulo.setFocusable(false);
+        RecarregarCelularTitulo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotaoPerfilConfiguracoesActionPerformed(evt);
+                RecarregarCelularTituloActionPerformed(evt);
+            }
+        });
+
+        CampoInserirNumeroCelular.setText("(00) 90000-0000");
+        CampoInserirNumeroCelular.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        CampoInserirNumeroCelular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CampoInserirNumeroCelularActionPerformed(evt);
+            }
+        });
+
+        BotaoVoltar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        BotaoVoltar.setText("Voltar");
+        BotaoVoltar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BotaoVoltar.setBorderPainted(false);
+        BotaoVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoVoltarActionPerformed(evt);
+            }
+        });
+
+        CampoInserirQuantiaRecargaCelular.setText("inserir quantia");
+        CampoInserirQuantiaRecargaCelular.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        CampoInserirQuantiaRecargaCelular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CampoInserirQuantiaRecargaCelularActionPerformed(evt);
             }
         });
 
@@ -92,23 +124,31 @@ public class PaginaRecarregarCelular extends javax.swing.JFrame {
         JPanelHOMELayout.setHorizontalGroup(
             JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPanelHOMELayout.createSequentialGroup()
-                .addContainerGap(578, Short.MAX_VALUE)
-                .addComponent(PerguntasFrequentes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(14, 14, 14)
+                .addComponent(IconeLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(NomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(JPanelHOMELayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JPanelHOMELayout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(IconeLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(NomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(PerguntasFrequentes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(JPanelHOMELayout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(BotaoRecarregarCelular)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(RecarregarCelularTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(JPanelHOMELayout.createSequentialGroup()
+                        .addComponent(CampoInserirNumeroCelular, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(CampoInserirQuantiaRecargaCelular, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(BotaoRecarregarCelular)
+                        .addGap(94, 94, 94))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelHOMELayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(BotaoPerfilConfiguracoes)
-                .addGap(292, 292, 292))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BotaoVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23))
         );
         JPanelHOMELayout.setVerticalGroup(
             JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -122,10 +162,15 @@ public class PaginaRecarregarCelular extends javax.swing.JFrame {
                     .addGroup(JPanelHOMELayout.createSequentialGroup()
                         .addGap(32, 32, 32)
                         .addComponent(PerguntasFrequentes, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(93, 93, 93)
-                .addComponent(BotaoPerfilConfiguracoes)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 145, Short.MAX_VALUE)
-                .addComponent(BotaoRecarregarCelular, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(RecarregarCelularTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(CampoInserirNumeroCelular, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BotaoRecarregarCelular, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CampoInserirQuantiaRecargaCelular, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 203, Short.MAX_VALUE)
+                .addComponent(BotaoVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(16, 16, 16))
         );
 
@@ -159,12 +204,24 @@ public class PaginaRecarregarCelular extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_PerguntasFrequentesActionPerformed
 
-    private void BotaoPerfilConfiguracoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoPerfilConfiguracoesActionPerformed
+    private void RecarregarCelularTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RecarregarCelularTituloActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RecarregarCelularTituloActionPerformed
+
+    private void CampoInserirNumeroCelularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoInserirNumeroCelularActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CampoInserirNumeroCelularActionPerformed
+
+    private void BotaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoVoltarActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        PaginaPerfilConfiguracoes p1 = new PaginaPerfilConfiguracoes();
+        PaginaHome p1 = new PaginaHome();
         p1.setVisible(true);
-    }//GEN-LAST:event_BotaoPerfilConfiguracoesActionPerformed
+    }//GEN-LAST:event_BotaoVoltarActionPerformed
+
+    private void CampoInserirQuantiaRecargaCelularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoInserirQuantiaRecargaCelularActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CampoInserirQuantiaRecargaCelularActionPerformed
 
     /**
      * @param args the command line arguments
@@ -266,11 +323,14 @@ public class PaginaRecarregarCelular extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BotaoPerfilConfiguracoes;
     private javax.swing.JButton BotaoRecarregarCelular;
+    private javax.swing.JButton BotaoVoltar;
+    private javax.swing.JTextField CampoInserirNumeroCelular;
+    private javax.swing.JTextField CampoInserirQuantiaRecargaCelular;
     private javax.swing.JLabel IconeLogo;
     private javax.swing.JPanel JPanelHOME;
     private javax.swing.JTextField NomeCliente;
     private javax.swing.JTextField PerguntasFrequentes;
+    private javax.swing.JTextField RecarregarCelularTitulo;
     // End of variables declaration//GEN-END:variables
 }

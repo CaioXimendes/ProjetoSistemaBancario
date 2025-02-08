@@ -38,6 +38,7 @@ public class PaginaPerfilConfiguracoes extends javax.swing.JFrame {
         BotaoTermos = new javax.swing.JButton();
         BotaoSair = new javax.swing.JButton();
         BotaoExcluirConta = new javax.swing.JButton();
+        BotaoVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -158,6 +159,16 @@ public class PaginaPerfilConfiguracoes extends javax.swing.JFrame {
             }
         });
 
+        BotaoVoltar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        BotaoVoltar.setText("Voltar");
+        BotaoVoltar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BotaoVoltar.setBorderPainted(false);
+        BotaoVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoVoltarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout JPanelHOMELayout = new javax.swing.GroupLayout(JPanelHOME);
         JPanelHOME.setLayout(JPanelHOMELayout);
         JPanelHOMELayout.setHorizontalGroup(
@@ -177,24 +188,29 @@ public class PaginaPerfilConfiguracoes extends javax.swing.JFrame {
                     .addComponent(BotaoDadosPessoais, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BotaoMeuCartao, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
-                .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(JPanelHOMELayout.createSequentialGroup()
-                        .addComponent(BotaoAlterarDados)
                         .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(JPanelHOMELayout.createSequentialGroup()
-                                .addGap(61, 61, 61)
-                                .addComponent(PerguntasFrequentes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(BotaoAlterarDados)
+                                .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(JPanelHOMELayout.createSequentialGroup()
+                                        .addGap(61, 61, 61)
+                                        .addComponent(PerguntasFrequentes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(JPanelHOMELayout.createSequentialGroup()
+                                        .addGap(39, 39, 39)
+                                        .addComponent(BotaoSeguranca, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(JPanelHOMELayout.createSequentialGroup()
-                                .addGap(39, 39, 39)
-                                .addComponent(BotaoSeguranca, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(JPanelHOMELayout.createSequentialGroup()
-                        .addComponent(BotaoTermos)
-                        .addGap(18, 18, 18)
-                        .addComponent(BotaoSair, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(BotaoTermos)
+                                .addGap(18, 18, 18)
+                                .addComponent(BotaoSair, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(34, 34, 34))
                     .addGroup(JPanelHOMELayout.createSequentialGroup()
                         .addGap(25, 25, 25)
-                        .addComponent(BotaoExcluirConta, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(34, 34, 34))
+                        .addComponent(BotaoExcluirConta, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(BotaoVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26))))
         );
         JPanelHOMELayout.setVerticalGroup(
             JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -220,9 +236,11 @@ public class PaginaPerfilConfiguracoes extends javax.swing.JFrame {
                     .addComponent(BotaoMeuCartao, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BotaoTermos, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BotaoSair, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
-                .addComponent(BotaoExcluirConta, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
+                .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BotaoExcluirConta, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BotaoVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -304,6 +322,13 @@ public class PaginaPerfilConfiguracoes extends javax.swing.JFrame {
         p1.setVisible(true);
     }//GEN-LAST:event_BotaoExcluirContaActionPerformed
 
+    private void BotaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoVoltarActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        PaginaHome p1 = new PaginaHome();
+        p1.setVisible(true);
+    }//GEN-LAST:event_BotaoVoltarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -355,6 +380,7 @@ public class PaginaPerfilConfiguracoes extends javax.swing.JFrame {
     private javax.swing.JButton BotaoSair;
     private javax.swing.JButton BotaoSeguranca;
     private javax.swing.JButton BotaoTermos;
+    private javax.swing.JButton BotaoVoltar;
     private javax.swing.JLabel IconeLogo;
     private javax.swing.JPanel JPanelHOME;
     private javax.swing.JTextField NomeCliente;

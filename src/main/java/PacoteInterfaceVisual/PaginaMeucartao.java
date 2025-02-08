@@ -4,6 +4,8 @@
  */
 package PacoteInterfaceVisual;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author CaioFSX
@@ -27,26 +29,27 @@ public class PaginaMeucartao extends javax.swing.JFrame {
     private void initComponents() {
 
         JPanelHOME = new javax.swing.JPanel();
-        PerfilConfiguracoes = new javax.swing.JTextField();
+        SolicitarCartaoTitulo = new javax.swing.JTextField();
         IconeLogo = new javax.swing.JLabel();
         NomeCliente = new javax.swing.JTextField();
-        BotaoMeuCartao = new javax.swing.JButton();
+        BotaoSolicitarCartao = new javax.swing.JButton();
         PerguntasFrequentes = new javax.swing.JTextField();
+        BotaoVoltar1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
 
         JPanelHOME.setBackground(new java.awt.Color(255, 255, 255));
 
-        PerfilConfiguracoes.setEditable(false);
-        PerfilConfiguracoes.setBackground(new java.awt.Color(255, 255, 255));
-        PerfilConfiguracoes.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        PerfilConfiguracoes.setText("TODO");
-        PerfilConfiguracoes.setBorder(null);
-        PerfilConfiguracoes.setFocusable(false);
-        PerfilConfiguracoes.addActionListener(new java.awt.event.ActionListener() {
+        SolicitarCartaoTitulo.setEditable(false);
+        SolicitarCartaoTitulo.setBackground(new java.awt.Color(255, 255, 255));
+        SolicitarCartaoTitulo.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        SolicitarCartaoTitulo.setText("Deseja Solicitar seu Cartão?");
+        SolicitarCartaoTitulo.setBorder(null);
+        SolicitarCartaoTitulo.setFocusable(false);
+        SolicitarCartaoTitulo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PerfilConfiguracoesActionPerformed(evt);
+                SolicitarCartaoTituloActionPerformed(evt);
             }
         });
 
@@ -65,14 +68,14 @@ public class PaginaMeucartao extends javax.swing.JFrame {
             }
         });
 
-        BotaoMeuCartao.setBackground(new java.awt.Color(204, 0, 0));
-        BotaoMeuCartao.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        BotaoMeuCartao.setForeground(new java.awt.Color(255, 255, 255));
-        BotaoMeuCartao.setText("Meu Cartao");
-        BotaoMeuCartao.setBorderPainted(false);
-        BotaoMeuCartao.addActionListener(new java.awt.event.ActionListener() {
+        BotaoSolicitarCartao.setBackground(new java.awt.Color(204, 0, 0));
+        BotaoSolicitarCartao.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        BotaoSolicitarCartao.setForeground(new java.awt.Color(255, 255, 255));
+        BotaoSolicitarCartao.setText("Solicitar Cartão");
+        BotaoSolicitarCartao.setBorderPainted(false);
+        BotaoSolicitarCartao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotaoMeuCartaoActionPerformed(evt);
+                BotaoSolicitarCartaoActionPerformed(evt);
             }
         });
 
@@ -88,6 +91,16 @@ public class PaginaMeucartao extends javax.swing.JFrame {
             }
         });
 
+        BotaoVoltar1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        BotaoVoltar1.setText("Voltar");
+        BotaoVoltar1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BotaoVoltar1.setBorderPainted(false);
+        BotaoVoltar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoVoltar1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout JPanelHOMELayout = new javax.swing.GroupLayout(JPanelHOME);
         JPanelHOME.setLayout(JPanelHOMELayout);
         JPanelHOMELayout.setHorizontalGroup(
@@ -95,21 +108,22 @@ public class PaginaMeucartao extends javax.swing.JFrame {
             .addGroup(JPanelHOMELayout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BotaoMeuCartao, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SolicitarCartaoTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BotaoSolicitarCartao, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(JPanelHOMELayout.createSequentialGroup()
                         .addComponent(IconeLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(NomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(204, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelHOMELayout.createSequentialGroup()
-                .addContainerGap(290, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelHOMELayout.createSequentialGroup()
                         .addComponent(PerguntasFrequentes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(67, 67, 67))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelHOMELayout.createSequentialGroup()
-                        .addComponent(PerfilConfiguracoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(285, 285, 285))))
+                        .addComponent(BotaoVoltar1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26))))
         );
         JPanelHOMELayout.setVerticalGroup(
             JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -123,11 +137,13 @@ public class PaginaMeucartao extends javax.swing.JFrame {
                     .addGroup(JPanelHOMELayout.createSequentialGroup()
                         .addGap(32, 32, 32)
                         .addComponent(PerguntasFrequentes, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(94, 94, 94)
-                .addComponent(PerfilConfiguracoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 129, Short.MAX_VALUE)
-                .addComponent(BotaoMeuCartao, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
+                .addGap(18, 18, 18)
+                .addComponent(SolicitarCartaoTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(BotaoSolicitarCartao, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 153, Short.MAX_VALUE)
+                .addComponent(BotaoVoltar1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -148,21 +164,29 @@ public class PaginaMeucartao extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void PerfilConfiguracoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PerfilConfiguracoesActionPerformed
+    private void SolicitarCartaoTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SolicitarCartaoTituloActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_PerfilConfiguracoesActionPerformed
+    }//GEN-LAST:event_SolicitarCartaoTituloActionPerformed
 
     private void NomeClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NomeClienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_NomeClienteActionPerformed
 
-    private void BotaoMeuCartaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoMeuCartaoActionPerformed
+    private void BotaoSolicitarCartaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoSolicitarCartaoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_BotaoMeuCartaoActionPerformed
+        JOptionPane.showMessageDialog(null,"Seu Cartão está em processo de elaboração, aguarde alguns dias até a entrega no seu endereço!","Solicitação de Cartão", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_BotaoSolicitarCartaoActionPerformed
 
     private void PerguntasFrequentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PerguntasFrequentesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_PerguntasFrequentesActionPerformed
+
+    private void BotaoVoltar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoVoltar1ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        PaginaHome p1 = new PaginaHome();
+        p1.setVisible(true);
+    }//GEN-LAST:event_BotaoVoltar1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -264,11 +288,12 @@ public class PaginaMeucartao extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BotaoMeuCartao;
+    private javax.swing.JButton BotaoSolicitarCartao;
+    private javax.swing.JButton BotaoVoltar1;
     private javax.swing.JLabel IconeLogo;
     private javax.swing.JPanel JPanelHOME;
     private javax.swing.JTextField NomeCliente;
-    private javax.swing.JTextField PerfilConfiguracoes;
     private javax.swing.JTextField PerguntasFrequentes;
+    private javax.swing.JTextField SolicitarCartaoTitulo;
     // End of variables declaration//GEN-END:variables
 }

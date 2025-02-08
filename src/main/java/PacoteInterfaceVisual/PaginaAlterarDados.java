@@ -27,26 +27,31 @@ public class PaginaAlterarDados extends javax.swing.JFrame {
     private void initComponents() {
 
         JPanelHOME = new javax.swing.JPanel();
-        PerfilConfiguracoes = new javax.swing.JTextField();
+        AlterarEmailTitulo = new javax.swing.JTextField();
         IconeLogo = new javax.swing.JLabel();
         NomeCliente = new javax.swing.JTextField();
         BotaoAlterarDados = new javax.swing.JButton();
         PerguntasFrequentes = new javax.swing.JTextField();
+        AlterarTelefoneTitulo = new javax.swing.JTextField();
+        CampoInserirEmail = new javax.swing.JTextField();
+        CampoInserirTelefone = new javax.swing.JTextField();
+        BotaoAlterarTelefone = new javax.swing.JButton();
+        BotaoVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
 
         JPanelHOME.setBackground(new java.awt.Color(255, 255, 255));
 
-        PerfilConfiguracoes.setEditable(false);
-        PerfilConfiguracoes.setBackground(new java.awt.Color(255, 255, 255));
-        PerfilConfiguracoes.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        PerfilConfiguracoes.setText("TODO");
-        PerfilConfiguracoes.setBorder(null);
-        PerfilConfiguracoes.setFocusable(false);
-        PerfilConfiguracoes.addActionListener(new java.awt.event.ActionListener() {
+        AlterarEmailTitulo.setEditable(false);
+        AlterarEmailTitulo.setBackground(new java.awt.Color(255, 255, 255));
+        AlterarEmailTitulo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        AlterarEmailTitulo.setText("Alterar E-mail");
+        AlterarEmailTitulo.setBorder(null);
+        AlterarEmailTitulo.setFocusable(false);
+        AlterarEmailTitulo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PerfilConfiguracoesActionPerformed(evt);
+                AlterarEmailTituloActionPerformed(evt);
             }
         });
 
@@ -68,7 +73,7 @@ public class PaginaAlterarDados extends javax.swing.JFrame {
         BotaoAlterarDados.setBackground(new java.awt.Color(204, 0, 0));
         BotaoAlterarDados.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         BotaoAlterarDados.setForeground(new java.awt.Color(255, 255, 255));
-        BotaoAlterarDados.setText("Alterar Dados");
+        BotaoAlterarDados.setText("alterar e-mail");
         BotaoAlterarDados.setBorderPainted(false);
         BotaoAlterarDados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,6 +93,55 @@ public class PaginaAlterarDados extends javax.swing.JFrame {
             }
         });
 
+        AlterarTelefoneTitulo.setEditable(false);
+        AlterarTelefoneTitulo.setBackground(new java.awt.Color(255, 255, 255));
+        AlterarTelefoneTitulo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        AlterarTelefoneTitulo.setText("Alterar Telefone");
+        AlterarTelefoneTitulo.setBorder(null);
+        AlterarTelefoneTitulo.setFocusable(false);
+        AlterarTelefoneTitulo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AlterarTelefoneTituloActionPerformed(evt);
+            }
+        });
+
+        CampoInserirEmail.setText("email@email.com");
+        CampoInserirEmail.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        CampoInserirEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CampoInserirEmailActionPerformed(evt);
+            }
+        });
+
+        CampoInserirTelefone.setText("(00) 90000-0000");
+        CampoInserirTelefone.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        CampoInserirTelefone.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CampoInserirTelefoneActionPerformed(evt);
+            }
+        });
+
+        BotaoAlterarTelefone.setBackground(new java.awt.Color(204, 0, 0));
+        BotaoAlterarTelefone.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        BotaoAlterarTelefone.setForeground(new java.awt.Color(255, 255, 255));
+        BotaoAlterarTelefone.setText("alterar telefone");
+        BotaoAlterarTelefone.setBorderPainted(false);
+        BotaoAlterarTelefone.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoAlterarTelefoneActionPerformed(evt);
+            }
+        });
+
+        BotaoVoltar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        BotaoVoltar.setText("Voltar");
+        BotaoVoltar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BotaoVoltar.setBorderPainted(false);
+        BotaoVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoVoltarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout JPanelHOMELayout = new javax.swing.GroupLayout(JPanelHOME);
         JPanelHOME.setLayout(JPanelHOMELayout);
         JPanelHOMELayout.setHorizontalGroup(
@@ -95,21 +149,30 @@ public class PaginaAlterarDados extends javax.swing.JFrame {
             .addGroup(JPanelHOMELayout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BotaoAlterarDados, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(JPanelHOMELayout.createSequentialGroup()
+                        .addComponent(CampoInserirTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(BotaoAlterarTelefone))
+                    .addGroup(JPanelHOMELayout.createSequentialGroup()
+                        .addComponent(CampoInserirEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(BotaoAlterarDados))
+                    .addComponent(AlterarTelefoneTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(AlterarEmailTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(JPanelHOMELayout.createSequentialGroup()
                         .addComponent(IconeLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(NomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(270, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelHOMELayout.createSequentialGroup()
-                .addContainerGap(290, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelHOMELayout.createSequentialGroup()
                         .addComponent(PerguntasFrequentes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(67, 67, 67))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelHOMELayout.createSequentialGroup()
-                        .addComponent(PerfilConfiguracoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(285, 285, 285))))
+                        .addComponent(BotaoVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(31, 31, 31))))
         );
         JPanelHOMELayout.setVerticalGroup(
             JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -123,11 +186,21 @@ public class PaginaAlterarDados extends javax.swing.JFrame {
                     .addGroup(JPanelHOMELayout.createSequentialGroup()
                         .addGap(32, 32, 32)
                         .addComponent(PerguntasFrequentes, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(94, 94, 94)
-                .addComponent(PerfilConfiguracoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 129, Short.MAX_VALUE)
-                .addComponent(BotaoAlterarDados, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(AlterarEmailTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(CampoInserirEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BotaoAlterarDados))
+                .addGap(22, 22, 22)
+                .addComponent(AlterarTelefoneTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(CampoInserirTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BotaoAlterarTelefone))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
+                .addComponent(BotaoVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -148,9 +221,9 @@ public class PaginaAlterarDados extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void PerfilConfiguracoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PerfilConfiguracoesActionPerformed
+    private void AlterarEmailTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AlterarEmailTituloActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_PerfilConfiguracoesActionPerformed
+    }//GEN-LAST:event_AlterarEmailTituloActionPerformed
 
     private void NomeClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NomeClienteActionPerformed
         // TODO add your handling code here:
@@ -163,6 +236,29 @@ public class PaginaAlterarDados extends javax.swing.JFrame {
     private void PerguntasFrequentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PerguntasFrequentesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_PerguntasFrequentesActionPerformed
+
+    private void AlterarTelefoneTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AlterarTelefoneTituloActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AlterarTelefoneTituloActionPerformed
+
+    private void CampoInserirEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoInserirEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CampoInserirEmailActionPerformed
+
+    private void CampoInserirTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoInserirTelefoneActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CampoInserirTelefoneActionPerformed
+
+    private void BotaoAlterarTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoAlterarTelefoneActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BotaoAlterarTelefoneActionPerformed
+
+    private void BotaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoVoltarActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        PaginaHome p1 = new PaginaHome();
+        p1.setVisible(true);
+    }//GEN-LAST:event_BotaoVoltarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -232,11 +328,16 @@ public class PaginaAlterarDados extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField AlterarEmailTitulo;
+    private javax.swing.JTextField AlterarTelefoneTitulo;
     private javax.swing.JButton BotaoAlterarDados;
+    private javax.swing.JButton BotaoAlterarTelefone;
+    private javax.swing.JButton BotaoVoltar;
+    private javax.swing.JTextField CampoInserirEmail;
+    private javax.swing.JTextField CampoInserirTelefone;
     private javax.swing.JLabel IconeLogo;
     private javax.swing.JPanel JPanelHOME;
     private javax.swing.JTextField NomeCliente;
-    private javax.swing.JTextField PerfilConfiguracoes;
     private javax.swing.JTextField PerguntasFrequentes;
     // End of variables declaration//GEN-END:variables
 }

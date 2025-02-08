@@ -27,28 +27,18 @@ public class PaginaDadosPessoais extends javax.swing.JFrame {
     private void initComponents() {
 
         JPanelHOME = new javax.swing.JPanel();
-        PerfilConfiguracoes = new javax.swing.JTextField();
         IconeLogo = new javax.swing.JLabel();
         NomeCliente = new javax.swing.JTextField();
         BotaoDadosPessoais = new javax.swing.JButton();
         PerguntasFrequentes = new javax.swing.JTextField();
+        BotaoVoltar = new javax.swing.JButton();
+        NumeroDaContaTitulo = new javax.swing.JTextField();
+        CampoNumeroConta = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
 
         JPanelHOME.setBackground(new java.awt.Color(255, 255, 255));
-
-        PerfilConfiguracoes.setEditable(false);
-        PerfilConfiguracoes.setBackground(new java.awt.Color(255, 255, 255));
-        PerfilConfiguracoes.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        PerfilConfiguracoes.setText("TODO");
-        PerfilConfiguracoes.setBorder(null);
-        PerfilConfiguracoes.setFocusable(false);
-        PerfilConfiguracoes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PerfilConfiguracoesActionPerformed(evt);
-            }
-        });
 
         IconeLogo.setIcon(new javax.swing.ImageIcon("C:\\NetBeansProjects\\sistema-bancario\\src\\main\\resources\\images\\logoCircular2.png")); // NOI18N
         IconeLogo.setText("jLabel1");
@@ -88,32 +78,74 @@ public class PaginaDadosPessoais extends javax.swing.JFrame {
             }
         });
 
+        BotaoVoltar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        BotaoVoltar.setText("Voltar");
+        BotaoVoltar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BotaoVoltar.setBorderPainted(false);
+        BotaoVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoVoltarActionPerformed(evt);
+            }
+        });
+
+        NumeroDaContaTitulo.setEditable(false);
+        NumeroDaContaTitulo.setBackground(new java.awt.Color(255, 255, 255));
+        NumeroDaContaTitulo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        NumeroDaContaTitulo.setText("Número da Conta:");
+        NumeroDaContaTitulo.setBorder(null);
+        NumeroDaContaTitulo.setFocusable(false);
+        NumeroDaContaTitulo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NumeroDaContaTituloActionPerformed(evt);
+            }
+        });
+
+        CampoNumeroConta.setEditable(false);
+        CampoNumeroConta.setBackground(new java.awt.Color(255, 255, 255));
+        CampoNumeroConta.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        CampoNumeroConta.setText("NúmeroConta");
+        CampoNumeroConta.setBorder(null);
+        CampoNumeroConta.setFocusable(false);
+        CampoNumeroConta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CampoNumeroContaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout JPanelHOMELayout = new javax.swing.GroupLayout(JPanelHOME);
         JPanelHOME.setLayout(JPanelHOMELayout);
         JPanelHOMELayout.setHorizontalGroup(
             JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelHOMELayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(PerguntasFrequentes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(67, 67, 67))
             .addGroup(JPanelHOMELayout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BotaoDadosPessoais, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(JPanelHOMELayout.createSequentialGroup()
+                        .addComponent(NumeroDaContaTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(CampoNumeroConta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 315, Short.MAX_VALUE))
+                    .addGroup(JPanelHOMELayout.createSequentialGroup()
+                        .addComponent(BotaoDadosPessoais, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(BotaoVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(17, 17, 17))
                     .addGroup(JPanelHOMELayout.createSequentialGroup()
                         .addComponent(IconeLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(NomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelHOMELayout.createSequentialGroup()
-                .addContainerGap(290, Short.MAX_VALUE)
-                .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelHOMELayout.createSequentialGroup()
-                        .addComponent(PerguntasFrequentes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(67, 67, 67))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelHOMELayout.createSequentialGroup()
-                        .addComponent(PerfilConfiguracoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(285, 285, 285))))
+                        .addComponent(NomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         JPanelHOMELayout.setVerticalGroup(
             JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JPanelHOMELayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelHOMELayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BotaoVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelHOMELayout.createSequentialGroup()
                 .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JPanelHOMELayout.createSequentialGroup()
                         .addGap(6, 6, 6)
@@ -123,9 +155,11 @@ public class PaginaDadosPessoais extends javax.swing.JFrame {
                     .addGroup(JPanelHOMELayout.createSequentialGroup()
                         .addGap(32, 32, 32)
                         .addComponent(PerguntasFrequentes, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(94, 94, 94)
-                .addComponent(PerfilConfiguracoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 129, Short.MAX_VALUE)
+                .addGap(35, 35, 35)
+                .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(NumeroDaContaTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CampoNumeroConta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 204, Short.MAX_VALUE)
                 .addComponent(BotaoDadosPessoais, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(22, 22, 22))
         );
@@ -148,10 +182,6 @@ public class PaginaDadosPessoais extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void PerfilConfiguracoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PerfilConfiguracoesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PerfilConfiguracoesActionPerformed
-
     private void NomeClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NomeClienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_NomeClienteActionPerformed
@@ -163,6 +193,21 @@ public class PaginaDadosPessoais extends javax.swing.JFrame {
     private void PerguntasFrequentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PerguntasFrequentesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_PerguntasFrequentesActionPerformed
+
+    private void BotaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoVoltarActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        PaginaHome p1 = new PaginaHome();
+        p1.setVisible(true);
+    }//GEN-LAST:event_BotaoVoltarActionPerformed
+
+    private void NumeroDaContaTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NumeroDaContaTituloActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NumeroDaContaTituloActionPerformed
+
+    private void CampoNumeroContaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoNumeroContaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CampoNumeroContaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -217,10 +262,12 @@ public class PaginaDadosPessoais extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotaoDadosPessoais;
+    private javax.swing.JButton BotaoVoltar;
+    private javax.swing.JTextField CampoNumeroConta;
     private javax.swing.JLabel IconeLogo;
     private javax.swing.JPanel JPanelHOME;
     private javax.swing.JTextField NomeCliente;
-    private javax.swing.JTextField PerfilConfiguracoes;
+    private javax.swing.JTextField NumeroDaContaTitulo;
     private javax.swing.JTextField PerguntasFrequentes;
     // End of variables declaration//GEN-END:variables
 }

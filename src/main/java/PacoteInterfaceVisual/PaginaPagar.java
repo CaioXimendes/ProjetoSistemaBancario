@@ -29,27 +29,21 @@ public class PaginaPagar extends javax.swing.JFrame {
     private void initComponents() {
 
         JPanelHOME = new javax.swing.JPanel();
-        BotaoPAGAR = new javax.swing.JButton();
         IconeLogo = new javax.swing.JLabel();
         NomeCliente = new javax.swing.JTextField();
         PerguntasFrequentes = new javax.swing.JTextField();
-        BotaoPerfilConfiguracoes = new javax.swing.JButton();
+        AlterarEmailTitulo = new javax.swing.JTextField();
+        CampoInserirQuantiaDeposito = new javax.swing.JTextField();
+        BotaoDepositarViaBoleto = new javax.swing.JButton();
+        PagamentoBoletoTitulo = new javax.swing.JTextField();
+        CampoInserirQuantiaPagamento = new javax.swing.JTextField();
+        BotaoPagarViaBoleto = new javax.swing.JButton();
+        BotaoVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
 
         JPanelHOME.setBackground(new java.awt.Color(255, 255, 255));
-
-        BotaoPAGAR.setBackground(new java.awt.Color(204, 0, 0));
-        BotaoPAGAR.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        BotaoPAGAR.setForeground(new java.awt.Color(255, 255, 255));
-        BotaoPAGAR.setText("PAGAR");
-        BotaoPAGAR.setBorderPainted(false);
-        BotaoPAGAR.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotaoPAGARActionPerformed(evt);
-            }
-        });
 
         IconeLogo.setIcon(new javax.swing.ImageIcon("C:\\NetBeansProjects\\sistema-bancario\\src\\main\\resources\\images\\logoCircular2.png")); // NOI18N
         IconeLogo.setText("jLabel1");
@@ -78,12 +72,76 @@ public class PaginaPagar extends javax.swing.JFrame {
             }
         });
 
-        BotaoPerfilConfiguracoes.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        BotaoPerfilConfiguracoes.setText("TODO");
-        BotaoPerfilConfiguracoes.setBorderPainted(false);
-        BotaoPerfilConfiguracoes.addActionListener(new java.awt.event.ActionListener() {
+        AlterarEmailTitulo.setEditable(false);
+        AlterarEmailTitulo.setBackground(new java.awt.Color(255, 255, 255));
+        AlterarEmailTitulo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        AlterarEmailTitulo.setText("Depósito via Boleto");
+        AlterarEmailTitulo.setBorder(null);
+        AlterarEmailTitulo.setFocusable(false);
+        AlterarEmailTitulo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotaoPerfilConfiguracoesActionPerformed(evt);
+                AlterarEmailTituloActionPerformed(evt);
+            }
+        });
+
+        CampoInserirQuantiaDeposito.setText("inserir quantia");
+        CampoInserirQuantiaDeposito.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        CampoInserirQuantiaDeposito.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CampoInserirQuantiaDepositoActionPerformed(evt);
+            }
+        });
+
+        BotaoDepositarViaBoleto.setBackground(new java.awt.Color(204, 0, 0));
+        BotaoDepositarViaBoleto.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        BotaoDepositarViaBoleto.setForeground(new java.awt.Color(255, 255, 255));
+        BotaoDepositarViaBoleto.setText("Depositar Via Boleto");
+        BotaoDepositarViaBoleto.setBorderPainted(false);
+        BotaoDepositarViaBoleto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoDepositarViaBoletoActionPerformed(evt);
+            }
+        });
+
+        PagamentoBoletoTitulo.setEditable(false);
+        PagamentoBoletoTitulo.setBackground(new java.awt.Color(255, 255, 255));
+        PagamentoBoletoTitulo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        PagamentoBoletoTitulo.setText("Pagamento via Boleto");
+        PagamentoBoletoTitulo.setBorder(null);
+        PagamentoBoletoTitulo.setFocusable(false);
+        PagamentoBoletoTitulo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PagamentoBoletoTituloActionPerformed(evt);
+            }
+        });
+
+        CampoInserirQuantiaPagamento.setText("inserir quantia");
+        CampoInserirQuantiaPagamento.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        CampoInserirQuantiaPagamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CampoInserirQuantiaPagamentoActionPerformed(evt);
+            }
+        });
+
+        BotaoPagarViaBoleto.setBackground(new java.awt.Color(204, 0, 0));
+        BotaoPagarViaBoleto.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        BotaoPagarViaBoleto.setForeground(new java.awt.Color(255, 255, 255));
+        BotaoPagarViaBoleto.setText("Pagar Via Boleto");
+        BotaoPagarViaBoleto.setToolTipText("");
+        BotaoPagarViaBoleto.setBorderPainted(false);
+        BotaoPagarViaBoleto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoPagarViaBoletoActionPerformed(evt);
+            }
+        });
+
+        BotaoVoltar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        BotaoVoltar.setText("Voltar");
+        BotaoVoltar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BotaoVoltar.setBorderPainted(false);
+        BotaoVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoVoltarActionPerformed(evt);
             }
         });
 
@@ -98,17 +156,29 @@ public class PaginaPagar extends javax.swing.JFrame {
                 .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JPanelHOMELayout.createSequentialGroup()
                         .addGap(14, 14, 14)
-                        .addComponent(IconeLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(NomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(JPanelHOMELayout.createSequentialGroup()
+                                .addComponent(CampoInserirQuantiaDeposito, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(BotaoDepositarViaBoleto))
+                            .addGroup(JPanelHOMELayout.createSequentialGroup()
+                                .addComponent(IconeLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(NomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(AlterarEmailTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(JPanelHOMELayout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(BotaoPAGAR)))
+                        .addGap(12, 12, 12)
+                        .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(PagamentoBoletoTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(JPanelHOMELayout.createSequentialGroup()
+                                .addComponent(CampoInserirQuantiaPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(BotaoPagarViaBoleto)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelHOMELayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(BotaoPerfilConfiguracoes)
-                .addGap(292, 292, 292))
+                .addComponent(BotaoVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28))
         );
         JPanelHOMELayout.setVerticalGroup(
             JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -122,11 +192,21 @@ public class PaginaPagar extends javax.swing.JFrame {
                     .addGroup(JPanelHOMELayout.createSequentialGroup()
                         .addGap(32, 32, 32)
                         .addComponent(PerguntasFrequentes, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(93, 93, 93)
-                .addComponent(BotaoPerfilConfiguracoes)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 145, Short.MAX_VALUE)
-                .addComponent(BotaoPAGAR, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16))
+                .addGap(8, 8, 8)
+                .addComponent(AlterarEmailTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(CampoInserirQuantiaDeposito, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BotaoDepositarViaBoleto))
+                .addGap(18, 18, 18)
+                .addComponent(PagamentoBoletoTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(CampoInserirQuantiaPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BotaoPagarViaBoleto))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
+                .addComponent(BotaoVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -147,10 +227,6 @@ public class PaginaPagar extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BotaoPAGARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoPAGARActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BotaoPAGARActionPerformed
-
     private void NomeClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NomeClienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_NomeClienteActionPerformed
@@ -159,12 +235,36 @@ public class PaginaPagar extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_PerguntasFrequentesActionPerformed
 
-    private void BotaoPerfilConfiguracoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoPerfilConfiguracoesActionPerformed
+    private void AlterarEmailTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AlterarEmailTituloActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AlterarEmailTituloActionPerformed
+
+    private void CampoInserirQuantiaDepositoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoInserirQuantiaDepositoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CampoInserirQuantiaDepositoActionPerformed
+
+    private void BotaoDepositarViaBoletoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoDepositarViaBoletoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BotaoDepositarViaBoletoActionPerformed
+
+    private void PagamentoBoletoTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PagamentoBoletoTituloActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PagamentoBoletoTituloActionPerformed
+
+    private void CampoInserirQuantiaPagamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoInserirQuantiaPagamentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CampoInserirQuantiaPagamentoActionPerformed
+
+    private void BotaoPagarViaBoletoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoPagarViaBoletoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BotaoPagarViaBoletoActionPerformed
+
+    private void BotaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoVoltarActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        PaginaPerfilConfiguracoes p1 = new PaginaPerfilConfiguracoes();
+        PaginaHome p1 = new PaginaHome();
         p1.setVisible(true);
-    }//GEN-LAST:event_BotaoPerfilConfiguracoesActionPerformed
+    }//GEN-LAST:event_BotaoVoltarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -234,11 +334,16 @@ public class PaginaPagar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BotaoPAGAR;
-    private javax.swing.JButton BotaoPerfilConfiguracoes;
+    private javax.swing.JTextField AlterarEmailTitulo;
+    private javax.swing.JButton BotaoDepositarViaBoleto;
+    private javax.swing.JButton BotaoPagarViaBoleto;
+    private javax.swing.JButton BotaoVoltar;
+    private javax.swing.JTextField CampoInserirQuantiaDeposito;
+    private javax.swing.JTextField CampoInserirQuantiaPagamento;
     private javax.swing.JLabel IconeLogo;
     private javax.swing.JPanel JPanelHOME;
     private javax.swing.JTextField NomeCliente;
+    private javax.swing.JTextField PagamentoBoletoTitulo;
     private javax.swing.JTextField PerguntasFrequentes;
     // End of variables declaration//GEN-END:variables
 }

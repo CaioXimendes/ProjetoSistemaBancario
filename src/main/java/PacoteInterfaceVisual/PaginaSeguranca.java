@@ -27,28 +27,21 @@ public class PaginaSeguranca extends javax.swing.JFrame {
     private void initComponents() {
 
         JPanelHOME = new javax.swing.JPanel();
-        PerfilConfiguracoes = new javax.swing.JTextField();
         IconeLogo = new javax.swing.JLabel();
         NomeCliente = new javax.swing.JTextField();
         BotaoSeguranca = new javax.swing.JButton();
         PerguntasFrequentes = new javax.swing.JTextField();
+        ConfirmarSenhaTitulo = new javax.swing.JTextField();
+        BotaoAlterarSenha = new javax.swing.JButton();
+        BotaoVoltar1 = new javax.swing.JButton();
+        AlterarSenhaTitulo = new javax.swing.JTextField();
+        CampoInserirSenha = new javax.swing.JTextField();
+        CampoInserirConfirmacaoSenha = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
 
         JPanelHOME.setBackground(new java.awt.Color(255, 255, 255));
-
-        PerfilConfiguracoes.setEditable(false);
-        PerfilConfiguracoes.setBackground(new java.awt.Color(255, 255, 255));
-        PerfilConfiguracoes.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        PerfilConfiguracoes.setText("TODO");
-        PerfilConfiguracoes.setBorder(null);
-        PerfilConfiguracoes.setFocusable(false);
-        PerfilConfiguracoes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PerfilConfiguracoesActionPerformed(evt);
-            }
-        });
 
         IconeLogo.setIcon(new javax.swing.ImageIcon("C:\\NetBeansProjects\\sistema-bancario\\src\\main\\resources\\images\\logoCircular2.png")); // NOI18N
         IconeLogo.setText("jLabel1");
@@ -88,6 +81,68 @@ public class PaginaSeguranca extends javax.swing.JFrame {
             }
         });
 
+        ConfirmarSenhaTitulo.setEditable(false);
+        ConfirmarSenhaTitulo.setBackground(new java.awt.Color(255, 255, 255));
+        ConfirmarSenhaTitulo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        ConfirmarSenhaTitulo.setText("Confirmar Senha");
+        ConfirmarSenhaTitulo.setBorder(null);
+        ConfirmarSenhaTitulo.setFocusable(false);
+        ConfirmarSenhaTitulo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConfirmarSenhaTituloActionPerformed(evt);
+            }
+        });
+
+        BotaoAlterarSenha.setBackground(new java.awt.Color(204, 0, 0));
+        BotaoAlterarSenha.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        BotaoAlterarSenha.setForeground(new java.awt.Color(255, 255, 255));
+        BotaoAlterarSenha.setText("alterar senha");
+        BotaoAlterarSenha.setToolTipText("");
+        BotaoAlterarSenha.setBorderPainted(false);
+        BotaoAlterarSenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoAlterarSenhaActionPerformed(evt);
+            }
+        });
+
+        BotaoVoltar1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        BotaoVoltar1.setText("Voltar");
+        BotaoVoltar1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BotaoVoltar1.setBorderPainted(false);
+        BotaoVoltar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoVoltar1ActionPerformed(evt);
+            }
+        });
+
+        AlterarSenhaTitulo.setEditable(false);
+        AlterarSenhaTitulo.setBackground(new java.awt.Color(255, 255, 255));
+        AlterarSenhaTitulo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        AlterarSenhaTitulo.setText("Alterar Senha");
+        AlterarSenhaTitulo.setBorder(null);
+        AlterarSenhaTitulo.setFocusable(false);
+        AlterarSenhaTitulo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AlterarSenhaTituloActionPerformed(evt);
+            }
+        });
+
+        CampoInserirSenha.setText("********");
+        CampoInserirSenha.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        CampoInserirSenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CampoInserirSenhaActionPerformed(evt);
+            }
+        });
+
+        CampoInserirConfirmacaoSenha.setText("********");
+        CampoInserirConfirmacaoSenha.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        CampoInserirConfirmacaoSenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CampoInserirConfirmacaoSenhaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout JPanelHOMELayout = new javax.swing.GroupLayout(JPanelHOME);
         JPanelHOME.setLayout(JPanelHOMELayout);
         JPanelHOMELayout.setHorizontalGroup(
@@ -95,21 +150,29 @@ public class PaginaSeguranca extends javax.swing.JFrame {
             .addGroup(JPanelHOMELayout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BotaoSeguranca, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(JPanelHOMELayout.createSequentialGroup()
-                        .addComponent(IconeLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(NomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(JPanelHOMELayout.createSequentialGroup()
+                                .addComponent(CampoInserirConfirmacaoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(BotaoAlterarSenha))
+                            .addComponent(CampoInserirSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ConfirmarSenhaTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(AlterarSenhaTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(JPanelHOMELayout.createSequentialGroup()
+                                .addComponent(IconeLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(NomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(305, Short.MAX_VALUE))
+                    .addGroup(JPanelHOMELayout.createSequentialGroup()
+                        .addComponent(BotaoSeguranca, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(BotaoVoltar1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(25, 25, 25))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelHOMELayout.createSequentialGroup()
-                .addContainerGap(290, Short.MAX_VALUE)
-                .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelHOMELayout.createSequentialGroup()
-                        .addComponent(PerguntasFrequentes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(67, 67, 67))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelHOMELayout.createSequentialGroup()
-                        .addComponent(PerfilConfiguracoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(285, 285, 285))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(PerguntasFrequentes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(67, 67, 67))
         );
         JPanelHOMELayout.setVerticalGroup(
             JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -123,11 +186,25 @@ public class PaginaSeguranca extends javax.swing.JFrame {
                     .addGroup(JPanelHOMELayout.createSequentialGroup()
                         .addGap(32, 32, 32)
                         .addComponent(PerguntasFrequentes, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(94, 94, 94)
-                .addComponent(PerfilConfiguracoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 129, Short.MAX_VALUE)
-                .addComponent(BotaoSeguranca, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
+                .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JPanelHOMELayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(AlterarSenhaTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(CampoInserirSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(22, 22, 22)
+                        .addComponent(ConfirmarSenhaTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(CampoInserirConfirmacaoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BotaoAlterarSenha))
+                        .addGap(80, 80, 80)
+                        .addComponent(BotaoSeguranca, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(28, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelHOMELayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(BotaoVoltar1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -148,10 +225,6 @@ public class PaginaSeguranca extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void PerfilConfiguracoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PerfilConfiguracoesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PerfilConfiguracoesActionPerformed
-
     private void NomeClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NomeClienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_NomeClienteActionPerformed
@@ -163,6 +236,33 @@ public class PaginaSeguranca extends javax.swing.JFrame {
     private void PerguntasFrequentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PerguntasFrequentesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_PerguntasFrequentesActionPerformed
+
+    private void AlterarSenhaTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AlterarSenhaTituloActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AlterarSenhaTituloActionPerformed
+
+    private void CampoInserirSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoInserirSenhaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CampoInserirSenhaActionPerformed
+
+    private void ConfirmarSenhaTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmarSenhaTituloActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ConfirmarSenhaTituloActionPerformed
+
+    private void CampoInserirConfirmacaoSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoInserirConfirmacaoSenhaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CampoInserirConfirmacaoSenhaActionPerformed
+
+    private void BotaoAlterarSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoAlterarSenhaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BotaoAlterarSenhaActionPerformed
+
+    private void BotaoVoltar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoVoltar1ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        PaginaHome p1 = new PaginaHome();
+        p1.setVisible(true);
+    }//GEN-LAST:event_BotaoVoltar1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -264,11 +364,16 @@ public class PaginaSeguranca extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField AlterarSenhaTitulo;
+    private javax.swing.JButton BotaoAlterarSenha;
     private javax.swing.JButton BotaoSeguranca;
+    private javax.swing.JButton BotaoVoltar1;
+    private javax.swing.JTextField CampoInserirConfirmacaoSenha;
+    private javax.swing.JTextField CampoInserirSenha;
+    private javax.swing.JTextField ConfirmarSenhaTitulo;
     private javax.swing.JLabel IconeLogo;
     private javax.swing.JPanel JPanelHOME;
     private javax.swing.JTextField NomeCliente;
-    private javax.swing.JTextField PerfilConfiguracoes;
     private javax.swing.JTextField PerguntasFrequentes;
     // End of variables declaration//GEN-END:variables
 }
