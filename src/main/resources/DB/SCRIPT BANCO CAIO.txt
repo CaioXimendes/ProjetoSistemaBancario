@@ -12,3 +12,5 @@ CREATE TABLE IF NOT EXISTS Usuarios (
     senha4digitos INT NOT NULL,
     numeroConta INT NOT NULL UNIQUE
 );
+
+insert into Usuarios(cpf,nome,email,saldo,senha,senha4digitos,numeroConta) values ("708.977.054-08","Caio Ximendes","caio@gmail.com",0,12345678,1234,0001);
