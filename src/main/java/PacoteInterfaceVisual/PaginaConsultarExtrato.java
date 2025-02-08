@@ -33,7 +33,8 @@ public class PaginaConsultarExtrato extends javax.swing.JFrame {
         IconeLogo = new javax.swing.JLabel();
         NomeCliente = new javax.swing.JTextField();
         PerguntasFrequentes = new javax.swing.JTextField();
-        BotaoPerfilConfiguracoes = new javax.swing.JButton();
+        VerificarExtratoTitulo = new javax.swing.JTextField();
+        BotaoVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -78,12 +79,25 @@ public class PaginaConsultarExtrato extends javax.swing.JFrame {
             }
         });
 
-        BotaoPerfilConfiguracoes.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        BotaoPerfilConfiguracoes.setText("TODO");
-        BotaoPerfilConfiguracoes.setBorderPainted(false);
-        BotaoPerfilConfiguracoes.addActionListener(new java.awt.event.ActionListener() {
+        VerificarExtratoTitulo.setEditable(false);
+        VerificarExtratoTitulo.setBackground(new java.awt.Color(255, 255, 255));
+        VerificarExtratoTitulo.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        VerificarExtratoTitulo.setText("Deseja Verificar seu Extrato?");
+        VerificarExtratoTitulo.setBorder(null);
+        VerificarExtratoTitulo.setFocusable(false);
+        VerificarExtratoTitulo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotaoPerfilConfiguracoesActionPerformed(evt);
+                VerificarExtratoTituloActionPerformed(evt);
+            }
+        });
+
+        BotaoVoltar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        BotaoVoltar.setText("Voltar");
+        BotaoVoltar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BotaoVoltar.setBorderPainted(false);
+        BotaoVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoVoltarActionPerformed(evt);
             }
         });
 
@@ -92,23 +106,22 @@ public class PaginaConsultarExtrato extends javax.swing.JFrame {
         JPanelHOMELayout.setHorizontalGroup(
             JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPanelHOMELayout.createSequentialGroup()
-                .addContainerGap(578, Short.MAX_VALUE)
-                .addComponent(PerguntasFrequentes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(JPanelHOMELayout.createSequentialGroup()
+                .addGap(14, 14, 14)
                 .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(VerificarExtratoTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(JPanelHOMELayout.createSequentialGroup()
-                        .addGap(14, 14, 14)
                         .addComponent(IconeLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(NomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(JPanelHOMELayout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(BotaoConsultarExtrato)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(BotaoConsultarExtrato))
+                .addContainerGap(187, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelHOMELayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(BotaoPerfilConfiguracoes)
-                .addGap(292, 292, 292))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(PerguntasFrequentes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelHOMELayout.createSequentialGroup()
+                        .addComponent(BotaoVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(21, 21, 21))))
         );
         JPanelHOMELayout.setVerticalGroup(
             JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -122,10 +135,12 @@ public class PaginaConsultarExtrato extends javax.swing.JFrame {
                     .addGroup(JPanelHOMELayout.createSequentialGroup()
                         .addGap(32, 32, 32)
                         .addComponent(PerguntasFrequentes, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(93, 93, 93)
-                .addComponent(BotaoPerfilConfiguracoes)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 145, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(VerificarExtratoTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(BotaoConsultarExtrato, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 159, Short.MAX_VALUE)
+                .addComponent(BotaoVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(16, 16, 16))
         );
 
@@ -159,12 +174,16 @@ public class PaginaConsultarExtrato extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_PerguntasFrequentesActionPerformed
 
-    private void BotaoPerfilConfiguracoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoPerfilConfiguracoesActionPerformed
+    private void VerificarExtratoTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VerificarExtratoTituloActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_VerificarExtratoTituloActionPerformed
+
+    private void BotaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoVoltarActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        PaginaPerfilConfiguracoes p1 = new PaginaPerfilConfiguracoes();
+        PaginaHome p1 = new PaginaHome();
         p1.setVisible(true);
-    }//GEN-LAST:event_BotaoPerfilConfiguracoesActionPerformed
+    }//GEN-LAST:event_BotaoVoltarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -211,10 +230,11 @@ public class PaginaConsultarExtrato extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotaoConsultarExtrato;
-    private javax.swing.JButton BotaoPerfilConfiguracoes;
+    private javax.swing.JButton BotaoVoltar;
     private javax.swing.JLabel IconeLogo;
     private javax.swing.JPanel JPanelHOME;
     private javax.swing.JTextField NomeCliente;
     private javax.swing.JTextField PerguntasFrequentes;
+    private javax.swing.JTextField VerificarExtratoTitulo;
     // End of variables declaration//GEN-END:variables
 }

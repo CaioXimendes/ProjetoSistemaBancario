@@ -27,7 +27,7 @@ public class PaginaParceiros extends javax.swing.JFrame {
     private void initComponents() {
 
         JPanelHOME = new javax.swing.JPanel();
-        PerfilConfiguracoes = new javax.swing.JTextField();
+        ParceirosDescontosTitulo = new javax.swing.JTextField();
         BotaoCacauShow = new javax.swing.JButton();
         IconeLogo = new javax.swing.JLabel();
         NomeCliente = new javax.swing.JTextField();
@@ -42,15 +42,15 @@ public class PaginaParceiros extends javax.swing.JFrame {
 
         JPanelHOME.setBackground(new java.awt.Color(255, 255, 255));
 
-        PerfilConfiguracoes.setEditable(false);
-        PerfilConfiguracoes.setBackground(new java.awt.Color(255, 255, 255));
-        PerfilConfiguracoes.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
-        PerfilConfiguracoes.setText("PERFIL E CONFIGURAÇÕES");
-        PerfilConfiguracoes.setBorder(null);
-        PerfilConfiguracoes.setFocusable(false);
-        PerfilConfiguracoes.addActionListener(new java.awt.event.ActionListener() {
+        ParceirosDescontosTitulo.setEditable(false);
+        ParceirosDescontosTitulo.setBackground(new java.awt.Color(255, 255, 255));
+        ParceirosDescontosTitulo.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
+        ParceirosDescontosTitulo.setText("Parceiros e Descontos");
+        ParceirosDescontosTitulo.setBorder(null);
+        ParceirosDescontosTitulo.setFocusable(false);
+        ParceirosDescontosTitulo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PerfilConfiguracoesActionPerformed(evt);
+                ParceirosDescontosTituloActionPerformed(evt);
             }
         });
 
@@ -143,7 +143,7 @@ public class PaginaParceiros extends javax.swing.JFrame {
             .addGroup(JPanelHOMELayout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(PerfilConfiguracoes, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ParceirosDescontosTitulo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, JPanelHOMELayout.createSequentialGroup()
                         .addComponent(IconeLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -179,7 +179,7 @@ public class PaginaParceiros extends javax.swing.JFrame {
                         .addGap(32, 32, 32)
                         .addComponent(PerguntasFrequentes, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(PerfilConfiguracoes, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ParceirosDescontosTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33)
                 .addComponent(BotaoMcDonalds, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -215,9 +215,9 @@ public class PaginaParceiros extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void PerfilConfiguracoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PerfilConfiguracoesActionPerformed
+    private void ParceirosDescontosTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ParceirosDescontosTituloActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_PerfilConfiguracoesActionPerformed
+    }//GEN-LAST:event_ParceirosDescontosTituloActionPerformed
 
     private void BotaoCacauShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoCacauShowActionPerformed
         // TODO add your handling code here:
@@ -310,7 +310,7 @@ public class PaginaParceiros extends javax.swing.JFrame {
     private javax.swing.JLabel IconeLogo;
     private javax.swing.JPanel JPanelHOME;
     private javax.swing.JTextField NomeCliente;
-    private javax.swing.JTextField PerfilConfiguracoes;
+    private javax.swing.JTextField ParceirosDescontosTitulo;
     private javax.swing.JTextField PerguntasFrequentes;
     // End of variables declaration//GEN-END:variables
 }

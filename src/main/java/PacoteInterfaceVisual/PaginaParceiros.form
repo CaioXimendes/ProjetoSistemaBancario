@@ -55,7 +55,7 @@
               <Group type="102" attributes="0">
                   <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="PerfilConfiguracoes" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="ParceirosDescontosTitulo" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="IconeLogo" min="-2" pref="80" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -104,7 +104,7 @@
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="PerfilConfiguracoes" min="-2" pref="22" max="-2" attributes="0"/>
+                  <Component id="ParceirosDescontosTitulo" min="-2" pref="22" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                   <Component id="BotaoMcDonalds" min="-2" pref="46" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -128,7 +128,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JTextField" name="PerfilConfiguracoes">
+        <Component class="javax.swing.JTextField" name="ParceirosDescontosTitulo">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -137,14 +137,14 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="10" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="PERFIL E CONFIGURA&#xc7;&#xd5;ES"/>
+            <Property name="text" type="java.lang.String" value="Parceiros e Descontos"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
             </Property>
             <Property name="focusable" type="boolean" value="false"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PerfilConfiguracoesActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ParceirosDescontosTituloActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="BotaoCacauShow">

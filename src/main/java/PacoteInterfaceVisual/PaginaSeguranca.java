@@ -4,6 +4,8 @@
  */
 package PacoteInterfaceVisual;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author CaioFSX
@@ -29,7 +31,6 @@ public class PaginaSeguranca extends javax.swing.JFrame {
         JPanelHOME = new javax.swing.JPanel();
         IconeLogo = new javax.swing.JLabel();
         NomeCliente = new javax.swing.JTextField();
-        BotaoSeguranca = new javax.swing.JButton();
         PerguntasFrequentes = new javax.swing.JTextField();
         ConfirmarSenhaTitulo = new javax.swing.JTextField();
         BotaoAlterarSenha = new javax.swing.JButton();
@@ -37,6 +38,9 @@ public class PaginaSeguranca extends javax.swing.JFrame {
         AlterarSenhaTitulo = new javax.swing.JTextField();
         CampoInserirSenha = new javax.swing.JTextField();
         CampoInserirConfirmacaoSenha = new javax.swing.JTextField();
+        AlterarSenhaTitulo1 = new javax.swing.JTextField();
+        CampoInserirSenha4Digitos = new javax.swing.JTextField();
+        BotaoCriarSenha4Digitos = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -55,17 +59,6 @@ public class PaginaSeguranca extends javax.swing.JFrame {
         NomeCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 NomeClienteActionPerformed(evt);
-            }
-        });
-
-        BotaoSeguranca.setBackground(new java.awt.Color(204, 0, 0));
-        BotaoSeguranca.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        BotaoSeguranca.setForeground(new java.awt.Color(255, 255, 255));
-        BotaoSeguranca.setText("Seguranca");
-        BotaoSeguranca.setBorderPainted(false);
-        BotaoSeguranca.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotaoSegurancaActionPerformed(evt);
             }
         });
 
@@ -143,13 +136,57 @@ public class PaginaSeguranca extends javax.swing.JFrame {
             }
         });
 
+        AlterarSenhaTitulo1.setEditable(false);
+        AlterarSenhaTitulo1.setBackground(new java.awt.Color(255, 255, 255));
+        AlterarSenhaTitulo1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        AlterarSenhaTitulo1.setText("Criar Senha de 4 Dígitos");
+        AlterarSenhaTitulo1.setBorder(null);
+        AlterarSenhaTitulo1.setFocusable(false);
+        AlterarSenhaTitulo1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AlterarSenhaTitulo1ActionPerformed(evt);
+            }
+        });
+
+        CampoInserirSenha4Digitos.setText("****");
+        CampoInserirSenha4Digitos.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        CampoInserirSenha4Digitos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CampoInserirSenha4DigitosActionPerformed(evt);
+            }
+        });
+
+        BotaoCriarSenha4Digitos.setBackground(new java.awt.Color(204, 0, 0));
+        BotaoCriarSenha4Digitos.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        BotaoCriarSenha4Digitos.setForeground(new java.awt.Color(255, 255, 255));
+        BotaoCriarSenha4Digitos.setText("Criar senha");
+        BotaoCriarSenha4Digitos.setToolTipText("");
+        BotaoCriarSenha4Digitos.setBorderPainted(false);
+        BotaoCriarSenha4Digitos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoCriarSenha4DigitosActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout JPanelHOMELayout = new javax.swing.GroupLayout(JPanelHOME);
         JPanelHOME.setLayout(JPanelHOMELayout);
         JPanelHOMELayout.setHorizontalGroup(
             JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelHOMELayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(PerguntasFrequentes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(67, 67, 67))
             .addGroup(JPanelHOMELayout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JPanelHOMELayout.createSequentialGroup()
+                        .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(JPanelHOMELayout.createSequentialGroup()
+                                .addComponent(CampoInserirSenha4Digitos, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(BotaoCriarSenha4Digitos))
+                            .addComponent(AlterarSenhaTitulo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(JPanelHOMELayout.createSequentialGroup()
                         .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(JPanelHOMELayout.createSequentialGroup()
@@ -165,14 +202,9 @@ public class PaginaSeguranca extends javax.swing.JFrame {
                                 .addComponent(NomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(305, Short.MAX_VALUE))
                     .addGroup(JPanelHOMELayout.createSequentialGroup()
-                        .addComponent(BotaoSeguranca, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(BotaoVoltar1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(25, 25, 25))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelHOMELayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(PerguntasFrequentes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(67, 67, 67))
         );
         JPanelHOMELayout.setVerticalGroup(
             JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -198,9 +230,13 @@ public class PaginaSeguranca extends javax.swing.JFrame {
                         .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(CampoInserirConfirmacaoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(BotaoAlterarSenha))
-                        .addGap(80, 80, 80)
-                        .addComponent(BotaoSeguranca, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(28, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(AlterarSenhaTitulo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(CampoInserirSenha4Digitos, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BotaoCriarSenha4Digitos))
+                        .addContainerGap(63, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelHOMELayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(BotaoVoltar1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -228,10 +264,6 @@ public class PaginaSeguranca extends javax.swing.JFrame {
     private void NomeClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NomeClienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_NomeClienteActionPerformed
-
-    private void BotaoSegurancaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoSegurancaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BotaoSegurancaActionPerformed
 
     private void PerguntasFrequentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PerguntasFrequentesActionPerformed
         // TODO add your handling code here:
@@ -263,6 +295,19 @@ public class PaginaSeguranca extends javax.swing.JFrame {
         PaginaHome p1 = new PaginaHome();
         p1.setVisible(true);
     }//GEN-LAST:event_BotaoVoltar1ActionPerformed
+
+    private void AlterarSenhaTitulo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AlterarSenhaTitulo1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AlterarSenhaTitulo1ActionPerformed
+
+    private void CampoInserirSenha4DigitosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoInserirSenha4DigitosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CampoInserirSenha4DigitosActionPerformed
+
+    private void BotaoCriarSenha4DigitosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoCriarSenha4DigitosActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Sua senha de 4 dígitos é: ", "Criação de senha de 4 dígitos", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_BotaoCriarSenha4DigitosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -365,11 +410,13 @@ public class PaginaSeguranca extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField AlterarSenhaTitulo;
+    private javax.swing.JTextField AlterarSenhaTitulo1;
     private javax.swing.JButton BotaoAlterarSenha;
-    private javax.swing.JButton BotaoSeguranca;
+    private javax.swing.JButton BotaoCriarSenha4Digitos;
     private javax.swing.JButton BotaoVoltar1;
     private javax.swing.JTextField CampoInserirConfirmacaoSenha;
     private javax.swing.JTextField CampoInserirSenha;
+    private javax.swing.JTextField CampoInserirSenha4Digitos;
     private javax.swing.JTextField ConfirmarSenhaTitulo;
     private javax.swing.JLabel IconeLogo;
     private javax.swing.JPanel JPanelHOME;
