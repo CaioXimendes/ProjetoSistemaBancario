@@ -13,7 +13,7 @@ public class Usuario {
     private static String nome;
     private static String email;
     private static double saldo;
-    private static int senha;
+    private static String senha;
     private static int senha4digitos;
     private static int numeroConta;
     private static boolean usuarioValido;
@@ -50,11 +50,11 @@ public class Usuario {
         Usuario.saldo = saldo;
     }
 
-    public static int getSenha() {
+    public static String getSenha() {
         return senha;
     }
 
-    public static void setSenha(int senha) {
+    public static void setSenha(String senha) {
         Usuario.senha = senha;
     }
     

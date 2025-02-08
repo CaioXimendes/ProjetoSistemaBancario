@@ -28,7 +28,7 @@ public class ValidarInformacoesUsuario {
               p1.setVisible(true);
           }
     }
-    public void CadastrarUsuario(String cpf ,String nome, String email, int senha, int numeroConta, double saldo){
+    public void CadastrarUsuario(String cpf ,String nome, String email, String senha, int numeroConta, double saldo){
         System.out.println("Usuario cadastrado com os registros:\ncpf:"+Usuario.getCpf()+"\nnome:"+Usuario.getNome()+"\nemail:"+Usuario.getEmail()+"\nsenha:"+Usuario.getSenha());
     }
 }

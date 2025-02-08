@@ -212,8 +212,8 @@ public class PaginaCriarContaSenha extends javax.swing.JFrame {
     private void BotaoCriarContaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoCriarContaActionPerformed
         // TODO add your handling code here:
         ValidarInformacoesUsuario v1 = new ValidarInformacoesUsuario();
-        if(Integer.parseInt(CampoDigitarSenha.getText()) == Integer.parseInt(CampoConfirmarSenha.getText())){
-            Usuario.setSenha(Integer.parseInt(CampoDigitarSenha.getText()));
+        if(CampoDigitarSenha.getText().equals(CampoConfirmarSenha.getText())){
+            Usuario.setSenha(CampoDigitarSenha.getText());
             JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso!", "Banco JAVA",JOptionPane.INFORMATION_MESSAGE);
             v1.CadastrarUsuario(Usuario.getCpf(),Usuario.getNome(),Usuario.getEmail(),Usuario.getSenha(),Usuario.getNumeroConta(),Usuario.getSaldo());
         } else{
