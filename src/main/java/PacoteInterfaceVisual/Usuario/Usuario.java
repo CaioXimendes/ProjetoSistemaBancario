@@ -17,6 +17,7 @@ public class Usuario {
     private static int senha4digitos;
     private static int numeroConta;
     private static boolean usuarioValido;
+    private static boolean usuarioRealizouCadastro;
     
     public static String getCpf() {
         return cpf;
@@ -79,5 +80,13 @@ public class Usuario {
     }
     public static void setUsuarioValido(boolean usuarioValido){
         Usuario.usuarioValido = usuarioValido;
+    }
+    
+    public static boolean getUsuarioRealizouCadastro(){
+        return usuarioRealizouCadastro;
+    }
+    
+    public static void setUsuarioRealizouCadastro(boolean usuarioRealizouCadastro){
+        Usuario.usuarioRealizouCadastro = usuarioRealizouCadastro;
     }
 }

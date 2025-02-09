@@ -6,6 +6,7 @@ package PacoteInterfaceVisual;
 
 import PacoteInterfaceVisual.Usuario.Usuario;
 import PacoteRegraDeNegocio.ValidarInformacoesUsuario;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 /**
@@ -211,14 +212,27 @@ public class PaginaCriarContaSenha extends javax.swing.JFrame {
 
     private void BotaoCriarContaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoCriarContaActionPerformed
         // TODO add your handling code here:
-        ValidarInformacoesUsuario v1 = new ValidarInformacoesUsuario();
-        if(CampoDigitarSenha.getText().equals(CampoConfirmarSenha.getText())){
-            Usuario.setSenha(CampoDigitarSenha.getText());
-            JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso!", "Banco JAVA",JOptionPane.INFORMATION_MESSAGE);
-            v1.CadastrarUsuario(Usuario.getCpf(),Usuario.getNome(),Usuario.getEmail(),Usuario.getSenha(),Usuario.getNumeroConta(),Usuario.getSaldo());
-        } else{
-            JOptionPane.showMessageDialog(null, "Credenciais não conferem!", "Banco JAVA",JOptionPane.INFORMATION_MESSAGE);
+        try {
+            ValidarInformacoesUsuario v1 = new ValidarInformacoesUsuario();
+            if (CampoDigitarSenha.getText().equals(CampoConfirmarSenha.getText())) {
+                Usuario.setSenha(CampoDigitarSenha.getText());
+                JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso!", "Banco JAVA", JOptionPane.INFORMATION_MESSAGE);
+                Usuario.setNumeroConta(9999);
+                v1.CadastrarUsuario();
+                if(Usuario.getUsuarioRealizouCadastro()){
+                    this.dispose();
+                    PaginaHome p1 = new PaginaHome();
+                    p1.setVisible(true);
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Credenciais não conferem!", "Banco JAVA", JOptionPane.INFORMATION_MESSAGE);
+            }
+        } catch (ClassNotFoundException ex) {
+            ex.getMessage();
+        } catch (SQLException ex) {
+            ex.getMessage();
         }
+
         //v1.CadastrarUsuario(u1.getCpf,u1.getNome(),u1.getEmail(),u1.getSenha());
     }//GEN-LAST:event_BotaoCriarContaActionPerformed
 

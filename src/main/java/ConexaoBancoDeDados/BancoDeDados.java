@@ -16,9 +16,8 @@ import java.sql.ResultSet;
  * @author CaioFSX
  */
 public class BancoDeDados {
-
+    Connection conexao1 = null;
     public void checarSeUsuarioContemCPF() throws ClassNotFoundException, SQLException {
-        Connection conexao1 = null;
         try {
             // use con here
             //USEM ISSO AQUI PARA DML EM BANCO DE DADOS
@@ -41,6 +40,27 @@ public class BancoDeDados {
             System.out.println("Erro durante a conexão com o banco de dados! Erro:" + ex.getMessage());
         } finally {
             if (conexao1 != null) {
+                conexao1.close();
+            }
+        }
+    }
+    public void CadastrarUsuarioNoBancoDeDados() throws ClassNotFoundException, SQLException{
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            conexao1 = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/?user=root", "root", "1234");
+            Statement statement = conexao1.createStatement();
+            statement.execute("use bancojava");
+            String sql = "insert into Usuarios(cpf,nome,email,saldo,senha,senha4digitos,numeroConta) values "+"('"+Usuario.getCpf()+"',"+"'"+Usuario.getNome()+"',"+"'"+Usuario.getEmail()+"',"+""+Usuario.getSaldo()+","+"'"+Usuario.getSenha()+"',"+""+Usuario.getSenha4Digitos()+","+""+Usuario.getNumeroConta()+");";
+            statement.execute(sql);
+            System.out.println(sql);
+            Usuario.setUsuarioRealizouCadastro(true);
+        } catch(ClassNotFoundException ex){
+            System.out.println("Driver do Banco de dados não localizado!");
+        } catch(SQLException ex){
+            System.out.println("Erro durante a conexão com o banco de dados! Erro:" + ex.getMessage());
+        }
+        finally{
+            if(conexao1 != null){
                 conexao1.close();
             }
         }
