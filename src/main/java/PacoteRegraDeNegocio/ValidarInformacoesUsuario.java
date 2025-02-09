@@ -40,4 +40,8 @@ public class ValidarInformacoesUsuario {
         BancoDeDados b1 = new BancoDeDados();
         b1.RealizarLoginBancoDeDados();
     }
+    public void VerificarEmailUsuario() throws ClassNotFoundException, SQLException{
+        BancoDeDados b1 = new BancoDeDados();
+        b1.VerificarEmailUsuarioPeloBancoDeDados();
+    }
 }

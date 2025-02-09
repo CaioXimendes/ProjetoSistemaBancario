@@ -4,6 +4,11 @@
  */
 package PacoteInterfaceVisual;
 
+import PacoteInterfaceVisual.Usuario.Usuario;
+import PacoteRegraDeNegocio.ValidarInformacoesUsuario;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author CaioFSX
@@ -178,6 +183,23 @@ public class PaginaEsqueciSenhaPedirEmail extends javax.swing.JFrame {
 
     private void BotaoAvançarPedirEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoAvançarPedirEmailActionPerformed
         // TODO add your handling code here:
+        try {
+            Usuario.setEmail(CampoInserirEmail.getText());
+            ValidarInformacoesUsuario v1 = new ValidarInformacoesUsuario();
+            v1.VerificarEmailUsuario();
+            if(Usuario.getUsuarioValido()){
+                JOptionPane.showMessageDialog(null, "Seu e-mail! foi encontrado", "Banco JAVA", JOptionPane.INFORMATION_MESSAGE);
+                this.dispose();
+                PaginaConfirmarCodigoEmail p1 = new PaginaConfirmarCodigoEmail();
+                p1.setVisible(true);
+            }else{
+                JOptionPane.showMessageDialog(null, "Não encontramos e-mail relacionado a esta conta, tente novamente!", "Banco JAVA", JOptionPane.INFORMATION_MESSAGE);
+            }
+        } catch (ClassNotFoundException ex) {
+            System.out.println(ex.getMessage());
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
     }//GEN-LAST:event_BotaoAvançarPedirEmailActionPerformed
 
     /**

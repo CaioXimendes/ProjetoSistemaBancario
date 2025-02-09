@@ -94,4 +94,33 @@ public class BancoDeDados {
             }
         }
     }
+    public void VerificarEmailUsuarioPeloBancoDeDados() throws ClassNotFoundException, SQLException{
+        try{
+            ResultSet resultSet;
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            conexao1 = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/?user=root", "root", "1234");
+            Statement statement = conexao1.createStatement();
+            statement.execute("use bancojava");
+            String sql = "select email from Usuarios where email= "+"'"+Usuario.getEmail()+"'"+" and cpf="+"'"+Usuario.getCpf()+"';";
+            resultSet = statement.executeQuery(sql);
+            System.out.println(sql);
+            if(resultSet.next()){
+                Usuario.setUsuarioValido(true);
+                System.out.println("Usuario com CPF: "+Usuario.getCpf()+" e email: "+resultSet.getString("email")+" foi encontrado email!");
+            }
+            else{
+                Usuario.setUsuarioValido(false);
+            }
+            
+        } catch(ClassNotFoundException ex){
+            System.out.println("Driver do Banco de dados não localizado!");
+        } catch(SQLException ex){
+            System.out.println("Erro durante a conexão com o banco de dados! Erro:" + ex.getMessage());
+        }
+        finally{
+            if(conexao1 != null){
+                conexao1.close();
+            }
+        }
+    }
 }
