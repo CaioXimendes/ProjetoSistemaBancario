@@ -36,4 +36,8 @@ public class ValidarInformacoesUsuario {
         b1.CadastrarUsuarioNoBancoDeDados();
         //System.out.println("Usuario cadastrado com os registros:\ncpf:"+Usuario.getCpf()+"\nnome:"+Usuario.getNome()+"\nemail:"+Usuario.getEmail()+"\nsenha:"+Usuario.getSenha());
     }
+    public void RealizarLogin() throws ClassNotFoundException, SQLException{
+        BancoDeDados b1 = new BancoDeDados();
+        b1.RealizarLoginBancoDeDados();
+    }
 }

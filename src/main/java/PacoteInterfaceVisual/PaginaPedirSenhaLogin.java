@@ -4,6 +4,11 @@
  */
 package PacoteInterfaceVisual;
 
+import PacoteInterfaceVisual.Usuario.Usuario;
+import PacoteRegraDeNegocio.ValidarInformacoesUsuario;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author CaioFSX
@@ -195,10 +200,30 @@ public class PaginaPedirSenhaLogin extends javax.swing.JFrame {
 
     private void BotaoEsqueciSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoEsqueciSenhaActionPerformed
         // TODO add your handling code here:
+        this.dispose();
+        PaginaEsqueciSenhaPedirEmail p1 = new PaginaEsqueciSenhaPedirEmail();
+        p1.setVisible(true);
     }//GEN-LAST:event_BotaoEsqueciSenhaActionPerformed
 
     private void BotaoEntrarSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoEntrarSenhaActionPerformed
         // TODO add your handling code here:
+        try {
+            Usuario.setSenha(CampoInserirSenha.getText());
+            ValidarInformacoesUsuario v1 = new ValidarInformacoesUsuario();
+            v1.RealizarLogin();
+            if(Usuario.getUsuarioValido()){
+                JOptionPane.showMessageDialog(null, "Você está logado com sucesso!", "Banco JAVA", JOptionPane.INFORMATION_MESSAGE);
+                this.dispose();
+                PaginaHome p1 = new PaginaHome();
+                p1.setVisible(true);
+            }else{
+                JOptionPane.showMessageDialog(null, "Senha não confere, tente novamente!", "Banco JAVA", JOptionPane.INFORMATION_MESSAGE);
+            }
+        } catch (ClassNotFoundException ex) {
+            System.out.println(ex.getMessage());
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
     }//GEN-LAST:event_BotaoEntrarSenhaActionPerformed
 
     /**
