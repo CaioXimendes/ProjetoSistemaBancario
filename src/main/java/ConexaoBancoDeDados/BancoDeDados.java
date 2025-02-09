@@ -123,4 +123,24 @@ public class BancoDeDados {
             }
         }
     }
+    public void AlterarSenhaUsuarioPeloBancoDeDados() throws ClassNotFoundException, SQLException{
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            conexao1 = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/?user=root", "root", "1234");
+            Statement statement = conexao1.createStatement();
+            statement.execute("use bancojava");
+            String sql = "update Usuarios set senha= "+"'"+Usuario.getSenha()+"'"+"where cpf="+"'"+Usuario.getCpf()+"';";
+            statement.execute(sql);
+            System.out.println(sql);
+        } catch(ClassNotFoundException ex){
+            System.out.println("Driver do Banco de dados não localizado!");
+        } catch(SQLException ex){
+            System.out.println("Erro durante a conexão com o banco de dados! Erro:" + ex.getMessage());
+        }
+        finally{
+            if(conexao1 != null){
+                conexao1.close();
+            }
+        }
+    }
 }

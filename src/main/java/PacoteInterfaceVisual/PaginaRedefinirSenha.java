@@ -4,6 +4,11 @@
  */
 package PacoteInterfaceVisual;
 
+import PacoteInterfaceVisual.Usuario.Usuario;
+import PacoteRegraDeNegocio.ValidarInformacoesUsuario;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author CaioFSX
@@ -204,6 +209,23 @@ public class PaginaRedefinirSenha extends javax.swing.JFrame {
 
     private void BotaoConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoConfirmarActionPerformed
         // TODO add your handling code here:
+        try {
+            if (CampoInserirNovaSenha.getText().equals(CampoInserirConfirmacaoSenha.getText())) {
+                Usuario.setSenha(CampoInserirNovaSenha.getText());
+                JOptionPane.showMessageDialog(null, "Senha modificada com sucesso!", "BANCO JAVA", JOptionPane.INFORMATION_MESSAGE);
+                ValidarInformacoesUsuario v1 = new ValidarInformacoesUsuario();
+                v1.AlterarSenhaUsuario();
+                PaginaPedirSenhaLogin p1 = new PaginaPedirSenhaLogin();
+                this.dispose();
+                p1.setVisible(true);
+            }else{
+                JOptionPane.showMessageDialog(null, "Senhas não conferem, confira novamente!", "BANCO JAVA", JOptionPane.INFORMATION_MESSAGE);
+            }
+        } catch (ClassNotFoundException ex) {
+            ex.getMessage();
+        } catch (SQLException ex) {
+            ex.getMessage();
+        }
     }//GEN-LAST:event_BotaoConfirmarActionPerformed
 
     private void ConfirmarNovaSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmarNovaSenhaActionPerformed

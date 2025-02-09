@@ -72,4 +72,8 @@ public class ValidarInformacoesUsuario {
             }
         }
     }
+    public void AlterarSenhaUsuario()throws ClassNotFoundException, SQLException{
+        BancoDeDados b1 = new BancoDeDados();
+        b1.AlterarSenhaUsuarioPeloBancoDeDados();
+    }
 }
