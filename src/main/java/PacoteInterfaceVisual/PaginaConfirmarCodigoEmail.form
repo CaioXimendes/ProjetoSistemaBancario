@@ -61,17 +61,17 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Component id="CampoInserirSenha" min="-2" pref="220" max="-2" attributes="0"/>
+                          <Component id="CampoInserirCodigo" min="-2" pref="220" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="109" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="InformeSuaSenha" max="32767" attributes="0"/>
+                      <Component id="DigitarCodigoTitulo" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace pref="112" max="32767" attributes="0"/>
-                      <Component id="BotaoEntrarSenha" min="-2" max="-2" attributes="0"/>
+                      <Component id="BotaoConfirmarCodigo" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="114" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -81,15 +81,15 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
-                  <Component id="InformeSuaSenha" min="-2" max="-2" attributes="0"/>
+                  <Component id="DigitarCodigoTitulo" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="CampoInserirSenha" min="-2" pref="34" max="-2" attributes="0"/>
+                  <Component id="CampoInserirCodigo" min="-2" pref="34" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="174" max="-2" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace pref="356" max="32767" attributes="0"/>
-                      <Component id="BotaoEntrarSenha" min="-2" pref="46" max="-2" attributes="0"/>
+                      <Component id="BotaoConfirmarCodigo" min="-2" pref="46" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -97,7 +97,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JTextField" name="InformeSuaSenha">
+        <Component class="javax.swing.JTextField" name="DigitarCodigoTitulo">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -114,10 +114,10 @@
             <Property name="focusable" type="boolean" value="false"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="InformeSuaSenhaActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DigitarCodigoTituloActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="CampoInserirSenha">
+        <Component class="javax.swing.JTextField" name="CampoInserirCodigo">
           <Properties>
             <Property name="text" type="java.lang.String" value=" 0000"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
@@ -128,10 +128,10 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CampoInserirSenhaActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CampoInserirCodigoActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="BotaoEntrarSenha">
+        <Component class="javax.swing.JButton" name="BotaoConfirmarCodigo">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="cc" type="rgb"/>
@@ -146,7 +146,7 @@
             <Property name="borderPainted" type="boolean" value="false"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotaoEntrarSenhaActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotaoConfirmarCodigoActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

@@ -18,6 +18,7 @@ public class Usuario {
     private static int numeroConta;
     private static boolean usuarioValido;
     private static boolean usuarioRealizouCadastro;
+    private static int codigoRecuperacao;
     
     public static String getCpf() {
         return cpf;
@@ -88,5 +89,11 @@ public class Usuario {
     
     public static void setUsuarioRealizouCadastro(boolean usuarioRealizouCadastro){
         Usuario.usuarioRealizouCadastro = usuarioRealizouCadastro;
+    }
+    public static int getCodigoRecuperacao(){
+        return codigoRecuperacao;
+    }
+    public static void setCodigoRecuperacao(int codigoRecuperacao){
+        Usuario.codigoRecuperacao = codigoRecuperacao;
     }
 }

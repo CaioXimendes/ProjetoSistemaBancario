@@ -4,6 +4,9 @@
  */
 package PacoteInterfaceVisual;
 
+import PacoteInterfaceVisual.Usuario.Usuario;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author CaioFSX
@@ -27,9 +30,9 @@ public class PaginaConfirmarCodigoEmail extends javax.swing.JFrame {
     private void initComponents() {
 
         JPanelPedirSenha = new javax.swing.JPanel();
-        InformeSuaSenha = new javax.swing.JTextField();
-        CampoInserirSenha = new javax.swing.JTextField();
-        BotaoEntrarSenha = new javax.swing.JButton();
+        DigitarCodigoTitulo = new javax.swing.JTextField();
+        CampoInserirCodigo = new javax.swing.JTextField();
+        BotaoConfirmarCodigo = new javax.swing.JButton();
         PainelLogoPedirSenha = new javax.swing.JPanel();
         TituloBancoJava = new javax.swing.JTextField();
         ImagemLogoJava = new javax.swing.JLabel();
@@ -39,35 +42,36 @@ public class PaginaConfirmarCodigoEmail extends javax.swing.JFrame {
 
         JPanelPedirSenha.setBackground(new java.awt.Color(255, 255, 255));
 
-        InformeSuaSenha.setEditable(false);
-        InformeSuaSenha.setBackground(new java.awt.Color(255, 255, 255));
-        InformeSuaSenha.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        InformeSuaSenha.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        InformeSuaSenha.setText("Digite o código de 4 dígitos que enviamos para seu e-mail:");
-        InformeSuaSenha.setBorder(null);
-        InformeSuaSenha.setFocusable(false);
-        InformeSuaSenha.addActionListener(new java.awt.event.ActionListener() {
+        DigitarCodigoTitulo.setEditable(false);
+        DigitarCodigoTitulo.setBackground(new java.awt.Color(255, 255, 255));
+        DigitarCodigoTitulo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        DigitarCodigoTitulo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        DigitarCodigoTitulo.setText("Digite o código de 4 dígitos que enviamos para seu e-mail:");
+        DigitarCodigoTitulo.setBorder(null);
+        DigitarCodigoTitulo.setFocusable(false);
+        DigitarCodigoTitulo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                InformeSuaSenhaActionPerformed(evt);
+                DigitarCodigoTituloActionPerformed(evt);
             }
         });
 
-        CampoInserirSenha.setText(" 0000");
-        CampoInserirSenha.setToolTipText("");
-        CampoInserirSenha.addActionListener(new java.awt.event.ActionListener() {
+        CampoInserirCodigo.setText(" 0000");
+        CampoInserirCodigo.setToolTipText("");
+        CampoInserirCodigo.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        CampoInserirCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CampoInserirSenhaActionPerformed(evt);
+                CampoInserirCodigoActionPerformed(evt);
             }
         });
 
-        BotaoEntrarSenha.setBackground(new java.awt.Color(204, 0, 0));
-        BotaoEntrarSenha.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        BotaoEntrarSenha.setForeground(new java.awt.Color(255, 255, 255));
-        BotaoEntrarSenha.setText("Confirmar");
-        BotaoEntrarSenha.setBorderPainted(false);
-        BotaoEntrarSenha.addActionListener(new java.awt.event.ActionListener() {
+        BotaoConfirmarCodigo.setBackground(new java.awt.Color(204, 0, 0));
+        BotaoConfirmarCodigo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        BotaoConfirmarCodigo.setForeground(new java.awt.Color(255, 255, 255));
+        BotaoConfirmarCodigo.setText("Confirmar");
+        BotaoConfirmarCodigo.setBorderPainted(false);
+        BotaoConfirmarCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotaoEntrarSenhaActionPerformed(evt);
+                BotaoConfirmarCodigoActionPerformed(evt);
             }
         });
 
@@ -79,28 +83,28 @@ public class PaginaConfirmarCodigoEmail extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(JPanelPedirSenhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JPanelPedirSenhaLayout.createSequentialGroup()
-                        .addComponent(CampoInserirSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(CampoInserirCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 109, Short.MAX_VALUE))
-                    .addComponent(InformeSuaSenha))
+                    .addComponent(DigitarCodigoTitulo))
                 .addContainerGap())
             .addGroup(JPanelPedirSenhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelPedirSenhaLayout.createSequentialGroup()
                     .addContainerGap(112, Short.MAX_VALUE)
-                    .addComponent(BotaoEntrarSenha)
+                    .addComponent(BotaoConfirmarCodigo)
                     .addGap(114, 114, 114)))
         );
         JPanelPedirSenhaLayout.setVerticalGroup(
             JPanelPedirSenhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPanelPedirSenhaLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(InformeSuaSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(DigitarCodigoTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(CampoInserirSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(CampoInserirCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(174, 174, 174))
             .addGroup(JPanelPedirSenhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelPedirSenhaLayout.createSequentialGroup()
                     .addContainerGap(356, Short.MAX_VALUE)
-                    .addComponent(BotaoEntrarSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BotaoConfirmarCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(36, 36, 36)))
         );
 
@@ -174,17 +178,25 @@ public class PaginaConfirmarCodigoEmail extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_TituloBancoJavaActionPerformed
 
-    private void InformeSuaSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InformeSuaSenhaActionPerformed
+    private void DigitarCodigoTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DigitarCodigoTituloActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_InformeSuaSenhaActionPerformed
+    }//GEN-LAST:event_DigitarCodigoTituloActionPerformed
 
-    private void CampoInserirSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoInserirSenhaActionPerformed
+    private void CampoInserirCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoInserirCodigoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_CampoInserirSenhaActionPerformed
+    }//GEN-LAST:event_CampoInserirCodigoActionPerformed
 
-    private void BotaoEntrarSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoEntrarSenhaActionPerformed
+    private void BotaoConfirmarCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoConfirmarCodigoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_BotaoEntrarSenhaActionPerformed
+        if(Integer.valueOf(CampoInserirCodigo.getText()) == Usuario.getCodigoRecuperacao()){
+            this.dispose();
+            JOptionPane.showMessageDialog(null, "Codigo Correto!", "BANCO JAVA", JOptionPane.INFORMATION_MESSAGE);
+            PaginaRedefinirSenha p1 = new PaginaRedefinirSenha();
+            p1.setVisible(true);
+        } else{
+            JOptionPane.showMessageDialog(null, "Codigo Incorreto, verifique seu e-mail!", "BANCO JAVA", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_BotaoConfirmarCodigoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -238,10 +250,10 @@ public class PaginaConfirmarCodigoEmail extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BotaoEntrarSenha;
-    private javax.swing.JTextField CampoInserirSenha;
+    private javax.swing.JButton BotaoConfirmarCodigo;
+    private javax.swing.JTextField CampoInserirCodigo;
+    private javax.swing.JTextField DigitarCodigoTitulo;
     private javax.swing.JLabel ImagemLogoJava;
-    private javax.swing.JTextField InformeSuaSenha;
     private javax.swing.JPanel JPanelPedirSenha;
     private javax.swing.JPanel PainelLogoPedirSenha;
     private javax.swing.JTextField TituloBancoJava;
