@@ -217,7 +217,6 @@ public class PaginaCriarContaSenha extends javax.swing.JFrame {
             if (CampoDigitarSenha.getText().equals(CampoConfirmarSenha.getText())) {
                 Usuario.setSenha(CampoDigitarSenha.getText());
                 JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso!", "Banco JAVA", JOptionPane.INFORMATION_MESSAGE);
-                Usuario.setNumeroConta(9999);
                 v1.CadastrarUsuario();
                 if(Usuario.getUsuarioRealizouCadastro()){
                     this.dispose();

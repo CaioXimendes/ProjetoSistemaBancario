@@ -8,6 +8,7 @@ import PacoteInterfaceVisual.PaginaCriarConta;
 import PacoteInterfaceVisual.PaginaPedirSenhaLogin;
 import PacoteInterfaceVisual.Usuario.Usuario;
 import java.sql.SQLException;
+import java.util.Random;
 /**
  *
  * @author CaioFSX
@@ -29,6 +30,8 @@ public class ValidarInformacoesUsuario {
           }
     }
     public void CadastrarUsuario() throws ClassNotFoundException, SQLException{
+        Random random = new Random();
+        Usuario.setNumeroConta(1000 + random.nextInt(9000));
         BancoDeDados b1 = new BancoDeDados();
         b1.CadastrarUsuarioNoBancoDeDados();
         //System.out.println("Usuario cadastrado com os registros:\ncpf:"+Usuario.getCpf()+"\nnome:"+Usuario.getNome()+"\nemail:"+Usuario.getEmail()+"\nsenha:"+Usuario.getSenha());
