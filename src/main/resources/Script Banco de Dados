@@ -2,7 +2,6 @@ DROP DATABASE IF EXISTS bancojava;
 CREATE DATABASE bancojava;
 USE bancojava;
 
-
 CREATE TABLE IF NOT EXISTS usuarios (
     id INT AUTO_INCREMENT PRIMARY KEY,
     cpf VARCHAR(15) NOT NULL UNIQUE,
@@ -13,7 +12,6 @@ CREATE TABLE IF NOT EXISTS usuarios (
     numeroConta INT NOT NULL UNIQUE
 );
 
-
 CREATE TABLE IF NOT EXISTS transferencias (
     id INT AUTO_INCREMENT PRIMARY KEY,
     id_origem INT NOT NULL,
@@ -23,14 +21,12 @@ CREATE TABLE IF NOT EXISTS transferencias (
     FOREIGN KEY (id_destino) REFERENCES usuarios(id)
 );
 
-
 CREATE TABLE IF NOT EXISTS deposito (
     id INT AUTO_INCREMENT PRIMARY KEY,
     id_usuario INT NOT NULL,
     valor DECIMAL(10,2) NOT NULL,
     FOREIGN KEY (id_usuario) REFERENCES usuarios(id)
 );
-
 
 CREATE TABLE IF NOT EXISTS pagamentos (
     id INT AUTO_INCREMENT PRIMARY KEY,
