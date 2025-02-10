@@ -4,6 +4,7 @@
  */
 package ConexaoBancoDeDados;
 
+import PacoteInterfaceVisual.Usuario.OperacoesBancarias;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -132,6 +133,64 @@ public class BancoDeDados {
             String sql = "update Usuarios set senha= "+"'"+Usuario.getSenha()+"'"+"where cpf="+"'"+Usuario.getCpf()+"';";
             statement.execute(sql);
             System.out.println(sql);
+        } catch(ClassNotFoundException ex){
+            System.out.println("Driver do Banco de dados não localizado!");
+        } catch(SQLException ex){
+            System.out.println("Erro durante a conexão com o banco de dados! Erro:" + ex.getMessage());
+        }
+        finally{
+            if(conexao1 != null){
+                conexao1.close();
+            }
+        }
+    }
+    public void consultarSaldoPeloBancoDeDados() throws ClassNotFoundException, SQLException{
+        try{
+            ResultSet resultSet;
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            conexao1 = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/?user=root", "root", "1234");
+            Statement statement = conexao1.createStatement();
+            statement.execute("use bancojava");
+            String sql = "select saldo from Usuarios where cpf= "+"'"+Usuario.getCpf()+"';";
+            resultSet = statement.executeQuery(sql);
+            System.out.println(sql);
+            if(resultSet.next()){
+                Usuario.setSaldo(resultSet.getDouble("saldo"));
+                System.out.println("Usuario com CPF: "+Usuario.getCpf()+" e saldo: R$"+resultSet.getDouble("saldo"));
+            }
+        } catch(ClassNotFoundException ex){
+            System.out.println("Driver do Banco de dados não localizado!");
+        } catch(SQLException ex){
+            System.out.println("Erro durante a conexão com o banco de dados! Erro:" + ex.getMessage());
+        }
+        finally{
+            if(conexao1 != null){
+                conexao1.close();
+            }
+        }
+    }
+    public void transferirViaPixPeloBancoDeDados()throws ClassNotFoundException, SQLException{
+        try{
+            ResultSet resultSet;
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            conexao1 = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/?user=root", "root", "1234");
+            Statement statement = conexao1.createStatement();
+            statement.execute("use bancojava");
+            String sql = "select saldo from Usuarios where cpf= "+"'"+OperacoesBancarias.getChavePixCpf()+"';";
+            resultSet = statement.executeQuery(sql);
+            System.out.println(sql);
+            //Reduzir saldo da conta LOGADA
+            if(resultSet.next()){
+                statement.execute("update usuarios set saldo ="+(resultSet.getDouble("saldo")+OperacoesBancarias.getQuantiaTransferencia())+"where cpf= "+"'"+OperacoesBancarias.getChavePixCpf()+"';");
+                //resultSet = statement.executeQuery("select saldo from Usuarios where cpf= "+"'"+Usuario.getCpf()+"';");
+                //Usuario.setSaldo(resultSet.getDouble("saldo"));
+                statement.execute("update usuarios set saldo ="+(Usuario.getSaldo()-OperacoesBancarias.getQuantiaTransferencia())+"where cpf= "+"'"+Usuario.getCpf()+"';");
+                Usuario.setSaldo(Usuario.getSaldo()-OperacoesBancarias.getQuantiaTransferencia());
+                System.out.println("Transferencia realizada pelo pix, quantia de: R$"+OperacoesBancarias.getQuantiaTransferencia()+" para a conta de chave pix: "+OperacoesBancarias.getChavePixCpf());
+                OperacoesBancarias.setChavePixValida(true);
+            }else{
+                OperacoesBancarias.setChavePixValida(false);
+            }
         } catch(ClassNotFoundException ex){
             System.out.println("Driver do Banco de dados não localizado!");
         } catch(SQLException ex){

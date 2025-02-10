@@ -4,6 +4,9 @@
  */
 package PacoteInterfaceVisual;
 
+import PacoteInterfaceVisual.Usuario.OperacoesBancarias;
+import PacoteRegraDeNegocio.ValidarInformacoesUsuario;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 /**
@@ -281,10 +284,27 @@ public class PaginaAreaPix extends javax.swing.JFrame {
 
     private void BotaoConfirmarPixActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoConfirmarPixActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(null, "Mensagem do Pix", "Informação sobre a Transferência:", JOptionPane.INFORMATION_MESSAGE);
         ConfirmarSenha4Digitos.setEnabled(false);
         CampoInserirSenha4Digitos.setEnabled(false);
         BotaoConfirmarPix.setEnabled(false);
+        OperacoesBancarias.setChavePixCpf(CampoInserirChavePix.getText());
+        OperacoesBancarias.setQuantiaTransferencia(Double.parseDouble(CampoInserirQuantiaTransferenciaPix.getText()));
+        ValidarInformacoesUsuario v1 = new ValidarInformacoesUsuario();
+        try{
+            v1.consultarSaldo();
+            v1.transferirViaPix();
+        if(OperacoesBancarias.getChavePixValida()){
+            JOptionPane.showMessageDialog(null, "Pix de R$ "+OperacoesBancarias.getQuantiaTransferencia()+" realizado para a chave pix: "+OperacoesBancarias.getChavePixCpf(), "BANCO JAVA", JOptionPane.INFORMATION_MESSAGE);
+        }else{
+            JOptionPane.showMessageDialog(null, "Não encontramos essa chave pix cadastrada no nosso banco!","BANCO JAVA", JOptionPane.INFORMATION_MESSAGE);
+        }
+        }catch(ClassNotFoundException ex){
+            ex.getMessage();
+        }catch(SQLException ex){
+            ex.getMessage();
+        }
+        
+        
     }//GEN-LAST:event_BotaoConfirmarPixActionPerformed
 
     /**

@@ -72,8 +72,19 @@ public class ValidarInformacoesUsuario {
             }
         }
     }
-    public void AlterarSenhaUsuario()throws ClassNotFoundException, SQLException{
+
+    public void AlterarSenhaUsuario() throws ClassNotFoundException, SQLException {
         BancoDeDados b1 = new BancoDeDados();
         b1.AlterarSenhaUsuarioPeloBancoDeDados();
+    }
+
+    public void consultarSaldo() throws ClassNotFoundException, SQLException {
+        BancoDeDados b1 = new BancoDeDados();
+        b1.consultarSaldoPeloBancoDeDados();
+    }
+
+    public void transferirViaPix() throws ClassNotFoundException, SQLException{
+        BancoDeDados b1 = new BancoDeDados();
+        b1.transferirViaPixPeloBancoDeDados();
     }
 }

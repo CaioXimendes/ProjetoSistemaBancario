@@ -4,6 +4,9 @@
  */
 package PacoteInterfaceVisual;
 
+import PacoteInterfaceVisual.Usuario.Usuario;
+import PacoteRegraDeNegocio.ValidarInformacoesUsuario;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 /**
@@ -269,7 +272,16 @@ public class PaginaHome extends javax.swing.JFrame {
 
     private void BotaoConsultarSaldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoConsultarSaldoActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(null, "R$ 0,00 exemplo", "Saldo da conta", JOptionPane.INFORMATION_MESSAGE);
+        try {
+            ValidarInformacoesUsuario v1 = new ValidarInformacoesUsuario();
+            v1.consultarSaldo();
+            JOptionPane.showMessageDialog(null, "R$ "+Usuario.getSaldo(), "Saldo da conta", JOptionPane.INFORMATION_MESSAGE);
+        } catch (ClassNotFoundException ex) {
+            ex.getMessage();
+        } catch (SQLException ex) {
+            ex.getMessage();
+        }
+
     }//GEN-LAST:event_BotaoConsultarSaldoActionPerformed
 
     private void PerguntasFrequentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PerguntasFrequentesActionPerformed
