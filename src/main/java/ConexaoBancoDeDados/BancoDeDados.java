@@ -12,7 +12,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import PacoteInterfaceVisual.Usuario.Usuario;
 import java.sql.ResultSet;
-import java.util.Iterator;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 
 /**
  *
@@ -183,10 +185,17 @@ public class BancoDeDados {
             System.out.println(sql);
             //Reduzir saldo da conta LOGADA
             if(resultSet.next()){
+                LocalDateTime dataHorarioAgoraSemFormatacao = LocalDateTime.now();
+                DateTimeFormatter formatacao = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss").withZone(ZoneId.of("America/Sao_Paulo"));
+                String dataHorarioFormatado = formatacao.format(dataHorarioAgoraSemFormatacao);
                 statement.execute("update usuarios set saldo ="+(resultSet.getDouble("saldo")+OperacoesBancarias.getQuantiaTransferencia())+"where cpf= "+"'"+OperacoesBancarias.getChavePixCpf()+"';");
                 //resultSet = statement.executeQuery("select saldo from Usuarios where cpf= "+"'"+Usuario.getCpf()+"';");
                 //Usuario.setSaldo(resultSet.getDouble("saldo"));
                 statement.execute("update usuarios set saldo ="+(Usuario.getSaldo()-OperacoesBancarias.getQuantiaTransferencia())+"where cpf= "+"'"+Usuario.getCpf()+"';");
+                //EXTRATO PARA QUEM TRANSFERIU O DINHEIRO
+                statement.execute("insert into extrato (cpf,data_horario,descricao,valor,tipo) values "+"('"+Usuario.getCpf()+"',"+"'"+dataHorarioFormatado+"',"+"'Transferência via Pix'"+","+OperacoesBancarias.getQuantiaTransferencia()+","+"'débito');");
+                //EXTRATO PARA QUEM RECEBEU O DINHEIRO
+                statement.execute("insert into extrato (cpf,data_horario,descricao,valor,tipo) values "+"('"+OperacoesBancarias.getChavePixCpf()+"',"+"'"+dataHorarioFormatado+"',"+"'Transferência via Pix'"+","+OperacoesBancarias.getQuantiaTransferencia()+","+"'crédito');");
                 Usuario.setSaldo(Usuario.getSaldo()-OperacoesBancarias.getQuantiaTransferencia());
                 System.out.println("Transferencia realizada pelo pix, quantia de: R$"+OperacoesBancarias.getQuantiaTransferencia()+" para a conta de chave pix: "+OperacoesBancarias.getChavePixCpf());
                 OperacoesBancarias.setChavePixValida(true);
