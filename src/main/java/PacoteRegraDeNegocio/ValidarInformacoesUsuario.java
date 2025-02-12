@@ -95,4 +95,8 @@ public class ValidarInformacoesUsuario {
         BancoDeDados b1 = new BancoDeDados();
         b1.criarSenha4DigitosPeloBancoDeDados();
     }
+    public void buscarSenha4Digitos() throws ClassNotFoundException, SQLException{
+        BancoDeDados b1 = new BancoDeDados();
+        b1.buscarSenha4DigitosPeloBancoDeDados();
+    }
 }

@@ -5,6 +5,7 @@
 package PacoteInterfaceVisual;
 
 import PacoteInterfaceVisual.Usuario.OperacoesBancarias;
+import PacoteInterfaceVisual.Usuario.Usuario;
 import PacoteRegraDeNegocio.ValidarInformacoesUsuario;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
@@ -39,7 +40,7 @@ public class PaginaAreaPix extends javax.swing.JFrame {
         CampoInserirQuantiaTransferenciaPix = new javax.swing.JTextField();
         BotaoTransferirPix = new javax.swing.JButton();
         CampoInserirChavePix = new javax.swing.JTextField();
-        ConfirmarSenha4Digitos = new javax.swing.JTextField();
+        ConfirmarSenha4DigitosTitulo = new javax.swing.JTextField();
         CampoInserirSenha4Digitos = new javax.swing.JTextField();
         BotaoVoltar1 = new javax.swing.JButton();
         BotaoConfirmarPix = new javax.swing.JButton();
@@ -116,16 +117,16 @@ public class PaginaAreaPix extends javax.swing.JFrame {
             }
         });
 
-        ConfirmarSenha4Digitos.setEditable(false);
-        ConfirmarSenha4Digitos.setBackground(new java.awt.Color(255, 255, 255));
-        ConfirmarSenha4Digitos.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        ConfirmarSenha4Digitos.setText("Digite sua senha de 4 dígitos para confirmar a operação:");
-        ConfirmarSenha4Digitos.setBorder(null);
-        ConfirmarSenha4Digitos.setEnabled(false);
-        ConfirmarSenha4Digitos.setFocusable(false);
-        ConfirmarSenha4Digitos.addActionListener(new java.awt.event.ActionListener() {
+        ConfirmarSenha4DigitosTitulo.setEditable(false);
+        ConfirmarSenha4DigitosTitulo.setBackground(new java.awt.Color(255, 255, 255));
+        ConfirmarSenha4DigitosTitulo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        ConfirmarSenha4DigitosTitulo.setText("Digite sua senha de 4 dígitos para confirmar a operação:");
+        ConfirmarSenha4DigitosTitulo.setBorder(null);
+        ConfirmarSenha4DigitosTitulo.setEnabled(false);
+        ConfirmarSenha4DigitosTitulo.setFocusable(false);
+        ConfirmarSenha4DigitosTitulo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ConfirmarSenha4DigitosActionPerformed(evt);
+                ConfirmarSenha4DigitosTituloActionPerformed(evt);
             }
         });
 
@@ -173,7 +174,7 @@ public class PaginaAreaPix extends javax.swing.JFrame {
                         .addComponent(BotaoConfirmarPix)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(JPanelHOMELayout.createSequentialGroup()
-                        .addComponent(ConfirmarSenha4Digitos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ConfirmarSenha4DigitosTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(35, Short.MAX_VALUE))
                     .addGroup(JPanelHOMELayout.createSequentialGroup()
                         .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -212,7 +213,7 @@ public class PaginaAreaPix extends javax.swing.JFrame {
                     .addComponent(BotaoTransferirPix)
                     .addComponent(CampoInserirChavePix, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(ConfirmarSenha4Digitos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ConfirmarSenha4DigitosTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CampoInserirSenha4Digitos, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -258,18 +259,32 @@ public class PaginaAreaPix extends javax.swing.JFrame {
 
     private void BotaoTransferirPixActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoTransferirPixActionPerformed
         // TODO add your handling code here:
-        ConfirmarSenha4Digitos.setEnabled(true);
+        ValidarInformacoesUsuario v1 = new ValidarInformacoesUsuario();
+        try {
+            v1.buscarSenha4Digitos();
+        } catch (ClassNotFoundException ex) {
+            ex.getMessage();
+        } catch (SQLException ex) {
+            ex.getMessage();
+        }
+
+        ConfirmarSenha4DigitosTitulo.setEnabled(true);
         CampoInserirSenha4Digitos.setEnabled(true);
         BotaoConfirmarPix.setEnabled(true);
+        CampoInserirChavePix.setEnabled(false);
+        TransferenciaPixTitulo.setEnabled(false);
+        CampoInserirQuantiaTransferenciaPix.setEnabled(false);
+        BotaoTransferirPix.setEnabled(false);
+
     }//GEN-LAST:event_BotaoTransferirPixActionPerformed
 
     private void CampoInserirChavePixActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoInserirChavePixActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_CampoInserirChavePixActionPerformed
 
-    private void ConfirmarSenha4DigitosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmarSenha4DigitosActionPerformed
+    private void ConfirmarSenha4DigitosTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmarSenha4DigitosTituloActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ConfirmarSenha4DigitosActionPerformed
+    }//GEN-LAST:event_ConfirmarSenha4DigitosTituloActionPerformed
 
     private void CampoInserirSenha4DigitosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoInserirSenha4DigitosActionPerformed
         // TODO add your handling code here:
@@ -284,27 +299,48 @@ public class PaginaAreaPix extends javax.swing.JFrame {
 
     private void BotaoConfirmarPixActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoConfirmarPixActionPerformed
         // TODO add your handling code here:
-        ConfirmarSenha4Digitos.setEnabled(false);
-        CampoInserirSenha4Digitos.setEnabled(false);
-        BotaoConfirmarPix.setEnabled(false);
+
         OperacoesBancarias.setChavePixCpf(CampoInserirChavePix.getText());
         OperacoesBancarias.setQuantiaTransferencia(Double.parseDouble(CampoInserirQuantiaTransferenciaPix.getText()));
+
         ValidarInformacoesUsuario v1 = new ValidarInformacoesUsuario();
-        try{
-            v1.consultarSaldo();
-            v1.transferirViaPix();
-        if(OperacoesBancarias.getChavePixValida()){
-            JOptionPane.showMessageDialog(null, "Pix de R$ "+OperacoesBancarias.getQuantiaTransferencia()+" realizado para a chave pix: "+OperacoesBancarias.getChavePixCpf(), "BANCO JAVA", JOptionPane.INFORMATION_MESSAGE);
-        }else{
-            JOptionPane.showMessageDialog(null, "Não encontramos essa chave pix cadastrada no nosso banco!","BANCO JAVA", JOptionPane.INFORMATION_MESSAGE);
-        }
-        }catch(ClassNotFoundException ex){
+        try {
+            if (Integer.parseInt(CampoInserirSenha4Digitos.getText()) == Usuario.getSenha4Digitos()) {
+                v1.consultarSaldo();
+                v1.transferirViaPix();
+                if (OperacoesBancarias.getChavePixValida()) {
+                    JOptionPane.showMessageDialog(null, "Pix de R$ " + OperacoesBancarias.getQuantiaTransferencia() + " realizado para a chave pix: " + OperacoesBancarias.getChavePixCpf(), "BANCO JAVA", JOptionPane.INFORMATION_MESSAGE);
+                    ConfirmarSenha4DigitosTitulo.setEnabled(false);
+                    CampoInserirSenha4Digitos.setEnabled(false);
+                    BotaoConfirmarPix.setEnabled(false);
+                    TransferenciaPixTitulo.setEnabled(true);
+                    CampoInserirQuantiaTransferenciaPix.setEnabled(true);
+                    BotaoTransferirPix.setEnabled(true);
+                    TransferenciaPixTitulo.setEnabled(true);
+                    CampoInserirChavePix.setEnabled(true);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Não encontramos essa chave pix cadastrada no nosso banco!", "BANCO JAVA", JOptionPane.INFORMATION_MESSAGE);
+                    ConfirmarSenha4DigitosTitulo.setEnabled(false);
+                    CampoInserirSenha4Digitos.setEnabled(false);
+                    BotaoConfirmarPix.setEnabled(false);
+                    TransferenciaPixTitulo.setEnabled(true);
+                    CampoInserirQuantiaTransferenciaPix.setEnabled(true);
+                    BotaoTransferirPix.setEnabled(true);
+                    TransferenciaPixTitulo.setEnabled(true);
+                    CampoInserirChavePix.setEnabled(true);
+                }
+            } else if (Integer.parseInt(CampoInserirSenha4Digitos.getText()) != Usuario.getSenha4Digitos()) {
+                JOptionPane.showMessageDialog(null, "Senha de 4 dígitos incorreta!", "BANCO JAVA", JOptionPane.INFORMATION_MESSAGE);
+            } else if (Usuario.getSenha4Digitos() == 0) {
+                JOptionPane.showMessageDialog(null, "Você não cadastrou uma senha de 4 dígitos!", "BANCO JAVA", JOptionPane.INFORMATION_MESSAGE);
+            }
+        } catch (ClassNotFoundException ex) {
             ex.getMessage();
-        }catch(SQLException ex){
+        } catch (SQLException ex) {
             ex.getMessage();
         }
-        
-        
+
+
     }//GEN-LAST:event_BotaoConfirmarPixActionPerformed
 
     /**
@@ -365,7 +401,7 @@ public class PaginaAreaPix extends javax.swing.JFrame {
     private javax.swing.JTextField CampoInserirChavePix;
     private javax.swing.JTextField CampoInserirQuantiaTransferenciaPix;
     private javax.swing.JTextField CampoInserirSenha4Digitos;
-    private javax.swing.JTextField ConfirmarSenha4Digitos;
+    private javax.swing.JTextField ConfirmarSenha4DigitosTitulo;
     private javax.swing.JLabel IconeLogo;
     private javax.swing.JPanel JPanelHOME;
     private javax.swing.JTextField NomeCliente;

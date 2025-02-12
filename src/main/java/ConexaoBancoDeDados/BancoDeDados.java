@@ -274,4 +274,33 @@ public class BancoDeDados {
             }
         }
     }
+    public void buscarSenha4DigitosPeloBancoDeDados() throws ClassNotFoundException, SQLException{
+        try{
+            ResultSet resultSet;
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            conexao1 = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/?user=root", "root", "1234");
+            Statement statement = conexao1.createStatement();
+            statement.execute("use bancojava");
+            String sql = "select senha4digitos from Usuarios where cpf="+"'"+Usuario.getCpf()+"';";
+            resultSet = statement.executeQuery(sql);
+            System.out.println(sql);
+            if(resultSet.next()){
+                Usuario.setSenha4Digitos(resultSet.getInt("senha4digitos"));
+                System.out.println("Usuario com CPF: "+Usuario.getCpf()+" e senha4digitos: "+resultSet.getInt("senha4digitos"));
+            }
+            else{
+                Usuario.setUsuarioValido(false);
+            }
+            
+        } catch(ClassNotFoundException ex){
+            System.out.println("Driver do Banco de dados não localizado!");
+        } catch(SQLException ex){
+            System.out.println("Erro durante a conexão com o banco de dados! Erro:" + ex.getMessage());
+        }
+        finally{
+            if(conexao1 != null){
+                conexao1.close();
+            }
+        }
+    }
 }
