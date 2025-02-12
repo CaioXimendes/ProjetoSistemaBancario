@@ -4,7 +4,10 @@
  */
 package PacoteInterfaceVisual;
 
-import javax.swing.JOptionPane;
+import PacoteInterfaceVisual.Usuario.Extrato;
+import PacoteRegraDeNegocio.ValidarInformacoesUsuario;
+import java.sql.SQLException;
+import java.util.Collection;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -164,12 +167,47 @@ public class PaginaConsultarExtrato extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.dispose();
         PaginaConsultarExtratoTabela p1 = new PaginaConsultarExtratoTabela();
-        DefaultTableModel dtm1 = (DefaultTableModel)p1.getTabelaConsultaExtrato().getModel();
-        Object[] dados = {"valor1", "valor2", "valor3","valor4"};
-        dtm1.addRow(dados);
-        Object[] dados2 = {"valores1", "valores2", "valores3","valores4"};
-        dtm1.addRow(dados2);
+        ValidarInformacoesUsuario v1 = new ValidarInformacoesUsuario();
+        try {
+            v1.consultarExtrato();
+        } catch (ClassNotFoundException ex) {
+            ex.getMessage();
+        } catch (SQLException ex) {
+            ex.getMessage();
+        }
+        DefaultTableModel dtm1 = (DefaultTableModel) p1.getTabelaConsultaExtrato().getModel();
+        
+        System.out.println(dtm1);
+        Object[] colunaDataHorario = new Object[Extrato.getDataExtratoLista().size()];
+        Object[] colunaDescricao = new Object[Extrato.getDescricaoExtratoLista().size()];
+        Object[] colunaValor = new Object[Extrato.getValorExtratoLista().size()];
+        Object[] colunaTipo = new Object[Extrato.getTipoCreditoDebitoExtratoLista().size()];
+        
+        for(int x=0; x< Extrato.getDataExtratoLista().size();x++){
+            colunaDataHorario[x] = Extrato.getDataExtratoLista().get(x);
+        }
+        for(int x=0; x< Extrato.getDescricaoExtratoLista().size();x++){
+            colunaDescricao[x] = Extrato.getDescricaoExtratoLista().get(x);
+        }
+        for(int x=0; x< Extrato.getValorExtratoLista().size();x++){
+            colunaValor[x] = Extrato.getValorExtratoLista().get(x);
+        }
+        for(int x=0; x< Extrato.getTipoCreditoDebitoExtratoLista().size();x++){
+            colunaTipo[x] = Extrato.getTipoCreditoDebitoExtratoLista().get(x);
+        }
+        
+        //Extrato.getDataExtratoLista().size();
+        dtm1.addColumn("data_horario", colunaDataHorario);
+        dtm1.addColumn("descricao", colunaDescricao);
+        dtm1.addColumn("valor", colunaValor);
+        dtm1.addColumn("tipo", colunaTipo);
+        //Object[] dados2 = {"valores1", "valores2", "valores3","valores4"};
+        //dtm1.addRow(dados2);
         p1.setVisible(true);
+        Extrato.getDataExtratoLista().removeAll(Extrato.getDataExtratoLista());
+        Extrato.getDescricaoExtratoLista().removeAll(Extrato.getDescricaoExtratoLista());
+        Extrato.getValorExtratoLista().removeAll(Extrato.getValorExtratoLista());
+        Extrato.getTipoCreditoDebitoExtratoLista().removeAll(Extrato.getTipoCreditoDebitoExtratoLista());
     }//GEN-LAST:event_BotaoConsultarExtratoActionPerformed
 
     private void NomeClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NomeClienteActionPerformed

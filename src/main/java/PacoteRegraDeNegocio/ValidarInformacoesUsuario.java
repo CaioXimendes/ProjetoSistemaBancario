@@ -87,4 +87,8 @@ public class ValidarInformacoesUsuario {
         BancoDeDados b1 = new BancoDeDados();
         b1.transferirViaPixPeloBancoDeDados();
     }
+    public void consultarExtrato()throws ClassNotFoundException, SQLException{
+        BancoDeDados b1 = new BancoDeDados();
+        b1.consultarExtratoNoBancoDeDados();
+    }
 }

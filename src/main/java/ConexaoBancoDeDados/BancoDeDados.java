@@ -4,6 +4,7 @@
  */
 package ConexaoBancoDeDados;
 
+import PacoteInterfaceVisual.Usuario.Extrato;
 import PacoteInterfaceVisual.Usuario.OperacoesBancarias;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -11,6 +12,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import PacoteInterfaceVisual.Usuario.Usuario;
 import java.sql.ResultSet;
+import java.util.Iterator;
 
 /**
  *
@@ -190,6 +192,47 @@ public class BancoDeDados {
                 OperacoesBancarias.setChavePixValida(true);
             }else{
                 OperacoesBancarias.setChavePixValida(false);
+            }
+        } catch(ClassNotFoundException ex){
+            System.out.println("Driver do Banco de dados não localizado!");
+        } catch(SQLException ex){
+            System.out.println("Erro durante a conexão com o banco de dados! Erro:" + ex.getMessage());
+        }
+        finally{
+            if(conexao1 != null){
+                conexao1.close();
+            }
+        }
+    }
+    public void consultarExtratoNoBancoDeDados() throws ClassNotFoundException, SQLException{
+        try{
+            ResultSet resultSet;
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            conexao1 = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/?user=root", "root", "1234");
+            Statement statement = conexao1.createStatement();
+            statement.execute("use bancojava");
+            String sql = "select data_horario,descricao,valor,tipo from extrato where cpf= "+"'"+Usuario.getCpf()+"';";
+            resultSet = statement.executeQuery(sql);
+            System.out.println(sql);
+            while(resultSet.next()){
+                Extrato.addDataExtratoLista(resultSet.getString("data_horario"));
+                Extrato.addDescricaoExtratoLista(resultSet.getString("descricao"));
+                Extrato.addValorExtratoLista(resultSet.getDouble("valor"));
+                Extrato.addTipoCreditoDebitoExtratoLista(resultSet.getString("tipo"));
+                //Usuario.setSaldo(resultSet.getDouble("saldo"));
+                //System.out.println("Usuario com CPF: "+Usuario.getCpf()+" e saldo: R$"+resultSet.getDouble("saldo"));
+            }
+            for(String resultado: Extrato.getDataExtratoLista()){
+                System.out.print(resultado+",");
+            }
+            for(String resultado2: Extrato.getDescricaoExtratoLista()){
+                System.out.print(resultado2+",");
+            }
+            for(Double resultado3: Extrato.getValorExtratoLista()){
+                System.out.print(resultado3+",");
+            }
+            for(String resultado4: Extrato.getTipoCreditoDebitoExtratoLista()){
+                System.out.print(resultado4+",");
             }
         } catch(ClassNotFoundException ex){
             System.out.println("Driver do Banco de dados não localizado!");
