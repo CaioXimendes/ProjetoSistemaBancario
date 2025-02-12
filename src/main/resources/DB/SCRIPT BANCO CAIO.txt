@@ -13,4 +13,13 @@ CREATE TABLE IF NOT EXISTS Usuarios (
     numeroConta INT NOT NULL UNIQUE
 );
 
+CREATE TABLE IF NOT EXISTS Extrato (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    cpf VARCHAR(15) NOT NULL,
+    data_horario VARCHAR(100) NOT NULL,
+    descricao VARCHAR(100) NOT NULL,
+    valor double NOT NULL,
+    tipo VARCHAR(15) NOT NULL
+);
+
 insert into Usuarios(cpf,nome,email,saldo,senha,senha4digitos,numeroConta) values ("708.977.054-08","Caio Ximendes","caio@gmail.com",0,12345678,1234,0001);
