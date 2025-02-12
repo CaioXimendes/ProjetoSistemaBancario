@@ -5,18 +5,17 @@
 package PacoteInterfaceVisual;
 
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author CaioFSX
  */
-public class PaginaConsultarExtrato extends javax.swing.JFrame {
+public class PaginaConsultarExtratoTabela extends javax.swing.JFrame {
 
     /**
      * Creates new form InterfaceVisual
      */
-    public PaginaConsultarExtrato() {
+    public PaginaConsultarExtratoTabela() {
         initComponents();
     }
 
@@ -30,28 +29,18 @@ public class PaginaConsultarExtrato extends javax.swing.JFrame {
     private void initComponents() {
 
         JPanelHOME = new javax.swing.JPanel();
-        BotaoConsultarExtrato = new javax.swing.JButton();
         IconeLogo = new javax.swing.JLabel();
         NomeCliente = new javax.swing.JTextField();
         PerguntasFrequentes = new javax.swing.JTextField();
         VerificarExtratoTitulo = new javax.swing.JTextField();
         BotaoVoltar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        TabelaConsultaExtrato = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
 
         JPanelHOME.setBackground(new java.awt.Color(255, 255, 255));
-
-        BotaoConsultarExtrato.setBackground(new java.awt.Color(204, 0, 0));
-        BotaoConsultarExtrato.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        BotaoConsultarExtrato.setForeground(new java.awt.Color(255, 255, 255));
-        BotaoConsultarExtrato.setText("ConsultarExtrato");
-        BotaoConsultarExtrato.setBorderPainted(false);
-        BotaoConsultarExtrato.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotaoConsultarExtratoActionPerformed(evt);
-            }
-        });
 
         IconeLogo.setIcon(new javax.swing.ImageIcon("C:\\NetBeansProjects\\sistema-bancario\\src\\main\\resources\\images\\logoCircular2.png")); // NOI18N
         IconeLogo.setText("jLabel1");
@@ -82,7 +71,7 @@ public class PaginaConsultarExtrato extends javax.swing.JFrame {
 
         VerificarExtratoTitulo.setEditable(false);
         VerificarExtratoTitulo.setBackground(new java.awt.Color(255, 255, 255));
-        VerificarExtratoTitulo.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        VerificarExtratoTitulo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         VerificarExtratoTitulo.setText("Deseja Verificar seu Extrato?");
         VerificarExtratoTitulo.setBorder(null);
         VerificarExtratoTitulo.setFocusable(false);
@@ -102,24 +91,40 @@ public class PaginaConsultarExtrato extends javax.swing.JFrame {
             }
         });
 
+        TabelaConsultaExtrato.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(TabelaConsultaExtrato);
+
         javax.swing.GroupLayout JPanelHOMELayout = new javax.swing.GroupLayout(JPanelHOME);
         JPanelHOME.setLayout(JPanelHOMELayout);
         JPanelHOMELayout.setHorizontalGroup(
             JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelHOMELayout.createSequentialGroup()
-                .addGap(14, 14, 14)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(VerificarExtratoTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelHOMELayout.createSequentialGroup()
+                        .addComponent(VerificarExtratoTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(70, 70, 70)
+                        .addComponent(PerguntasFrequentes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(BotaoVoltar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21))
+            .addGroup(JPanelHOMELayout.createSequentialGroup()
+                .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JPanelHOMELayout.createSequentialGroup()
+                        .addGap(14, 14, 14)
                         .addComponent(IconeLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(NomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(BotaoConsultarExtrato))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
-                .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(PerguntasFrequentes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BotaoVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21))
+                    .addGroup(JPanelHOMELayout.createSequentialGroup()
+                        .addGap(145, 145, 145)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(253, Short.MAX_VALUE))
         );
         JPanelHOMELayout.setVerticalGroup(
             JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -129,15 +134,14 @@ public class PaginaConsultarExtrato extends javax.swing.JFrame {
                         .addGap(6, 6, 6)
                         .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(IconeLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(NomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(NomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(VerificarExtratoTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(JPanelHOMELayout.createSequentialGroup()
                         .addGap(32, 32, 32)
                         .addComponent(PerguntasFrequentes, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(VerificarExtratoTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(BotaoConsultarExtrato, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 159, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                 .addComponent(BotaoVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(16, 16, 16))
         );
@@ -160,18 +164,6 @@ public class PaginaConsultarExtrato extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BotaoConsultarExtratoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoConsultarExtratoActionPerformed
-        // TODO add your handling code here:
-        this.dispose();
-        PaginaConsultarExtratoTabela p1 = new PaginaConsultarExtratoTabela();
-        DefaultTableModel dtm1 = (DefaultTableModel)p1.getTabelaConsultaExtrato().getModel();
-        Object[] dados = {"valor1", "valor2", "valor3","valor4"};
-        dtm1.addRow(dados);
-        Object[] dados2 = {"valores1", "valores2", "valores3","valores4"};
-        dtm1.addRow(dados2);
-        p1.setVisible(true);
-    }//GEN-LAST:event_BotaoConsultarExtratoActionPerformed
-
     private void NomeClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NomeClienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_NomeClienteActionPerformed
@@ -190,7 +182,9 @@ public class PaginaConsultarExtrato extends javax.swing.JFrame {
         PaginaHome p1 = new PaginaHome();
         p1.setVisible(true);
     }//GEN-LAST:event_BotaoVoltarActionPerformed
-
+    public javax.swing.JTable getTabelaConsultaExtrato(){
+        return TabelaConsultaExtrato;
+    }
     /**
      * @param args the command line arguments
      */
@@ -208,14 +202,22 @@ public class PaginaConsultarExtrato extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PaginaConsultarExtrato.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PaginaConsultarExtratoTabela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PaginaConsultarExtrato.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PaginaConsultarExtratoTabela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PaginaConsultarExtrato.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PaginaConsultarExtratoTabela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PaginaConsultarExtrato.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PaginaConsultarExtratoTabela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -229,18 +231,19 @@ public class PaginaConsultarExtrato extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new PaginaConsultarExtrato().setVisible(true);
+                new PaginaConsultarExtratoTabela().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BotaoConsultarExtrato;
     private javax.swing.JButton BotaoVoltar;
     private javax.swing.JLabel IconeLogo;
     private javax.swing.JPanel JPanelHOME;
     private javax.swing.JTextField NomeCliente;
     private javax.swing.JTextField PerguntasFrequentes;
+    private javax.swing.JTable TabelaConsultaExtrato;
     private javax.swing.JTextField VerificarExtratoTitulo;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
