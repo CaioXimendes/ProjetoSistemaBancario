@@ -107,18 +107,18 @@ public class ValidarInformacoesUsuario {
         Boleto.setCodigoBanco(codigoBanco);
         
         String fatorVencimento = "";
-        fatorVencimento = fatorVencimento + (Boleto.getCodigoBoleto().charAt(31))+(Boleto.getCodigoBoleto().charAt(32))+(Boleto.getCodigoBoleto().charAt(33))+(Boleto.getCodigoBoleto().charAt(34));
+        fatorVencimento = fatorVencimento + (Boleto.getCodigoBoleto().charAt(33))+(Boleto.getCodigoBoleto().charAt(34))+(Boleto.getCodigoBoleto().charAt(35))+(Boleto.getCodigoBoleto().charAt(36));
         Boleto.setFatorVencimento(Integer.parseInt(fatorVencimento));
         int x;
         char carac;
-        for(x=35; x<=44;x++){
+        for(x=37; x<=46;x++){
             carac = Boleto.getCodigoBoleto().charAt(x);
             if(carac != '0'){
                 break;
             }
         }
         String valorBoleto;
-        valorBoleto = Boleto.getCodigoBoleto().substring(x, 45);
+        valorBoleto = Boleto.getCodigoBoleto().substring(x, 47);
         Boleto.setValorBoleto(Long.parseLong(valorBoleto));
         //CALCULANDO AGORA A DATA DE VALIDADE DO BOLETO
         DateTimeFormatter formatacao = DateTimeFormatter.ofPattern("dd/MM/yyyy");

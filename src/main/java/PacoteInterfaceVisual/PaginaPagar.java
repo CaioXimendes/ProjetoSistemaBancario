@@ -143,7 +143,7 @@ public class PaginaPagar extends javax.swing.JFrame {
         });
 
         try {
-            CampoInserirCodigoBoletoFORMATADO.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#############################################")));
+            CampoInserirCodigoBoletoFORMATADO.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###############################################")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
