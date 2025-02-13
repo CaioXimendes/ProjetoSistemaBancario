@@ -316,6 +316,9 @@ public class BancoDeDados {
             String sql = "update Usuarios set saldo= "+(Usuario.getSaldo()-(Boleto.getValorBoleto()/100.0))+" where cpf="+"'"+Usuario.getCpf()+"';";
             statement.execute(sql);
             System.out.println(sql);
+            DateTimeFormatter formatacao = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+            LocalDateTime dataAgora = LocalDateTime.now();
+            statement.execute("insert into extrato (cpf,data_horario,descricao,valor,tipo) values "+"('"+Usuario.getCpf()+"',"+"'"+dataAgora.format(formatacao)+"',"+"'Pagamento de Boleto'"+","+Boleto.getValorBoleto()/100.0+","+"'débito');");
         } catch(ClassNotFoundException ex){
             System.out.println("Driver do Banco de dados não localizado!");
         } catch(SQLException ex){
