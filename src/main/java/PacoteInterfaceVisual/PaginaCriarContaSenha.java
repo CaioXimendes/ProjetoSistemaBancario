@@ -33,10 +33,10 @@ public class PaginaCriarContaSenha extends javax.swing.JFrame {
 
         JPanelPedirSenha = new javax.swing.JPanel();
         DigiteSuaSenha = new javax.swing.JTextField();
-        CampoDigitarSenha = new javax.swing.JTextField();
         BotaoCriarConta = new javax.swing.JButton();
         ConfirmeSuaSenha = new javax.swing.JTextField();
-        CampoConfirmarSenha = new javax.swing.JTextField();
+        CampoDigitarSenha = new javax.swing.JPasswordField();
+        CampoConfirmarSenha = new javax.swing.JPasswordField();
         PainelLogoPedirSenha = new javax.swing.JPanel();
         TituloBancoJava = new javax.swing.JTextField();
         ImagemLogoJava = new javax.swing.JLabel();
@@ -55,13 +55,6 @@ public class PaginaCriarContaSenha extends javax.swing.JFrame {
         DigiteSuaSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DigiteSuaSenhaActionPerformed(evt);
-            }
-        });
-
-        CampoDigitarSenha.setText("********");
-        CampoDigitarSenha.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CampoDigitarSenhaActionPerformed(evt);
             }
         });
 
@@ -88,12 +81,9 @@ public class PaginaCriarContaSenha extends javax.swing.JFrame {
             }
         });
 
-        CampoConfirmarSenha.setText("********");
-        CampoConfirmarSenha.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CampoConfirmarSenhaActionPerformed(evt);
-            }
-        });
+        CampoDigitarSenha.setText("jPasswordField1");
+
+        CampoConfirmarSenha.setText("jPasswordField1");
 
         javax.swing.GroupLayout JPanelPedirSenhaLayout = new javax.swing.GroupLayout(JPanelPedirSenha);
         JPanelPedirSenha.setLayout(JPanelPedirSenhaLayout);
@@ -101,11 +91,11 @@ public class PaginaCriarContaSenha extends javax.swing.JFrame {
             JPanelPedirSenhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPanelPedirSenhaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(JPanelPedirSenhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(DigiteSuaSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CampoDigitarSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CampoConfirmarSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ConfirmeSuaSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(JPanelPedirSenhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(CampoConfirmarSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+                    .addComponent(DigiteSuaSenha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ConfirmeSuaSenha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CampoDigitarSenha, javax.swing.GroupLayout.Alignment.LEADING))
                 .addContainerGap(140, Short.MAX_VALUE))
             .addGroup(JPanelPedirSenhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelPedirSenhaLayout.createSequentialGroup()
@@ -206,22 +196,22 @@ public class PaginaCriarContaSenha extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_DigiteSuaSenhaActionPerformed
 
-    private void CampoDigitarSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoDigitarSenhaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CampoDigitarSenhaActionPerformed
-
     private void BotaoCriarContaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoCriarContaActionPerformed
         // TODO add your handling code here:
         try {
             ValidarInformacoesUsuario v1 = new ValidarInformacoesUsuario();
             if (CampoDigitarSenha.getText().equals(CampoConfirmarSenha.getText())) {
-                Usuario.setSenha(CampoDigitarSenha.getText());
-                JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso!", "Banco JAVA", JOptionPane.INFORMATION_MESSAGE);
-                v1.CadastrarUsuario();
-                if(Usuario.getUsuarioRealizouCadastro()){
-                    this.dispose();
-                    PaginaHome p1 = new PaginaHome();
-                    p1.setVisible(true);
+                if (CampoDigitarSenha.getText().length() > 7) {
+                    Usuario.setSenha(CampoDigitarSenha.getText());
+                    JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso!", "Banco JAVA", JOptionPane.INFORMATION_MESSAGE);
+                    v1.CadastrarUsuario();
+                    if (Usuario.getUsuarioRealizouCadastro()) {
+                        this.dispose();
+                        PaginaHome p1 = new PaginaHome();
+                        p1.setVisible(true);
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "Sua senha não contém 8 ou mais dígitos, tente novamente!", "Banco JAVA", JOptionPane.INFORMATION_MESSAGE);
                 }
             } else {
                 JOptionPane.showMessageDialog(null, "Credenciais não conferem!", "Banco JAVA", JOptionPane.INFORMATION_MESSAGE);
@@ -238,10 +228,6 @@ public class PaginaCriarContaSenha extends javax.swing.JFrame {
     private void ConfirmeSuaSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmeSuaSenhaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ConfirmeSuaSenhaActionPerformed
-
-    private void CampoConfirmarSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoConfirmarSenhaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CampoConfirmarSenhaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -344,8 +330,8 @@ public class PaginaCriarContaSenha extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotaoCriarConta;
-    private javax.swing.JTextField CampoConfirmarSenha;
-    private javax.swing.JTextField CampoDigitarSenha;
+    private javax.swing.JPasswordField CampoConfirmarSenha;
+    private javax.swing.JPasswordField CampoDigitarSenha;
     private javax.swing.JTextField ConfirmeSuaSenha;
     private javax.swing.JTextField DigiteSuaSenha;
     private javax.swing.JLabel ImagemLogoJava;
