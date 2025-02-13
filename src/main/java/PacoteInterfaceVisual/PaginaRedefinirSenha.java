@@ -33,10 +33,10 @@ public class PaginaRedefinirSenha extends javax.swing.JFrame {
 
         JPanelPedirSenha = new javax.swing.JPanel();
         InformeSuaSenha = new javax.swing.JTextField();
-        CampoInserirNovaSenha = new javax.swing.JTextField();
         BotaoConfirmar = new javax.swing.JButton();
         ConfirmarNovaSenha = new javax.swing.JTextField();
-        CampoInserirConfirmacaoSenha = new javax.swing.JTextField();
+        CampoInserirNovaSenha = new javax.swing.JPasswordField();
+        CampoInserirConfirmacaoSenha = new javax.swing.JPasswordField();
         PainelLogoPedirSenha = new javax.swing.JPanel();
         TituloBancoJava = new javax.swing.JTextField();
         ImagemLogoJava = new javax.swing.JLabel();
@@ -55,14 +55,6 @@ public class PaginaRedefinirSenha extends javax.swing.JFrame {
         InformeSuaSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 InformeSuaSenhaActionPerformed(evt);
-            }
-        });
-
-        CampoInserirNovaSenha.setText(" **********");
-        CampoInserirNovaSenha.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        CampoInserirNovaSenha.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CampoInserirNovaSenhaActionPerformed(evt);
             }
         });
 
@@ -89,14 +81,6 @@ public class PaginaRedefinirSenha extends javax.swing.JFrame {
             }
         });
 
-        CampoInserirConfirmacaoSenha.setText(" **********");
-        CampoInserirConfirmacaoSenha.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        CampoInserirConfirmacaoSenha.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CampoInserirConfirmacaoSenhaActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout JPanelPedirSenhaLayout = new javax.swing.GroupLayout(JPanelPedirSenha);
         JPanelPedirSenha.setLayout(JPanelPedirSenhaLayout);
         JPanelPedirSenhaLayout.setHorizontalGroup(
@@ -104,23 +88,24 @@ public class PaginaRedefinirSenha extends javax.swing.JFrame {
             .addGroup(JPanelPedirSenhaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(JPanelPedirSenhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(JPanelPedirSenhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(CampoInserirNovaSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-                        .addComponent(InformeSuaSenha))
                     .addComponent(ConfirmarNovaSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(JPanelPedirSenhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(BotaoConfirmar)
-                        .addComponent(CampoInserirConfirmacaoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(JPanelPedirSenhaLayout.createSequentialGroup()
+                        .addGap(105, 105, 105)
+                        .addComponent(BotaoConfirmar))
+                    .addGroup(JPanelPedirSenhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(CampoInserirConfirmacaoSenha, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(CampoInserirNovaSenha, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(InformeSuaSenha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)))
                 .addContainerGap(113, Short.MAX_VALUE))
         );
         JPanelPedirSenhaLayout.setVerticalGroup(
             JPanelPedirSenhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPanelPedirSenhaLayout.createSequentialGroup()
-                .addContainerGap(139, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(InformeSuaSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(CampoInserirNovaSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(ConfirmarNovaSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(CampoInserirConfirmacaoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -203,22 +188,23 @@ public class PaginaRedefinirSenha extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_InformeSuaSenhaActionPerformed
 
-    private void CampoInserirNovaSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoInserirNovaSenhaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CampoInserirNovaSenhaActionPerformed
-
     private void BotaoConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoConfirmarActionPerformed
         // TODO add your handling code here:
         try {
             if (CampoInserirNovaSenha.getText().equals(CampoInserirConfirmacaoSenha.getText())) {
-                Usuario.setSenha(CampoInserirNovaSenha.getText());
-                JOptionPane.showMessageDialog(null, "Senha modificada com sucesso!", "BANCO JAVA", JOptionPane.INFORMATION_MESSAGE);
-                ValidarInformacoesUsuario v1 = new ValidarInformacoesUsuario();
-                v1.AlterarSenhaUsuario();
-                PaginaPedirSenhaLogin p1 = new PaginaPedirSenhaLogin();
-                this.dispose();
-                p1.setVisible(true);
-            }else{
+                if (CampoInserirNovaSenha.getText().length() > 7) {
+                    Usuario.setSenha(CampoInserirNovaSenha.getText());
+                    JOptionPane.showMessageDialog(null, "Senha modificada com sucesso!", "BANCO JAVA", JOptionPane.INFORMATION_MESSAGE);
+                    ValidarInformacoesUsuario v1 = new ValidarInformacoesUsuario();
+                    v1.AlterarSenhaUsuario();
+                    PaginaPedirSenhaLogin p1 = new PaginaPedirSenhaLogin();
+                    this.dispose();
+                    p1.setVisible(true);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Sua senha não contém 8 ou mais dígitos, tente novamente!", "BANCO JAVA", JOptionPane.INFORMATION_MESSAGE);
+                }
+
+            } else {
                 JOptionPane.showMessageDialog(null, "Senhas não conferem, confira novamente!", "BANCO JAVA", JOptionPane.INFORMATION_MESSAGE);
             }
         } catch (ClassNotFoundException ex) {
@@ -231,10 +217,6 @@ public class PaginaRedefinirSenha extends javax.swing.JFrame {
     private void ConfirmarNovaSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmarNovaSenhaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ConfirmarNovaSenhaActionPerformed
-
-    private void CampoInserirConfirmacaoSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoInserirConfirmacaoSenhaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CampoInserirConfirmacaoSenhaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -289,8 +271,8 @@ public class PaginaRedefinirSenha extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotaoConfirmar;
-    private javax.swing.JTextField CampoInserirConfirmacaoSenha;
-    private javax.swing.JTextField CampoInserirNovaSenha;
+    private javax.swing.JPasswordField CampoInserirConfirmacaoSenha;
+    private javax.swing.JPasswordField CampoInserirNovaSenha;
     private javax.swing.JTextField ConfirmarNovaSenha;
     private javax.swing.JLabel ImagemLogoJava;
     private javax.swing.JTextField InformeSuaSenha;
