@@ -7,11 +7,10 @@ package PacoteRegraDeNegocio;
 import ConexaoBancoDeDados.BancoDeDados;
 import PacoteInterfaceVisual.PaginaCriarConta;
 import PacoteInterfaceVisual.PaginaPedirSenhaLogin;
+import PacoteInterfaceVisual.Usuario.Boleto;
 import PacoteInterfaceVisual.Usuario.Usuario;
 import java.sql.SQLException;
-import java.util.Properties;
 import java.util.Random;
-import javax.mail.Session;
 import org.apache.commons.mail.DefaultAuthenticator;
 import org.apache.commons.mail.SimpleEmail;
 
@@ -98,5 +97,26 @@ public class ValidarInformacoesUsuario {
     public void buscarSenha4Digitos() throws ClassNotFoundException, SQLException{
         BancoDeDados b1 = new BancoDeDados();
         b1.buscarSenha4DigitosPeloBancoDeDados();
+    }
+    public void verificarBoleto(){
+        String codigoBanco = "";
+        
+        codigoBanco = codigoBanco + (Boleto.getCodigoBoleto().charAt(0))+(Boleto.getCodigoBoleto().charAt(1))+(Boleto.getCodigoBoleto().charAt(2));
+        Boleto.setCodigoBanco(codigoBanco);
+        
+        String fatorVencimento = "";
+        fatorVencimento = fatorVencimento + (Boleto.getCodigoBoleto().charAt(31))+(Boleto.getCodigoBoleto().charAt(32))+(Boleto.getCodigoBoleto().charAt(33))+(Boleto.getCodigoBoleto().charAt(34));
+        Boleto.setFatorVencimento(Integer.parseInt(fatorVencimento));
+        int x;
+        char carac;
+        for(x=35; x<=44;x++){
+            carac = Boleto.getCodigoBoleto().charAt(x);
+            if(carac != '0'){
+                break;
+            }
+        }
+        String valorBoleto;
+        valorBoleto = Boleto.getCodigoBoleto().substring(x, 45);
+        Boleto.setValorBoleto(Long.parseLong(valorBoleto));
     }
 }
