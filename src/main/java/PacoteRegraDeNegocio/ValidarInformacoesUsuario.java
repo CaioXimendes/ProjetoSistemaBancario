@@ -10,6 +10,8 @@ import PacoteInterfaceVisual.PaginaPedirSenhaLogin;
 import PacoteInterfaceVisual.Usuario.Boleto;
 import PacoteInterfaceVisual.Usuario.Usuario;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Random;
 import org.apache.commons.mail.DefaultAuthenticator;
 import org.apache.commons.mail.SimpleEmail;
@@ -118,9 +120,30 @@ public class ValidarInformacoesUsuario {
         String valorBoleto;
         valorBoleto = Boleto.getCodigoBoleto().substring(x, 45);
         Boleto.setValorBoleto(Long.parseLong(valorBoleto));
+        //CALCULANDO AGORA A DATA DE VALIDADE DO BOLETO
+        DateTimeFormatter formatacao = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate dataInicio = LocalDate.of(1997, 10, 7);
+        LocalDate dataHoje = LocalDate.now();
+        LocalDate novaData = dataInicio.plusDays(Boleto.getFatorVencimento());
+//        novaData.format(formatacao);
+//        dataHoje.format(formatacao);
+        if(novaData.isBefore(dataHoje)){
+            Boleto.setDataValidadeBoletoValida(false);
+            Boleto.setDataValidadeBoleto(novaData.format(formatacao));
+        } else if (novaData.isAfter(dataHoje)){
+            Boleto.setDataValidadeBoletoValida(true);
+            Boleto.setDataValidadeBoleto(novaData.format(formatacao));
+        } else {
+            Boleto.setDataValidadeBoletoValida(true);
+            Boleto.setDataValidadeBoleto(novaData.format(formatacao));
+        }
     }
     public void realizarPagamentoBoleto() throws ClassNotFoundException, SQLException{
         BancoDeDados b1 = new BancoDeDados();
         b1.realizarPagamentoBoletoPeloBancoDeDados();
+    }
+    public void consultarListaDeBancos() throws ClassNotFoundException, SQLException{
+        BancoDeDados b1 = new BancoDeDados();
+        b1.consultarListaDeBancosPeloBancoDeDados();
     }
 }

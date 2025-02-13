@@ -5,6 +5,7 @@
 package PacoteInterfaceVisual;
 
 import PacoteInterfaceVisual.Usuario.Boleto;
+import PacoteInterfaceVisual.Usuario.ListaDeBancos;
 import PacoteInterfaceVisual.Usuario.Usuario;
 import PacoteRegraDeNegocio.ValidarInformacoesUsuario;
 import java.sql.SQLException;
@@ -42,7 +43,6 @@ public class PaginaPagar extends javax.swing.JFrame {
         PagamentoBoletoTitulo = new javax.swing.JTextField();
         BotaoPagarViaBoleto = new javax.swing.JButton();
         BotaoVoltar = new javax.swing.JButton();
-        CampoInserirCodigoBoleto = new javax.swing.JTextField();
         CampoInserirCodigoBoletoFORMATADO = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -142,15 +142,6 @@ public class PaginaPagar extends javax.swing.JFrame {
             }
         });
 
-        CampoInserirCodigoBoleto.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
-        CampoInserirCodigoBoleto.setText("inserir codigo boleto");
-        CampoInserirCodigoBoleto.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        CampoInserirCodigoBoleto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CampoInserirCodigoBoletoActionPerformed(evt);
-            }
-        });
-
         try {
             CampoInserirCodigoBoletoFORMATADO.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#############################################")));
         } catch (java.text.ParseException ex) {
@@ -182,18 +173,16 @@ public class PaginaPagar extends javax.swing.JFrame {
                                 .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(AlterarEmailTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(JPanelHOMELayout.createSequentialGroup()
-                                        .addComponent(CampoInserirCodigoBoleto, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGap(2, 2, 2)
+                                        .addComponent(CampoInserirCodigoBoletoFORMATADO, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
                                         .addComponent(BotaoPagarViaBoleto))
                                     .addGroup(JPanelHOMELayout.createSequentialGroup()
                                         .addComponent(CampoInserirQuantiaDeposito, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
                                         .addComponent(BotaoGerarBoletoDeposito))
-                                    .addGroup(JPanelHOMELayout.createSequentialGroup()
-                                        .addComponent(PagamentoBoletoTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(63, 63, 63)
-                                        .addComponent(CampoInserirCodigoBoletoFORMATADO, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 147, Short.MAX_VALUE)))))
+                                    .addComponent(PagamentoBoletoTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 230, Short.MAX_VALUE)))))
                 .addGap(16, 16, 16))
         );
         JPanelHOMELayout.setVerticalGroup(
@@ -210,22 +199,16 @@ public class PaginaPagar extends javax.swing.JFrame {
                         .addComponent(PerguntasFrequentes, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(8, 8, 8)
                 .addComponent(AlterarEmailTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(JPanelHOMELayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(CampoInserirQuantiaDeposito, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(BotaoGerarBoletoDeposito))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
-                        .addComponent(PagamentoBoletoTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelHOMELayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(CampoInserirCodigoBoletoFORMATADO, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(31, 31, 31)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(CampoInserirQuantiaDeposito, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BotaoGerarBoletoDeposito))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)
+                .addComponent(PagamentoBoletoTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BotaoPagarViaBoleto)
-                    .addComponent(CampoInserirCodigoBoleto, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(CampoInserirCodigoBoletoFORMATADO, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(16, 16, 16)
                 .addComponent(BotaoVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19))
@@ -278,22 +261,33 @@ public class PaginaPagar extends javax.swing.JFrame {
         Boleto.setCodigoBoleto(CampoInserirCodigoBoletoFORMATADO.getText());
         System.out.println(CampoInserirCodigoBoletoFORMATADO.getText());
         ValidarInformacoesUsuario v1 = new ValidarInformacoesUsuario();
-        try{
+        try {
             v1.consultarSaldo();
             v1.verificarBoleto();
-            if((Boleto.getValorBoleto()/100) <= Usuario.getSaldo()){
-            v1.realizarPagamentoBoleto();
-            JOptionPane.showMessageDialog(null, "Pagamento de R$: "+(Boleto.getValorBoleto()/100.0)+" realizado via Boleto Bancário","BANCO JAVA", JOptionPane.INFORMATION_MESSAGE);
-        } else {
-            JOptionPane.showMessageDialog(null, "Saldo insuficiente para o pagamento!","BANCO JAVA", JOptionPane.INFORMATION_MESSAGE);
-        }
-        }catch(ClassNotFoundException ex){
+            v1.consultarListaDeBancos();
+            if ((Boleto.getValorBoleto() / 100.00) <= Usuario.getSaldo()) {
+                if (ListaDeBancos.isCodigoValido()) {
+                    if (Boleto.getDataValidadeBoletoValida()) {
+                        v1.realizarPagamentoBoleto();
+                        JOptionPane.showMessageDialog(null, "Pagamento de R$: " + (Boleto.getValorBoleto() / 100.0) + " realizado via Boleto Bancário, Instituição Financeira: " + ListaDeBancos.getNomeBanco()+"Data de validade: "+Boleto.getDataValidadeBoleto(), "BANCO JAVA", JOptionPane.INFORMATION_MESSAGE);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Este boleto está com a data vencida! Data de validade:"+Boleto.getDataValidadeBoleto(), "BANCO JAVA", JOptionPane.INFORMATION_MESSAGE);
+                    }
+
+                } else {
+                    JOptionPane.showMessageDialog(null, "Banco desconhecido da nossa base de dados!", "BANCO JAVA", JOptionPane.INFORMATION_MESSAGE);
+                }
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Saldo insuficiente para o pagamento!", "BANCO JAVA", JOptionPane.INFORMATION_MESSAGE);
+            }
+        } catch (ClassNotFoundException ex) {
             ex.getMessage();
-        }catch(SQLException ex){
+        } catch (SQLException ex) {
             ex.getMessage();
         }
-        System.out.println(Boleto.getCodigoBanco()+"\n"+Boleto.getFatorVencimento()+"\n"+Boleto.getValorBoleto());
-        
+        System.out.println(Boleto.getCodigoBanco() + "\n" + Boleto.getFatorVencimento() + "\n" + Boleto.getValorBoleto());
+
     }//GEN-LAST:event_BotaoPagarViaBoletoActionPerformed
 
     private void BotaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoVoltarActionPerformed
@@ -302,10 +296,6 @@ public class PaginaPagar extends javax.swing.JFrame {
         PaginaHome p1 = new PaginaHome();
         p1.setVisible(true);
     }//GEN-LAST:event_BotaoVoltarActionPerformed
-
-    private void CampoInserirCodigoBoletoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoInserirCodigoBoletoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CampoInserirCodigoBoletoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -379,7 +369,6 @@ public class PaginaPagar extends javax.swing.JFrame {
     private javax.swing.JButton BotaoGerarBoletoDeposito;
     private javax.swing.JButton BotaoPagarViaBoleto;
     private javax.swing.JButton BotaoVoltar;
-    private javax.swing.JTextField CampoInserirCodigoBoleto;
     private javax.swing.JFormattedTextField CampoInserirCodigoBoletoFORMATADO;
     private javax.swing.JTextField CampoInserirQuantiaDeposito;
     private javax.swing.JLabel IconeLogo;

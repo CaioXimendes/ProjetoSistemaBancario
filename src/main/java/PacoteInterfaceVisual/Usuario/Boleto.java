@@ -14,6 +14,8 @@ public class Boleto {
     private static String codigoBanco;
     private static int fatorVencimento;
     private static long valorBoleto;
+    private static boolean dataValidadeBoletoValida;
+    private static String dataValidadeBoleto;
     
     public static String getCodigoBoleto() {
         return codigoBoleto;
@@ -45,5 +47,21 @@ public class Boleto {
 
     public static void setValorBoleto(long valorBoleto) {
         Boleto.valorBoleto = valorBoleto;
+    }
+    
+    public static boolean getDataValidadeBoletoValida() {
+        return dataValidadeBoletoValida;
+    }
+
+    public static void setDataValidadeBoletoValida(boolean dataValidadeBoletoValida) {
+        Boleto.dataValidadeBoletoValida = dataValidadeBoletoValida;
+    }
+    
+    public static String getDataValidadeBoleto() {
+        return dataValidadeBoleto;
+    }
+
+    public static void setDataValidadeBoleto(String dataValidadeBoleto) {
+        Boleto.dataValidadeBoleto = dataValidadeBoleto;
     }
 }

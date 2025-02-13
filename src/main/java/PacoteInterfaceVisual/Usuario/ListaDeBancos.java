@@ -27,4 +27,13 @@ public class ListaDeBancos {
     }
     private static String nomeBanco;
     private static String codigoBancoLista;
+
+    public static boolean isCodigoValido() {
+        return codigoValido;
+    }
+
+    public static void setCodigoValido(boolean codigoValido) {
+        ListaDeBancos.codigoValido = codigoValido;
+    }
+    private static boolean codigoValido;
 }
