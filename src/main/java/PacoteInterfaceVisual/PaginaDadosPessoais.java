@@ -3,9 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package PacoteInterfaceVisual;
-import java.sql.SQLException;
 
-import ConexaoBancoDeDados.BancoDeDados;
 /**
  *
  * @author CaioFSX
@@ -14,10 +12,8 @@ public class PaginaDadosPessoais extends javax.swing.JFrame {
 
     /**
      * Creates new form InterfaceVisual
-     * @throws SQLException 
-     * @throws ClassNotFoundException 
      */
-    public PaginaDadosPessoais() throws ClassNotFoundException, SQLException {
+    public PaginaDadosPessoais() {
         initComponents();
     }
 
@@ -30,7 +26,7 @@ public class PaginaDadosPessoais extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() throws ClassNotFoundException, SQLException {
+    private void initComponents() {
 
         JPanelHOME = new javax.swing.JPanel();
         IconeLogo = new javax.swing.JLabel();
@@ -106,12 +102,10 @@ public class PaginaDadosPessoais extends javax.swing.JFrame {
             }
         });
 
-        int numeroConta = BancoDeDados.buscarNumeroContaPeloBancoDeDados();
-        String numeroContaString = String.valueOf(numeroConta);
         CampoNumeroConta.setEditable(false);
         CampoNumeroConta.setBackground(new java.awt.Color(255, 255, 255));
         CampoNumeroConta.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        CampoNumeroConta.setText(numeroContaString);
+        CampoNumeroConta.setText("numero da conta");
         CampoNumeroConta.setBorder(null);
         CampoNumeroConta.setFocusable(false);
         CampoNumeroConta.addActionListener(new java.awt.event.ActionListener() {
