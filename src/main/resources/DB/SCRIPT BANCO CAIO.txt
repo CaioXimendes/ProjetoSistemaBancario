@@ -22,4 +22,10 @@ CREATE TABLE IF NOT EXISTS Extrato (
     tipo VARCHAR(15) NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS lista_bancos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nomeBanco VARCHAR(200) NOT NULL,
+    codigoBanco CHAR(3) NOT NULL
+);
+
 insert into Usuarios(cpf,nome,email,saldo,senha,senha4digitos,numeroConta) values ("708.977.054-08","Caio Ximendes","caio@gmail.com",0,12345678,1234,0001);

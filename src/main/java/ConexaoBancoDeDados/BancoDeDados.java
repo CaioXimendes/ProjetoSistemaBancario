@@ -4,6 +4,7 @@
  */
 package ConexaoBancoDeDados;
 
+import PacoteInterfaceVisual.Usuario.Boleto;
 import PacoteInterfaceVisual.Usuario.Extrato;
 import PacoteInterfaceVisual.Usuario.OperacoesBancarias;
 import java.sql.Connection;
@@ -292,6 +293,27 @@ public class BancoDeDados {
                 Usuario.setUsuarioValido(false);
             }
             
+        } catch(ClassNotFoundException ex){
+            System.out.println("Driver do Banco de dados não localizado!");
+        } catch(SQLException ex){
+            System.out.println("Erro durante a conexão com o banco de dados! Erro:" + ex.getMessage());
+        }
+        finally{
+            if(conexao1 != null){
+                conexao1.close();
+            }
+        }
+    }
+    public void realizarPagamentoBoletoPeloBancoDeDados() throws ClassNotFoundException, SQLException{
+        //consultarSaldoPeloBancoDeDados();
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            conexao1 = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/?user=root", "root", "1234");
+            Statement statement = conexao1.createStatement();
+            statement.execute("use bancojava");
+            String sql = "update Usuarios set saldo= "+(Usuario.getSaldo()-(Boleto.getValorBoleto()/100.0))+" where cpf="+"'"+Usuario.getCpf()+"';";
+            statement.execute(sql);
+            System.out.println(sql);
         } catch(ClassNotFoundException ex){
             System.out.println("Driver do Banco de dados não localizado!");
         } catch(SQLException ex){

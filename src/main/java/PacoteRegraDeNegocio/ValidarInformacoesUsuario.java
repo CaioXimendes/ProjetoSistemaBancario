@@ -119,4 +119,8 @@ public class ValidarInformacoesUsuario {
         valorBoleto = Boleto.getCodigoBoleto().substring(x, 45);
         Boleto.setValorBoleto(Long.parseLong(valorBoleto));
     }
+    public void realizarPagamentoBoleto() throws ClassNotFoundException, SQLException{
+        BancoDeDados b1 = new BancoDeDados();
+        b1.realizarPagamentoBoletoPeloBancoDeDados();
+    }
 }

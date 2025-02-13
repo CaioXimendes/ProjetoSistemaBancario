@@ -5,7 +5,10 @@
 package PacoteInterfaceVisual;
 
 import PacoteInterfaceVisual.Usuario.Boleto;
+import PacoteInterfaceVisual.Usuario.Usuario;
 import PacoteRegraDeNegocio.ValidarInformacoesUsuario;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -275,7 +278,20 @@ public class PaginaPagar extends javax.swing.JFrame {
         Boleto.setCodigoBoleto(CampoInserirCodigoBoletoFORMATADO.getText());
         System.out.println(CampoInserirCodigoBoletoFORMATADO.getText());
         ValidarInformacoesUsuario v1 = new ValidarInformacoesUsuario();
-        v1.verificarBoleto();
+        try{
+            v1.consultarSaldo();
+            v1.verificarBoleto();
+            if((Boleto.getValorBoleto()/100) <= Usuario.getSaldo()){
+            v1.realizarPagamentoBoleto();
+            JOptionPane.showMessageDialog(null, "Pagamento de R$: "+(Boleto.getValorBoleto()/100.0)+" realizado via Boleto Bancário","BANCO JAVA", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "Saldo insuficiente para o pagamento!","BANCO JAVA", JOptionPane.INFORMATION_MESSAGE);
+        }
+        }catch(ClassNotFoundException ex){
+            ex.getMessage();
+        }catch(SQLException ex){
+            ex.getMessage();
+        }
         System.out.println(Boleto.getCodigoBanco()+"\n"+Boleto.getFatorVencimento()+"\n"+Boleto.getValorBoleto());
         
     }//GEN-LAST:event_BotaoPagarViaBoletoActionPerformed
