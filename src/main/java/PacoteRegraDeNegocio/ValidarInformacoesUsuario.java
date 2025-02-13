@@ -4,6 +4,7 @@
  */
 package PacoteRegraDeNegocio;
 
+
 import ConexaoBancoDeDados.BancoDeDados;
 import PacoteInterfaceVisual.PaginaCriarConta;
 import PacoteInterfaceVisual.PaginaPedirSenhaLogin;
@@ -14,6 +15,7 @@ import java.util.Random;
 import javax.mail.Session;
 import org.apache.commons.mail.DefaultAuthenticator;
 import org.apache.commons.mail.SimpleEmail;
+
 
 /**
  *
