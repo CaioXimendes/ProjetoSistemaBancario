@@ -33,9 +33,9 @@ public class PaginaPedirSenhaLogin extends javax.swing.JFrame {
 
         JPanelPedirSenha = new javax.swing.JPanel();
         InformeSuaSenha = new javax.swing.JTextField();
-        CampoInserirSenha = new javax.swing.JTextField();
         BotaoEsqueciSenha = new javax.swing.JButton();
         BotaoEntrarSenha = new javax.swing.JButton();
+        CampoInserirSenha = new javax.swing.JPasswordField();
         PainelLogoPedirSenha = new javax.swing.JPanel();
         TituloBancoJava = new javax.swing.JTextField();
         ImagemLogoJava = new javax.swing.JLabel();
@@ -54,13 +54,6 @@ public class PaginaPedirSenhaLogin extends javax.swing.JFrame {
         InformeSuaSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 InformeSuaSenhaActionPerformed(evt);
-            }
-        });
-
-        CampoInserirSenha.setText(" **********");
-        CampoInserirSenha.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CampoInserirSenhaActionPerformed(evt);
             }
         });
 
@@ -110,7 +103,7 @@ public class PaginaPedirSenhaLogin extends javax.swing.JFrame {
                 .addComponent(InformeSuaSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(CampoInserirSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(BotaoEsqueciSenha)
                 .addGap(147, 147, 147))
             .addGroup(JPanelPedirSenhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -194,10 +187,6 @@ public class PaginaPedirSenhaLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_InformeSuaSenhaActionPerformed
 
-    private void CampoInserirSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoInserirSenhaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CampoInserirSenhaActionPerformed
-
     private void BotaoEsqueciSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoEsqueciSenhaActionPerformed
         // TODO add your handling code here:
         this.dispose();
@@ -272,7 +261,7 @@ public class PaginaPedirSenhaLogin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotaoEntrarSenha;
     private javax.swing.JButton BotaoEsqueciSenha;
-    private javax.swing.JTextField CampoInserirSenha;
+    private javax.swing.JPasswordField CampoInserirSenha;
     private javax.swing.JLabel ImagemLogoJava;
     private javax.swing.JTextField InformeSuaSenha;
     private javax.swing.JPanel JPanelPedirSenha;
