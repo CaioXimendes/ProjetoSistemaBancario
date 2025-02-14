@@ -37,13 +37,13 @@ public class PaginaAreaPix extends javax.swing.JFrame {
         NomeCliente = new javax.swing.JTextField();
         PerguntasFrequentes = new javax.swing.JTextField();
         TransferenciaPixTitulo = new javax.swing.JTextField();
-        CampoInserirQuantiaTransferenciaPix = new javax.swing.JTextField();
         BotaoTransferirPix = new javax.swing.JButton();
-        CampoInserirChavePix = new javax.swing.JTextField();
         ConfirmarSenha4DigitosTitulo = new javax.swing.JTextField();
         CampoInserirSenha4Digitos = new javax.swing.JTextField();
         BotaoVoltar1 = new javax.swing.JButton();
         BotaoConfirmarPix = new javax.swing.JButton();
+        CampoInserirChavePix = new javax.swing.JFormattedTextField();
+        CampoInserirQuantiaTransferenciaPix = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -89,14 +89,6 @@ public class PaginaAreaPix extends javax.swing.JFrame {
             }
         });
 
-        CampoInserirQuantiaTransferenciaPix.setText("inserir quantia");
-        CampoInserirQuantiaTransferenciaPix.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        CampoInserirQuantiaTransferenciaPix.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CampoInserirQuantiaTransferenciaPixActionPerformed(evt);
-            }
-        });
-
         BotaoTransferirPix.setBackground(new java.awt.Color(204, 0, 0));
         BotaoTransferirPix.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         BotaoTransferirPix.setForeground(new java.awt.Color(255, 255, 255));
@@ -105,15 +97,6 @@ public class PaginaAreaPix extends javax.swing.JFrame {
         BotaoTransferirPix.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotaoTransferirPixActionPerformed(evt);
-            }
-        });
-
-        CampoInserirChavePix.setText("inserir chave pix(CPF)");
-        CampoInserirChavePix.setToolTipText("");
-        CampoInserirChavePix.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        CampoInserirChavePix.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CampoInserirChavePixActionPerformed(evt);
             }
         });
 
@@ -158,6 +141,25 @@ public class PaginaAreaPix extends javax.swing.JFrame {
         BotaoConfirmarPix.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotaoConfirmarPixActionPerformed(evt);
+            }
+        });
+
+        try {
+            CampoInserirChavePix.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        CampoInserirChavePix.setToolTipText("Inserir Chave Pix(CPF)");
+
+        try {
+            CampoInserirQuantiaTransferenciaPix.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#*********")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        CampoInserirQuantiaTransferenciaPix.setToolTipText("Inserir Quantia");
+        CampoInserirQuantiaTransferenciaPix.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                CampoInserirQuantiaTransferenciaPixKeyTyped(evt);
             }
         });
 
@@ -209,9 +211,9 @@ public class PaginaAreaPix extends javax.swing.JFrame {
                 .addComponent(TransferenciaPixTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CampoInserirQuantiaTransferenciaPix, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BotaoTransferirPix)
-                    .addComponent(CampoInserirChavePix, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(CampoInserirChavePix, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CampoInserirQuantiaTransferenciaPix, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(ConfirmarSenha4DigitosTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -253,10 +255,6 @@ public class PaginaAreaPix extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_TransferenciaPixTituloActionPerformed
 
-    private void CampoInserirQuantiaTransferenciaPixActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoInserirQuantiaTransferenciaPixActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CampoInserirQuantiaTransferenciaPixActionPerformed
-
     private void BotaoTransferirPixActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoTransferirPixActionPerformed
         // TODO add your handling code here:
         ValidarInformacoesUsuario v1 = new ValidarInformacoesUsuario();
@@ -277,10 +275,6 @@ public class PaginaAreaPix extends javax.swing.JFrame {
         BotaoTransferirPix.setEnabled(false);
 
     }//GEN-LAST:event_BotaoTransferirPixActionPerformed
-
-    private void CampoInserirChavePixActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoInserirChavePixActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CampoInserirChavePixActionPerformed
 
     private void ConfirmarSenha4DigitosTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmarSenha4DigitosTituloActionPerformed
         // TODO add your handling code here:
@@ -356,6 +350,19 @@ public class PaginaAreaPix extends javax.swing.JFrame {
 
     }//GEN-LAST:event_BotaoConfirmarPixActionPerformed
 
+    private void CampoInserirQuantiaTransferenciaPixKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CampoInserirQuantiaTransferenciaPixKeyTyped
+        // TODO add your handling code here:
+        char caractere = evt.getKeyChar();
+        if(caractere == '.' && CampoInserirQuantiaTransferenciaPix.getText().contains(".")){
+            evt.consume();
+        }
+        if(!Character.isDigit(caractere)){
+            if(!(caractere == '.')){
+                evt.consume();
+            }
+        }
+    }//GEN-LAST:event_CampoInserirQuantiaTransferenciaPixKeyTyped
+
     /**
      * @param args the command line arguments
      */
@@ -411,8 +418,8 @@ public class PaginaAreaPix extends javax.swing.JFrame {
     private javax.swing.JButton BotaoConfirmarPix;
     private javax.swing.JButton BotaoTransferirPix;
     private javax.swing.JButton BotaoVoltar1;
-    private javax.swing.JTextField CampoInserirChavePix;
-    private javax.swing.JTextField CampoInserirQuantiaTransferenciaPix;
+    private javax.swing.JFormattedTextField CampoInserirChavePix;
+    private javax.swing.JFormattedTextField CampoInserirQuantiaTransferenciaPix;
     private javax.swing.JTextField CampoInserirSenha4Digitos;
     private javax.swing.JTextField ConfirmarSenha4DigitosTitulo;
     private javax.swing.JLabel IconeLogo;
