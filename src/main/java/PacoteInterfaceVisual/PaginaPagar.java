@@ -38,12 +38,12 @@ public class PaginaPagar extends javax.swing.JFrame {
         NomeCliente = new javax.swing.JTextField();
         PerguntasFrequentes = new javax.swing.JTextField();
         AlterarEmailTitulo = new javax.swing.JTextField();
-        CampoInserirQuantiaDeposito = new javax.swing.JTextField();
         BotaoGerarBoletoDeposito = new javax.swing.JButton();
         PagamentoBoletoTitulo = new javax.swing.JTextField();
         BotaoPagarViaBoleto = new javax.swing.JButton();
         BotaoVoltar = new javax.swing.JButton();
         CampoInserirCodigoBoletoFORMATADO = new javax.swing.JFormattedTextField();
+        CampoInserirQuantiaDeposito = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -86,14 +86,6 @@ public class PaginaPagar extends javax.swing.JFrame {
         AlterarEmailTitulo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AlterarEmailTituloActionPerformed(evt);
-            }
-        });
-
-        CampoInserirQuantiaDeposito.setText("inserir quantia");
-        CampoInserirQuantiaDeposito.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        CampoInserirQuantiaDeposito.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CampoInserirQuantiaDepositoActionPerformed(evt);
             }
         });
 
@@ -149,6 +141,8 @@ public class PaginaPagar extends javax.swing.JFrame {
         }
         CampoInserirCodigoBoletoFORMATADO.setToolTipText("inserir codigo boleto");
 
+        CampoInserirQuantiaDeposito.setToolTipText("Inserir Quantia para Depositar");
+
         javax.swing.GroupLayout JPanelHOMELayout = new javax.swing.GroupLayout(JPanelHOME);
         JPanelHOME.setLayout(JPanelHOMELayout);
         JPanelHOMELayout.setHorizontalGroup(
@@ -201,8 +195,8 @@ public class PaginaPagar extends javax.swing.JFrame {
                 .addComponent(AlterarEmailTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CampoInserirQuantiaDeposito, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BotaoGerarBoletoDeposito))
+                    .addComponent(BotaoGerarBoletoDeposito)
+                    .addComponent(CampoInserirQuantiaDeposito, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)
                 .addComponent(PagamentoBoletoTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -243,10 +237,6 @@ public class PaginaPagar extends javax.swing.JFrame {
     private void AlterarEmailTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AlterarEmailTituloActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_AlterarEmailTituloActionPerformed
-
-    private void CampoInserirQuantiaDepositoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoInserirQuantiaDepositoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CampoInserirQuantiaDepositoActionPerformed
 
     private void BotaoGerarBoletoDepositoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoGerarBoletoDepositoActionPerformed
         // TODO add your handling code here:
@@ -370,7 +360,7 @@ public class PaginaPagar extends javax.swing.JFrame {
     private javax.swing.JButton BotaoPagarViaBoleto;
     private javax.swing.JButton BotaoVoltar;
     private javax.swing.JFormattedTextField CampoInserirCodigoBoletoFORMATADO;
-    private javax.swing.JTextField CampoInserirQuantiaDeposito;
+    private javax.swing.JFormattedTextField CampoInserirQuantiaDeposito;
     private javax.swing.JLabel IconeLogo;
     private javax.swing.JPanel JPanelHOME;
     private javax.swing.JTextField NomeCliente;

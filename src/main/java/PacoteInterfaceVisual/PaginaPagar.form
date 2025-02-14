@@ -115,8 +115,8 @@
                   <Component id="AlterarEmailTitulo" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="CampoInserirQuantiaDeposito" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                       <Component id="BotaoGerarBoletoDeposito" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="CampoInserirQuantiaDeposito" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="110" max="32767" attributes="0"/>
                   <Component id="PagamentoBoletoTitulo" min="-2" max="-2" attributes="0"/>
@@ -198,19 +198,6 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AlterarEmailTituloActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="CampoInserirQuantiaDeposito">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="inserir quantia"/>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
-                <BevelBorder/>
-              </Border>
-            </Property>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CampoInserirQuantiaDepositoActionPerformed"/>
-          </Events>
-        </Component>
         <Component class="javax.swing.JButton" name="BotaoGerarBoletoDeposito">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -290,6 +277,11 @@
               <Format format="###############################################" subtype="-1" type="5"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="inserir codigo boleto"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JFormattedTextField" name="CampoInserirQuantiaDeposito">
+          <Properties>
+            <Property name="toolTipText" type="java.lang.String" value="Inserir Quantia para Depositar"/>
           </Properties>
         </Component>
       </SubComponents>
