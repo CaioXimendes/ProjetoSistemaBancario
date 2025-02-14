@@ -280,15 +280,24 @@ public class PaginaSeguranca extends javax.swing.JFrame {
 
     private void BotaoAlterarSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoAlterarSenhaActionPerformed
         // TODO add your handling code here:
-        if(CampoInserirSenha.getText().equals(CampoInserirConfirmacaoSenha.getText())){
-            if(CampoInserirSenha.getText().length()>7){
-                
+        try {
+            if (CampoInserirSenha.getText().equals(CampoInserirConfirmacaoSenha.getText())) {
+                if (CampoInserirSenha.getText().length() > 7) {
+                    Usuario.setSenha(CampoInserirSenha.getText());
+                    ValidarInformacoesUsuario v1 = new ValidarInformacoesUsuario();
+                    v1.AlterarSenhaUsuario();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Sua senha não contém 8 ou mais dígitos, tente novamente!", "BANCO JAVA", JOptionPane.INFORMATION_MESSAGE);
+                }
             } else {
-                JOptionPane.showMessageDialog(null, "Sua senha não contém 8 ou mais dígitos, tente novamente!", "BANCO JAVA", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Credenciais não conferem!", "BANCO JAVA", JOptionPane.INFORMATION_MESSAGE);
             }
-        } else {
-            JOptionPane.showMessageDialog(null, "Credenciais não conferem!", "BANCO JAVA", JOptionPane.INFORMATION_MESSAGE);
+        } catch (ClassNotFoundException ex) {
+            ex.getMessage();
+        } catch (SQLException ex) {
+            ex.getMessage();
         }
+
     }//GEN-LAST:event_BotaoAlterarSenhaActionPerformed
 
     private void BotaoVoltar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoVoltar1ActionPerformed
@@ -306,23 +315,23 @@ public class PaginaSeguranca extends javax.swing.JFrame {
         // TODO add your handling code here:
         ValidarInformacoesUsuario v1 = new ValidarInformacoesUsuario();
         Usuario.setSenha4Digitos(Integer.parseInt(CampoInserirSenha4Digitos.getText()));
-        try{
+        try {
             v1.criarSenha4Digitos();
-        }catch(ClassNotFoundException ex){
+        } catch (ClassNotFoundException ex) {
             ex.getMessage();
-        }catch(SQLException ex){
+        } catch (SQLException ex) {
             ex.getMessage();
         }
-        JOptionPane.showMessageDialog(null, "Sua senha de 4 dígitos agora é: "+Usuario.getSenha4Digitos(), "BANCO JAVA", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, "Sua senha de 4 dígitos agora é: " + Usuario.getSenha4Digitos(), "BANCO JAVA", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_BotaoCriarSenha4DigitosActionPerformed
 
     private void CampoInserirSenha4DigitosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CampoInserirSenha4DigitosKeyTyped
         // TODO add your handling code here:
         char caractere = evt.getKeyChar();
-        if(!Character.isDigit(caractere)){
+        if (!Character.isDigit(caractere)) {
             evt.consume();
         }
-        if(CampoInserirSenha4Digitos.getText().length()>=4){
+        if (CampoInserirSenha4Digitos.getText().length() >= 4) {
             evt.consume();
         }
     }//GEN-LAST:event_CampoInserirSenha4DigitosKeyTyped
