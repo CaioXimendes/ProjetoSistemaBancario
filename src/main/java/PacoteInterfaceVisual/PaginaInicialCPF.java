@@ -32,8 +32,8 @@ public class PaginaInicialCPF extends javax.swing.JFrame {
 
         JPanelCPFInicio = new javax.swing.JPanel();
         TituloCPF = new javax.swing.JTextField();
-        CampoInserirCPF = new javax.swing.JTextField();
         BotaoEntrar = new javax.swing.JButton();
+        CampoInserirCPF = new javax.swing.JFormattedTextField();
         PainelLogoInicial = new javax.swing.JPanel();
         TituloBancoJava = new javax.swing.JTextField();
         ImagemLogoJava = new javax.swing.JLabel();
@@ -55,13 +55,6 @@ public class PaginaInicialCPF extends javax.swing.JFrame {
             }
         });
 
-        CampoInserirCPF.setText("000.000.000-00");
-        CampoInserirCPF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CampoInserirCPFActionPerformed(evt);
-            }
-        });
-
         BotaoEntrar.setBackground(new java.awt.Color(204, 0, 0));
         BotaoEntrar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         BotaoEntrar.setForeground(new java.awt.Color(255, 255, 255));
@@ -73,6 +66,12 @@ public class PaginaInicialCPF extends javax.swing.JFrame {
             }
         });
 
+        try {
+            CampoInserirCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
         javax.swing.GroupLayout JPanelCPFInicioLayout = new javax.swing.GroupLayout(JPanelCPFInicio);
         JPanelCPFInicio.setLayout(JPanelCPFInicioLayout);
         JPanelCPFInicioLayout.setHorizontalGroup(
@@ -80,20 +79,20 @@ public class PaginaInicialCPF extends javax.swing.JFrame {
             .addGroup(JPanelCPFInicioLayout.createSequentialGroup()
                 .addGroup(JPanelCPFInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JPanelCPFInicioLayout.createSequentialGroup()
+                        .addGap(119, 119, 119)
+                        .addComponent(BotaoEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(JPanelCPFInicioLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(TituloCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(CampoInserirCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(JPanelCPFInicioLayout.createSequentialGroup()
-                        .addGap(119, 119, 119)
-                        .addComponent(BotaoEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(58, Short.MAX_VALUE))
+                        .addComponent(CampoInserirCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(67, Short.MAX_VALUE))
         );
         JPanelCPFInicioLayout.setVerticalGroup(
             JPanelCPFInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPanelCPFInicioLayout.createSequentialGroup()
                 .addGap(63, 63, 63)
-                .addGroup(JPanelCPFInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(JPanelCPFInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(TituloCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(CampoInserirCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -175,10 +174,6 @@ public class PaginaInicialCPF extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_TituloCPFActionPerformed
 
-    private void CampoInserirCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoInserirCPFActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CampoInserirCPFActionPerformed
-
     private void BotaoEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoEntrarActionPerformed
         // TODO add your handling code here:
         try{
@@ -232,7 +227,7 @@ public class PaginaInicialCPF extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotaoEntrar;
-    private javax.swing.JTextField CampoInserirCPF;
+    private javax.swing.JFormattedTextField CampoInserirCPF;
     private javax.swing.JLabel ImagemLogoJava;
     private javax.swing.JPanel JPanelCPFInicio;
     private javax.swing.JPanel PainelLogoInicial;
