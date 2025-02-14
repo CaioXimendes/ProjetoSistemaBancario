@@ -39,11 +39,11 @@ public class PaginaAreaPix extends javax.swing.JFrame {
         TransferenciaPixTitulo = new javax.swing.JTextField();
         BotaoTransferirPix = new javax.swing.JButton();
         ConfirmarSenha4DigitosTitulo = new javax.swing.JTextField();
-        CampoInserirSenha4Digitos = new javax.swing.JTextField();
         BotaoVoltar1 = new javax.swing.JButton();
         BotaoConfirmarPix = new javax.swing.JButton();
         CampoInserirChavePix = new javax.swing.JFormattedTextField();
         CampoInserirQuantiaTransferenciaPix = new javax.swing.JFormattedTextField();
+        CampoInserirSenha4Digitos = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -113,15 +113,6 @@ public class PaginaAreaPix extends javax.swing.JFrame {
             }
         });
 
-        CampoInserirSenha4Digitos.setText("****");
-        CampoInserirSenha4Digitos.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        CampoInserirSenha4Digitos.setEnabled(false);
-        CampoInserirSenha4Digitos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CampoInserirSenha4DigitosActionPerformed(evt);
-            }
-        });
-
         BotaoVoltar1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         BotaoVoltar1.setText("Voltar");
         BotaoVoltar1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -163,18 +154,23 @@ public class PaginaAreaPix extends javax.swing.JFrame {
             }
         });
 
+        CampoInserirSenha4Digitos.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                CampoInserirSenha4DigitosKeyTyped(evt);
+            }
+        });
+
         javax.swing.GroupLayout JPanelHOMELayout = new javax.swing.GroupLayout(JPanelHOME);
         JPanelHOME.setLayout(JPanelHOMELayout);
         JPanelHOMELayout.setHorizontalGroup(
             JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelHOMELayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BotaoVoltar1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21))
             .addGroup(JPanelHOMELayout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(JPanelHOMELayout.createSequentialGroup()
-                        .addComponent(CampoInserirSenha4Digitos, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(BotaoConfirmarPix)
-                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(JPanelHOMELayout.createSequentialGroup()
                         .addComponent(ConfirmarSenha4DigitosTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(35, Short.MAX_VALUE))
@@ -193,11 +189,12 @@ public class PaginaAreaPix extends javax.swing.JFrame {
                                 .addComponent(NomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(PerguntasFrequentes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(45, 45, 45))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelHOMELayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BotaoVoltar1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21))
+                        .addGap(45, 45, 45))
+                    .addGroup(JPanelHOMELayout.createSequentialGroup()
+                        .addComponent(CampoInserirSenha4Digitos, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(BotaoConfirmarPix)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         JPanelHOMELayout.setVerticalGroup(
             JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -218,8 +215,8 @@ public class PaginaAreaPix extends javax.swing.JFrame {
                 .addComponent(ConfirmarSenha4DigitosTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CampoInserirSenha4Digitos, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BotaoConfirmarPix))
+                    .addComponent(BotaoConfirmarPix)
+                    .addComponent(CampoInserirSenha4Digitos, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
                 .addComponent(BotaoVoltar1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14))
@@ -279,10 +276,6 @@ public class PaginaAreaPix extends javax.swing.JFrame {
     private void ConfirmarSenha4DigitosTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmarSenha4DigitosTituloActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ConfirmarSenha4DigitosTituloActionPerformed
-
-    private void CampoInserirSenha4DigitosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoInserirSenha4DigitosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CampoInserirSenha4DigitosActionPerformed
 
     private void BotaoVoltar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoVoltar1ActionPerformed
         // TODO add your handling code here:
@@ -363,6 +356,17 @@ public class PaginaAreaPix extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_CampoInserirQuantiaTransferenciaPixKeyTyped
 
+    private void CampoInserirSenha4DigitosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CampoInserirSenha4DigitosKeyTyped
+        // TODO add your handling code here:
+        char caractere = evt.getKeyChar();
+        if (!Character.isDigit(caractere)) {
+            evt.consume();
+        }
+        if (CampoInserirSenha4Digitos.getText().length() >= 4) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_CampoInserirSenha4DigitosKeyTyped
+
     /**
      * @param args the command line arguments
      */
@@ -420,7 +424,7 @@ public class PaginaAreaPix extends javax.swing.JFrame {
     private javax.swing.JButton BotaoVoltar1;
     private javax.swing.JFormattedTextField CampoInserirChavePix;
     private javax.swing.JFormattedTextField CampoInserirQuantiaTransferenciaPix;
-    private javax.swing.JTextField CampoInserirSenha4Digitos;
+    private javax.swing.JPasswordField CampoInserirSenha4Digitos;
     private javax.swing.JTextField ConfirmarSenha4DigitosTitulo;
     private javax.swing.JLabel IconeLogo;
     private javax.swing.JPanel JPanelHOME;
