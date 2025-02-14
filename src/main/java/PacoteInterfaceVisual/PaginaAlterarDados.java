@@ -4,6 +4,11 @@
  */
 package PacoteInterfaceVisual;
 
+import PacoteInterfaceVisual.Usuario.Usuario;
+import PacoteRegraDeNegocio.ValidarInformacoesUsuario;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author CaioFSX
@@ -30,7 +35,7 @@ public class PaginaAlterarDados extends javax.swing.JFrame {
         AlterarEmailTitulo = new javax.swing.JTextField();
         IconeLogo = new javax.swing.JLabel();
         NomeCliente = new javax.swing.JTextField();
-        BotaoAlterarDados = new javax.swing.JButton();
+        BotaoAlterarEmail = new javax.swing.JButton();
         PerguntasFrequentes = new javax.swing.JTextField();
         AlterarTelefoneTitulo = new javax.swing.JTextField();
         CampoInserirEmail = new javax.swing.JTextField();
@@ -70,14 +75,14 @@ public class PaginaAlterarDados extends javax.swing.JFrame {
             }
         });
 
-        BotaoAlterarDados.setBackground(new java.awt.Color(204, 0, 0));
-        BotaoAlterarDados.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        BotaoAlterarDados.setForeground(new java.awt.Color(255, 255, 255));
-        BotaoAlterarDados.setText("alterar e-mail");
-        BotaoAlterarDados.setBorderPainted(false);
-        BotaoAlterarDados.addActionListener(new java.awt.event.ActionListener() {
+        BotaoAlterarEmail.setBackground(new java.awt.Color(204, 0, 0));
+        BotaoAlterarEmail.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        BotaoAlterarEmail.setForeground(new java.awt.Color(255, 255, 255));
+        BotaoAlterarEmail.setText("alterar e-mail");
+        BotaoAlterarEmail.setBorderPainted(false);
+        BotaoAlterarEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotaoAlterarDadosActionPerformed(evt);
+                BotaoAlterarEmailActionPerformed(evt);
             }
         });
 
@@ -156,7 +161,7 @@ public class PaginaAlterarDados extends javax.swing.JFrame {
                     .addGroup(JPanelHOMELayout.createSequentialGroup()
                         .addComponent(CampoInserirEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(BotaoAlterarDados))
+                        .addComponent(BotaoAlterarEmail))
                     .addComponent(AlterarTelefoneTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(AlterarEmailTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(JPanelHOMELayout.createSequentialGroup()
@@ -191,7 +196,7 @@ public class PaginaAlterarDados extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CampoInserirEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BotaoAlterarDados))
+                    .addComponent(BotaoAlterarEmail))
                 .addGap(22, 22, 22)
                 .addComponent(AlterarTelefoneTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -229,9 +234,24 @@ public class PaginaAlterarDados extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_NomeClienteActionPerformed
 
-    private void BotaoAlterarDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoAlterarDadosActionPerformed
+    private void BotaoAlterarEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoAlterarEmailActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_BotaoAlterarDadosActionPerformed
+        try {
+            ValidarInformacoesUsuario v1 = new ValidarInformacoesUsuario();
+            Usuario.setEmail(CampoInserirEmail.getText());
+            v1.alterarEmailUsuario();
+            if(Usuario.getEmailNaoExistenteBanco()){
+                JOptionPane.showMessageDialog(null, "E-mail alterado com sucesso!","BANCO JAVA",JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(null, "Não foi possivel alterar o E-mail, pois o e-mail informado já está cadastrado!","BANCO JAVA",JOptionPane.INFORMATION_MESSAGE);
+            }
+        } catch (ClassNotFoundException ex) {
+            ex.getMessage();
+        } catch (SQLException ex) {
+            ex.getMessage();
+        }
+
+    }//GEN-LAST:event_BotaoAlterarEmailActionPerformed
 
     private void PerguntasFrequentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PerguntasFrequentesActionPerformed
         // TODO add your handling code here:
@@ -330,7 +350,7 @@ public class PaginaAlterarDados extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField AlterarEmailTitulo;
     private javax.swing.JTextField AlterarTelefoneTitulo;
-    private javax.swing.JButton BotaoAlterarDados;
+    private javax.swing.JButton BotaoAlterarEmail;
     private javax.swing.JButton BotaoAlterarTelefone;
     private javax.swing.JButton BotaoVoltar;
     private javax.swing.JTextField CampoInserirEmail;

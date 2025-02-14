@@ -63,7 +63,7 @@
                       <Group type="102" attributes="0">
                           <Component id="CampoInserirEmail" min="-2" pref="220" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="BotaoAlterarDados" min="-2" max="-2" attributes="0"/>
+                          <Component id="BotaoAlterarEmail" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Component id="AlterarTelefoneTitulo" min="-2" max="-2" attributes="0"/>
                       <Component id="AlterarEmailTitulo" min="-2" max="-2" attributes="0"/>
@@ -111,7 +111,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="CampoInserirEmail" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
-                      <Component id="BotaoAlterarDados" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="BotaoAlterarEmail" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                   <Component id="AlterarTelefoneTitulo" min="-2" max="-2" attributes="0"/>
@@ -174,7 +174,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NomeClienteActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="BotaoAlterarDados">
+        <Component class="javax.swing.JButton" name="BotaoAlterarEmail">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="cc" type="rgb"/>
@@ -189,7 +189,7 @@
             <Property name="borderPainted" type="boolean" value="false"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotaoAlterarDadosActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotaoAlterarEmailActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="PerguntasFrequentes">

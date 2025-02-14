@@ -13,7 +13,6 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 import PacoteInterfaceVisual.Usuario.Usuario;
-import static java.lang.System.out;
 import java.sql.ResultSet;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -347,6 +346,37 @@ public class BancoDeDados {
             }
             else{
                 ListaDeBancos.setCodigoValido(false);
+            }
+            
+        } catch(ClassNotFoundException ex){
+            System.out.println("Driver do Banco de dados não localizado!");
+        } catch(SQLException ex){
+            System.out.println("Erro durante a conexão com o banco de dados! Erro:" + ex.getMessage());
+        }
+        finally{
+            if(conexao1 != null){
+                conexao1.close();
+            }
+        }
+    }
+    public void alterarEmailUsuarioPeloBancoDeDados() throws ClassNotFoundException, SQLException{
+        try{
+            ResultSet resultSet;
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            conexao1 = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/?user=root", "root", "1234");
+            Statement statement = conexao1.createStatement();
+            statement.execute("use bancojava");
+            String sql = "select email from Usuarios where email= "+"'"+Usuario.getEmail()+"';";
+            resultSet = statement.executeQuery(sql);
+            System.out.println(sql);
+            if(resultSet.next()){
+//                Usuario.setUsuarioValido(true);
+//                System.out.println("Usuario com CPF: "+Usuario.getCpf()+" e senha: "+resultSet.getString("senha")+" logado com sucesso!");
+                  Usuario.setEmailNaoExistenteBanco(false);
+            }
+            else{
+                statement.execute("update Usuarios set email= "+Usuario.getEmail()+" where cpf="+"'"+Usuario.getCpf()+"';");
+                Usuario.setEmailNaoExistenteBanco(true);
             }
             
         } catch(ClassNotFoundException ex){
