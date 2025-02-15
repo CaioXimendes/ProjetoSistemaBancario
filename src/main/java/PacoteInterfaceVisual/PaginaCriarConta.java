@@ -5,7 +5,7 @@
 package PacoteInterfaceVisual;
 
 import PacoteInterfaceVisual.Usuario.Usuario;
-import PacoteRegraDeNegocio.ValidarInformacoesUsuario;
+import java.awt.event.KeyEvent;
 
 /**
  *
@@ -56,9 +56,18 @@ public class PaginaCriarConta extends javax.swing.JFrame {
             }
         });
 
+        CampoInserirNome.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         CampoInserirNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CampoInserirNomeActionPerformed(evt);
+            }
+        });
+        CampoInserirNome.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                CampoInserirNomeKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                CampoInserirNomeKeyTyped(evt);
             }
         });
 
@@ -85,9 +94,18 @@ public class PaginaCriarConta extends javax.swing.JFrame {
             }
         });
 
+        CampoInserirEmail.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         CampoInserirEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CampoInserirEmailActionPerformed(evt);
+            }
+        });
+        CampoInserirEmail.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                CampoInserirEmailKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                CampoInserirEmailKeyTyped(evt);
             }
         });
 
@@ -204,6 +222,7 @@ public class PaginaCriarConta extends javax.swing.JFrame {
 
     private void CampoInserirNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoInserirNomeActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_CampoInserirNomeActionPerformed
 
     private void BotaoAvancarCriarContaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoAvancarCriarContaActionPerformed
@@ -229,6 +248,40 @@ public class PaginaCriarConta extends javax.swing.JFrame {
     private void CampoInserirEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoInserirEmailActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_CampoInserirEmailActionPerformed
+
+    private void CampoInserirNomeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CampoInserirNomeKeyTyped
+        // TODO add your handling code here:
+        char caractere = evt.getKeyChar();
+        if(!Character.isLetter(caractere)){
+            if(!(caractere == ' ')){
+                evt.consume();
+            }
+        }
+    }//GEN-LAST:event_CampoInserirNomeKeyTyped
+
+    private void CampoInserirEmailKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CampoInserirEmailKeyTyped
+        // TODO add your handling code here:
+        char caractere = evt.getKeyChar();
+        if(!Character.isLetter(caractere) && !Character.isDigit(caractere)){
+            if(!(caractere == '@' || caractere =='.')){
+                evt.consume();
+            }
+        }
+    }//GEN-LAST:event_CampoInserirEmailKeyTyped
+
+    private void CampoInserirEmailKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CampoInserirEmailKeyPressed
+        // TODO add your handling code here:
+        if(evt.isControlDown() && evt.getKeyCode() == KeyEvent.VK_V){
+            evt.consume();
+        }
+    }//GEN-LAST:event_CampoInserirEmailKeyPressed
+
+    private void CampoInserirNomeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CampoInserirNomeKeyPressed
+        // TODO add your handling code here:
+        if(evt.isControlDown() && evt.getKeyCode() == KeyEvent.VK_V){
+            evt.consume();
+        }
+    }//GEN-LAST:event_CampoInserirNomeKeyPressed
 
     /**
      * @param args the command line arguments
