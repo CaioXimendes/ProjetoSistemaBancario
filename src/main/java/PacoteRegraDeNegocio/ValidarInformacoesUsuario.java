@@ -150,4 +150,8 @@ public class ValidarInformacoesUsuario {
         BancoDeDados b1 = new BancoDeDados();
         b1.alterarEmailUsuarioPeloBancoDeDados();
     }
+    public void filtrarExtrato() throws ClassNotFoundException, SQLException{
+        BancoDeDados b1 = new BancoDeDados();
+        b1.filtrarExtratoPeloBancoDeDados();
+    }
 }

@@ -4,7 +4,11 @@
  */
 package PacoteInterfaceVisual;
 
+import PacoteInterfaceVisual.Usuario.Extrato;
+import PacoteRegraDeNegocio.ValidarInformacoesUsuario;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -36,6 +40,9 @@ public class PaginaConsultarExtratoTabela extends javax.swing.JFrame {
         BotaoVoltar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         TabelaConsultaExtrato = new javax.swing.JTable();
+        CampoInserirIntervaloInicio = new javax.swing.JFormattedTextField();
+        CampoInserirIntervaloFim = new javax.swing.JFormattedTextField();
+        BotaoFiltrarIntervalo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -101,6 +108,30 @@ public class PaginaConsultarExtratoTabela extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(TabelaConsultaExtrato);
 
+        try {
+            CampoInserirIntervaloInicio.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        CampoInserirIntervaloInicio.setToolTipText("Digite a data de inicio do intervalo");
+        CampoInserirIntervaloInicio.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
+
+        try {
+            CampoInserirIntervaloFim.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        CampoInserirIntervaloFim.setToolTipText("Digite a data de término do intervalo");
+        CampoInserirIntervaloFim.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
+
+        BotaoFiltrarIntervalo.setFont(new java.awt.Font("Segoe UI", 1, 8)); // NOI18N
+        BotaoFiltrarIntervalo.setText("filtrar intervalo");
+        BotaoFiltrarIntervalo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoFiltrarIntervaloActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout JPanelHOMELayout = new javax.swing.GroupLayout(JPanelHOME);
         JPanelHOME.setLayout(JPanelHOMELayout);
         JPanelHOMELayout.setHorizontalGroup(
@@ -118,8 +149,15 @@ public class PaginaConsultarExtratoTabela extends javax.swing.JFrame {
                         .addComponent(IconeLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(NomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(62, 62, 62)
-                        .addComponent(VerificarExtratoTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(59, 59, 59)
+                        .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(JPanelHOMELayout.createSequentialGroup()
+                                .addComponent(CampoInserirIntervaloInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(CampoInserirIntervaloFim, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(BotaoFiltrarIntervalo))
+                            .addComponent(VerificarExtratoTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(JPanelHOMELayout.createSequentialGroup()
                         .addGap(68, 68, 68)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 567, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -133,11 +171,18 @@ public class PaginaConsultarExtratoTabela extends javax.swing.JFrame {
                         .addGap(6, 6, 6)
                         .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(IconeLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(NomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(VerificarExtratoTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(NomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(JPanelHOMELayout.createSequentialGroup()
                         .addGap(32, 32, 32)
-                        .addComponent(PerguntasFrequentes, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(PerguntasFrequentes, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(JPanelHOMELayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(VerificarExtratoTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(CampoInserirIntervaloInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CampoInserirIntervaloFim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BotaoFiltrarIntervalo))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
@@ -181,9 +226,65 @@ public class PaginaConsultarExtratoTabela extends javax.swing.JFrame {
         PaginaHome p1 = new PaginaHome();
         p1.setVisible(true);
     }//GEN-LAST:event_BotaoVoltarActionPerformed
-    public javax.swing.JTable getTabelaConsultaExtrato(){
+
+    private void BotaoFiltrarIntervaloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoFiltrarIntervaloActionPerformed
+        // TODO add your handling code here:
+        Extrato.setFiltroIntervaloInicio(CampoInserirIntervaloInicio.getText());
+        Extrato.setFiltroIntervaloTermino(CampoInserirIntervaloFim.getText());
+        try {
+            ValidarInformacoesUsuario v1 = new ValidarInformacoesUsuario();
+            v1.filtrarExtrato();
+
+        } catch (ClassNotFoundException ex) {
+            ex.getMessage();
+        } catch (SQLException ex) {
+            ex.getMessage();
+        }
+        if (Extrato.isFiltroIntervaloValido()) {
+            PaginaConsultarExtratoTabela p1 = new PaginaConsultarExtratoTabela();
+            DefaultTableModel dtm1 = (DefaultTableModel) p1.getTabelaConsultaExtrato().getModel();
+
+            System.out.println(dtm1);
+            Object[] colunaDataHorario = new Object[Extrato.getDataExtratoLista().size()];
+            Object[] colunaDescricao = new Object[Extrato.getDescricaoExtratoLista().size()];
+            Object[] colunaValor = new Object[Extrato.getValorExtratoLista().size()];
+            Object[] colunaTipo = new Object[Extrato.getTipoCreditoDebitoExtratoLista().size()];
+
+            for (int x = 0; x < Extrato.getDataExtratoLista().size(); x++) {
+                colunaDataHorario[x] = Extrato.getDataExtratoLista().get(x);
+            }
+            for (int x = 0; x < Extrato.getDescricaoExtratoLista().size(); x++) {
+                colunaDescricao[x] = Extrato.getDescricaoExtratoLista().get(x);
+            }
+            for (int x = 0; x < Extrato.getValorExtratoLista().size(); x++) {
+                colunaValor[x] = Extrato.getValorExtratoLista().get(x);
+            }
+            for (int x = 0; x < Extrato.getTipoCreditoDebitoExtratoLista().size(); x++) {
+                colunaTipo[x] = Extrato.getTipoCreditoDebitoExtratoLista().get(x);
+            }
+
+            //Extrato.getDataExtratoLista().size();
+            dtm1.addColumn("data_horario", colunaDataHorario);
+            dtm1.addColumn("descricao", colunaDescricao);
+            dtm1.addColumn("valor", colunaValor);
+            dtm1.addColumn("tipo", colunaTipo);
+
+            Extrato.getDataExtratoLista().removeAll(Extrato.getDataExtratoLista());
+            Extrato.getDescricaoExtratoLista().removeAll(Extrato.getDescricaoExtratoLista());
+            Extrato.getValorExtratoLista().removeAll(Extrato.getValorExtratoLista());
+            Extrato.getTipoCreditoDebitoExtratoLista().removeAll(Extrato.getTipoCreditoDebitoExtratoLista());
+            this.dispose();
+            p1.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "Não foi possível encontrar extrato no intervalo inserido!", "Banco JAVA", JOptionPane.INFORMATION_MESSAGE);
+        }
+
+
+    }//GEN-LAST:event_BotaoFiltrarIntervaloActionPerformed
+    public javax.swing.JTable getTabelaConsultaExtrato() {
         return TabelaConsultaExtrato;
     }
+
     /**
      * @param args the command line arguments
      */
@@ -236,7 +337,10 @@ public class PaginaConsultarExtratoTabela extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BotaoFiltrarIntervalo;
     private javax.swing.JButton BotaoVoltar;
+    private javax.swing.JFormattedTextField CampoInserirIntervaloFim;
+    private javax.swing.JFormattedTextField CampoInserirIntervaloInicio;
     private javax.swing.JLabel IconeLogo;
     private javax.swing.JPanel JPanelHOME;
     private javax.swing.JTextField NomeCliente;

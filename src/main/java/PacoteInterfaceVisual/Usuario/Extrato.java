@@ -48,6 +48,34 @@ public class Extrato {
     private static List<String> descricaoExtratoLista = new ArrayList<>();
     private static List<Double> valorExtratoLista = new ArrayList<>();
     private static List<String> tipoCreditoDebitoExtratoLista = new ArrayList<>();
+    private static String filtroIntervaloInicio;
+    private static String filtroIntervaloTermino;
+    private static boolean filtroIntervaloValido;
+
+    public static boolean isFiltroIntervaloValido() {
+        return filtroIntervaloValido;
+    }
+
+    public static void setFiltroIntervaloValido(boolean filtroIntervaloValido) {
+        Extrato.filtroIntervaloValido = filtroIntervaloValido;
+    }
+    
+
+    public static String getFiltroIntervaloInicio() {
+        return filtroIntervaloInicio;
+    }
+
+    public static void setFiltroIntervaloInicio(String filtroIntervaloInicio) {
+        Extrato.filtroIntervaloInicio = filtroIntervaloInicio;
+    }
+
+    public static String getFiltroIntervaloTermino() {
+        return filtroIntervaloTermino;
+    }
+
+    public static void setFiltroIntervaloTermino(String filtroIntervaloTermino) {
+        Extrato.filtroIntervaloTermino = filtroIntervaloTermino;
+    }
 
     public static void setDataExtratoLista(List<String> dataExtratoLista) {
         Extrato.dataExtratoLista = dataExtratoLista;
