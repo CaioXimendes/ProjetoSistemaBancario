@@ -5,8 +5,24 @@
 package PacoteInterfaceVisual;
 
 import PacoteInterfaceVisual.Usuario.Extrato;
+import PacoteInterfaceVisual.Usuario.Usuario;
 import PacoteRegraDeNegocio.ValidarInformacoesUsuario;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Image;
+import com.itextpdf.text.PageSize;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import javax.imageio.ImageIO;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -43,6 +59,7 @@ public class PaginaConsultarExtratoTabela extends javax.swing.JFrame {
         CampoInserirIntervaloInicio = new javax.swing.JFormattedTextField();
         CampoInserirIntervaloFim = new javax.swing.JFormattedTextField();
         BotaoFiltrarIntervalo = new javax.swing.JButton();
+        BotaoGerarPDF = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -132,6 +149,13 @@ public class PaginaConsultarExtratoTabela extends javax.swing.JFrame {
             }
         });
 
+        BotaoGerarPDF.setText("Gerar PDF");
+        BotaoGerarPDF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoGerarPDFActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout JPanelHOMELayout = new javax.swing.GroupLayout(JPanelHOME);
         JPanelHOME.setLayout(JPanelHOMELayout);
         JPanelHOMELayout.setHorizontalGroup(
@@ -143,21 +167,26 @@ public class PaginaConsultarExtratoTabela extends javax.swing.JFrame {
                     .addComponent(BotaoVoltar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21))
             .addGroup(JPanelHOMELayout.createSequentialGroup()
-                .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(JPanelHOMELayout.createSequentialGroup()
                         .addGap(14, 14, 14)
                         .addComponent(IconeLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(NomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(59, 59, 59)
                         .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(JPanelHOMELayout.createSequentialGroup()
-                                .addComponent(CampoInserirIntervaloInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(CampoInserirIntervaloFim, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(BotaoFiltrarIntervalo))
-                            .addComponent(VerificarExtratoTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(NomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(59, 59, 59)
+                                .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(JPanelHOMELayout.createSequentialGroup()
+                                        .addComponent(CampoInserirIntervaloInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(CampoInserirIntervaloFim, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(BotaoFiltrarIntervalo))
+                                    .addComponent(VerificarExtratoTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelHOMELayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(BotaoGerarPDF))))
                     .addGroup(JPanelHOMELayout.createSequentialGroup()
                         .addGap(68, 68, 68)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 567, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -166,7 +195,7 @@ public class PaginaConsultarExtratoTabela extends javax.swing.JFrame {
         JPanelHOMELayout.setVerticalGroup(
             JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPanelHOMELayout.createSequentialGroup()
-                .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(JPanelHOMELayout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -174,7 +203,9 @@ public class PaginaConsultarExtratoTabela extends javax.swing.JFrame {
                             .addComponent(NomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(JPanelHOMELayout.createSequentialGroup()
                         .addGap(32, 32, 32)
-                        .addComponent(PerguntasFrequentes, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(PerguntasFrequentes, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(BotaoGerarPDF))
                     .addGroup(JPanelHOMELayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(VerificarExtratoTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -281,6 +312,55 @@ public class PaginaConsultarExtratoTabela extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_BotaoFiltrarIntervaloActionPerformed
+
+    private void BotaoGerarPDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoGerarPDFActionPerformed
+        // TODO add your handling code here:
+        if (TabelaConsultaExtrato.getRowCount() > 0) {
+            BufferedImage img = new BufferedImage(TabelaConsultaExtrato.getWidth(), TabelaConsultaExtrato.getHeight() + TabelaConsultaExtrato.getTableHeader().getHeight(), BufferedImage.TYPE_INT_RGB);
+            Graphics2D g2d = img.createGraphics();
+            TabelaConsultaExtrato.getTableHeader().paint(g2d);
+            g2d.translate(0, TabelaConsultaExtrato.getTableHeader().getHeight());
+            TabelaConsultaExtrato.paint(g2d);
+            g2d.dispose();
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            try {
+                //CRIANDO O LOGO DO PDF
+                Image logoBancoJava = Image.getInstance("C:\\NetBeansProjects\\sistema-bancario\\src\\main\\resources\\images\\logoBancoJava.PNG");
+                ImageIO.write(img, "png", baos);
+                byte[] bytesImagem = baos.toByteArray();
+                Image imagemPdf = Image.getInstance(bytesImagem);
+                LocalDateTime dataAgora = LocalDateTime.now();
+                DateTimeFormatter f1 = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss").withZone(ZoneId.of("America/Sao_Paulo"));
+                ValidarInformacoesUsuario v1 = new ValidarInformacoesUsuario();
+                v1.consultarNomeUsuario();
+                Document document = new Document(PageSize.A4);
+                PdfWriter.getInstance(document, new FileOutputStream("C:\\Users\\caiox\\Desktop\\ExtratoDe" + Usuario.getNome() + ".pdf"));
+                document.open();
+                document.add(logoBancoJava);
+                document.add(imagemPdf);
+                document.add(new Paragraph("Extrato Bancário de " + Usuario.getNome() + " emitido em:" + f1.format(dataAgora)));
+                document.close();
+                v1.enviarExtratoPeloEmail();
+                if (Usuario.getUsuarioValido()) {
+                    JOptionPane.showMessageDialog(null, "Seu Extrato foi enviado para seu e-mail, confira agora!", "BANCO JAVA", JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Ocorreu um problema ao enviar o seu extrato para o seu e-mail!", "BANCO JAVA", JOptionPane.INFORMATION_MESSAGE);
+                }
+            } catch (DocumentException ex) {
+                ex.printStackTrace();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            } catch (ClassNotFoundException ex) {
+                ex.printStackTrace();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Não foi possível gerar um PDF de extrato, pois seu extrato está vazio", "BANCO JAVA", JOptionPane.INFORMATION_MESSAGE);
+        }
+
+
+    }//GEN-LAST:event_BotaoGerarPDFActionPerformed
     public javax.swing.JTable getTabelaConsultaExtrato() {
         return TabelaConsultaExtrato;
     }
@@ -338,6 +418,7 @@ public class PaginaConsultarExtratoTabela extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotaoFiltrarIntervalo;
+    private javax.swing.JButton BotaoGerarPDF;
     private javax.swing.JButton BotaoVoltar;
     private javax.swing.JFormattedTextField CampoInserirIntervaloFim;
     private javax.swing.JFormattedTextField CampoInserirIntervaloInicio;

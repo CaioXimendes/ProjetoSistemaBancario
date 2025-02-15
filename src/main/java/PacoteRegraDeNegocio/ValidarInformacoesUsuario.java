@@ -14,6 +14,8 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Random;
 import org.apache.commons.mail.DefaultAuthenticator;
+import org.apache.commons.mail.EmailAttachment;
+import org.apache.commons.mail.MultiPartEmail;
 import org.apache.commons.mail.SimpleEmail;
 
 /**
@@ -84,36 +86,40 @@ public class ValidarInformacoesUsuario {
         b1.consultarSaldoPeloBancoDeDados();
     }
 
-    public void transferirViaPix() throws ClassNotFoundException, SQLException{
+    public void transferirViaPix() throws ClassNotFoundException, SQLException {
         BancoDeDados b1 = new BancoDeDados();
         b1.transferirViaPixPeloBancoDeDados();
     }
-    public void consultarExtrato()throws ClassNotFoundException, SQLException{
+
+    public void consultarExtrato() throws ClassNotFoundException, SQLException {
         BancoDeDados b1 = new BancoDeDados();
         b1.consultarExtratoNoBancoDeDados();
     }
-    public void criarSenha4Digitos() throws ClassNotFoundException, SQLException{
+
+    public void criarSenha4Digitos() throws ClassNotFoundException, SQLException {
         BancoDeDados b1 = new BancoDeDados();
         b1.criarSenha4DigitosPeloBancoDeDados();
     }
-    public void buscarSenha4Digitos() throws ClassNotFoundException, SQLException{
+
+    public void buscarSenha4Digitos() throws ClassNotFoundException, SQLException {
         BancoDeDados b1 = new BancoDeDados();
         b1.buscarSenha4DigitosPeloBancoDeDados();
     }
-    public void verificarBoleto(){
+
+    public void verificarBoleto() {
         String codigoBanco = "";
-        
-        codigoBanco = codigoBanco + (Boleto.getCodigoBoleto().charAt(0))+(Boleto.getCodigoBoleto().charAt(1))+(Boleto.getCodigoBoleto().charAt(2));
+
+        codigoBanco = codigoBanco + (Boleto.getCodigoBoleto().charAt(0)) + (Boleto.getCodigoBoleto().charAt(1)) + (Boleto.getCodigoBoleto().charAt(2));
         Boleto.setCodigoBanco(codigoBanco);
-        
+
         String fatorVencimento = "";
-        fatorVencimento = fatorVencimento + (Boleto.getCodigoBoleto().charAt(33))+(Boleto.getCodigoBoleto().charAt(34))+(Boleto.getCodigoBoleto().charAt(35))+(Boleto.getCodigoBoleto().charAt(36));
+        fatorVencimento = fatorVencimento + (Boleto.getCodigoBoleto().charAt(33)) + (Boleto.getCodigoBoleto().charAt(34)) + (Boleto.getCodigoBoleto().charAt(35)) + (Boleto.getCodigoBoleto().charAt(36));
         Boleto.setFatorVencimento(Integer.parseInt(fatorVencimento));
         int x;
         char carac;
-        for(x=37; x<=46;x++){
+        for (x = 37; x <= 46; x++) {
             carac = Boleto.getCodigoBoleto().charAt(x);
-            if(carac != '0'){
+            if (carac != '0') {
                 break;
             }
         }
@@ -127,10 +133,10 @@ public class ValidarInformacoesUsuario {
         LocalDate novaData = dataInicio.plusDays(Boleto.getFatorVencimento());
 //        novaData.format(formatacao);
 //        dataHoje.format(formatacao);
-        if(novaData.isBefore(dataHoje)){
+        if (novaData.isBefore(dataHoje)) {
             Boleto.setDataValidadeBoletoValida(false);
             Boleto.setDataValidadeBoleto(novaData.format(formatacao));
-        } else if (novaData.isAfter(dataHoje)){
+        } else if (novaData.isAfter(dataHoje)) {
             Boleto.setDataValidadeBoletoValida(true);
             Boleto.setDataValidadeBoleto(novaData.format(formatacao));
         } else {
@@ -138,20 +144,58 @@ public class ValidarInformacoesUsuario {
             Boleto.setDataValidadeBoleto(novaData.format(formatacao));
         }
     }
-    public void realizarPagamentoBoleto() throws ClassNotFoundException, SQLException{
+
+    public void realizarPagamentoBoleto() throws ClassNotFoundException, SQLException {
         BancoDeDados b1 = new BancoDeDados();
         b1.realizarPagamentoBoletoPeloBancoDeDados();
     }
-    public void consultarListaDeBancos() throws ClassNotFoundException, SQLException{
+
+    public void consultarListaDeBancos() throws ClassNotFoundException, SQLException {
         BancoDeDados b1 = new BancoDeDados();
         b1.consultarListaDeBancosPeloBancoDeDados();
     }
-    public void alterarEmailUsuario() throws ClassNotFoundException, SQLException{
+
+    public void alterarEmailUsuario() throws ClassNotFoundException, SQLException {
         BancoDeDados b1 = new BancoDeDados();
         b1.alterarEmailUsuarioPeloBancoDeDados();
     }
-    public void filtrarExtrato() throws ClassNotFoundException, SQLException{
+
+    public void filtrarExtrato() throws ClassNotFoundException, SQLException {
         BancoDeDados b1 = new BancoDeDados();
         b1.filtrarExtratoPeloBancoDeDados();
+    }
+
+    public void consultarNomeUsuario() throws ClassNotFoundException, SQLException {
+        BancoDeDados b1 = new BancoDeDados();
+        b1.consultarNomeUsuarioPeloBancoDeDados();
+    }
+
+    public void enviarExtratoPeloEmail() throws ClassNotFoundException, SQLException{
+        BancoDeDados b1 = new BancoDeDados();
+        b1.consultarEmailUsuarioPeloBancoDeDados();
+        if (Usuario.getUsuarioValido()) {
+            MultiPartEmail e1 = new MultiPartEmail();
+            e1.setHostName("smtp.gmail.com");
+            e1.setSmtpPort(465);
+            e1.setAuthenticator(new DefaultAuthenticator("caioximendes1@gmail.com", "uzip qush rdzs bijo"));
+            e1.setSSLOnConnect(true);
+            try {
+                e1.setFrom("caioximendes1@gmail.com");
+                e1.setSubject("BANCO JAVA: E-mail de Consulta de Extrato");
+                e1.setMsg("Olá, "+Usuario.getNome()+", você está recebendo este e-mail com o seu Extrato Bancário, segue em anexo: ");
+                e1.addTo(Usuario.getEmail());
+                //ENVIAR ANEXO DO EXTRATO
+                EmailAttachment attachment = new EmailAttachment();
+                attachment.setPath("C:\\Users\\caiox\\Desktop\\ExtratoDe"+Usuario.getNome()+".pdf");
+                attachment.setDisposition(EmailAttachment.ATTACHMENT);
+                attachment.setDescription("Extrato de "+Usuario.getNome());
+                attachment.setName("ExtratoDe"+Usuario.getNome()+".pdf");
+                e1.attach(attachment);
+                e1.send();
+                System.out.println("Email enviado!");
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
     }
 }
