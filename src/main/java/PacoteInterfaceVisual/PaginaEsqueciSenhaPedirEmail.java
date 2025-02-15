@@ -6,6 +6,7 @@ package PacoteInterfaceVisual;
 
 import PacoteInterfaceVisual.Usuario.Usuario;
 import PacoteRegraDeNegocio.ValidarInformacoesUsuario;
+import java.awt.event.KeyEvent;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
@@ -33,8 +34,8 @@ public class PaginaEsqueciSenhaPedirEmail extends javax.swing.JFrame {
 
         JPanelPedirSenha = new javax.swing.JPanel();
         InformeSeuEmail = new javax.swing.JTextField();
-        CampoInserirEmail = new javax.swing.JTextField();
         BotaoAvançarPedirEmail = new javax.swing.JButton();
+        CampoInserirEmail = new javax.swing.JTextField();
         PainelLogoPedirSenha = new javax.swing.JPanel();
         TituloBancoJava = new javax.swing.JTextField();
         ImagemLogoJava = new javax.swing.JLabel();
@@ -56,13 +57,6 @@ public class PaginaEsqueciSenhaPedirEmail extends javax.swing.JFrame {
             }
         });
 
-        CampoInserirEmail.setText(" email@email.com");
-        CampoInserirEmail.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CampoInserirEmailActionPerformed(evt);
-            }
-        });
-
         BotaoAvançarPedirEmail.setBackground(new java.awt.Color(204, 0, 0));
         BotaoAvançarPedirEmail.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         BotaoAvançarPedirEmail.setForeground(new java.awt.Color(255, 255, 255));
@@ -74,22 +68,40 @@ public class PaginaEsqueciSenhaPedirEmail extends javax.swing.JFrame {
             }
         });
 
+        CampoInserirEmail.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        CampoInserirEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CampoInserirEmailActionPerformed(evt);
+            }
+        });
+        CampoInserirEmail.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                CampoInserirEmailKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                CampoInserirEmailKeyTyped(evt);
+            }
+        });
+
         javax.swing.GroupLayout JPanelPedirSenhaLayout = new javax.swing.GroupLayout(JPanelPedirSenha);
         JPanelPedirSenha.setLayout(JPanelPedirSenhaLayout);
         JPanelPedirSenhaLayout.setHorizontalGroup(
             JPanelPedirSenhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPanelPedirSenhaLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(JPanelPedirSenhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(InformeSeuEmail)
                     .addGroup(JPanelPedirSenhaLayout.createSequentialGroup()
-                        .addComponent(CampoInserirEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 109, Short.MAX_VALUE)))
+                        .addContainerGap()
+                        .addComponent(InformeSeuEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 329, Short.MAX_VALUE))
+                    .addGroup(JPanelPedirSenhaLayout.createSequentialGroup()
+                        .addGroup(JPanelPedirSenhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(JPanelPedirSenhaLayout.createSequentialGroup()
+                                .addGap(118, 118, 118)
+                                .addComponent(BotaoAvançarPedirEmail))
+                            .addGroup(JPanelPedirSenhaLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(CampoInserirEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(JPanelPedirSenhaLayout.createSequentialGroup()
-                .addGap(118, 118, 118)
-                .addComponent(BotaoAvançarPedirEmail)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         JPanelPedirSenhaLayout.setVerticalGroup(
             JPanelPedirSenhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -177,10 +189,6 @@ public class PaginaEsqueciSenhaPedirEmail extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_InformeSeuEmailActionPerformed
 
-    private void CampoInserirEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoInserirEmailActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CampoInserirEmailActionPerformed
-
     private void BotaoAvançarPedirEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoAvançarPedirEmailActionPerformed
         // TODO add your handling code here:
         try {
@@ -201,6 +209,27 @@ public class PaginaEsqueciSenhaPedirEmail extends javax.swing.JFrame {
             System.out.println(ex.getMessage());
         }
     }//GEN-LAST:event_BotaoAvançarPedirEmailActionPerformed
+
+    private void CampoInserirEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoInserirEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CampoInserirEmailActionPerformed
+
+    private void CampoInserirEmailKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CampoInserirEmailKeyPressed
+        // TODO add your handling code here:
+        if(evt.isControlDown() && evt.getKeyCode() == KeyEvent.VK_V){
+            evt.consume();
+        }
+    }//GEN-LAST:event_CampoInserirEmailKeyPressed
+
+    private void CampoInserirEmailKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CampoInserirEmailKeyTyped
+        // TODO add your handling code here:
+        char caractere = evt.getKeyChar();
+        if(!Character.isLetter(caractere) && !Character.isDigit(caractere)){
+            if(!(caractere == '@' || caractere =='.')){
+                evt.consume();
+            }
+        }
+    }//GEN-LAST:event_CampoInserirEmailKeyTyped
 
     /**
      * @param args the command line arguments
