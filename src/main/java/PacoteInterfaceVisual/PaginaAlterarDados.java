@@ -6,6 +6,7 @@ package PacoteInterfaceVisual;
 
 import PacoteInterfaceVisual.Usuario.Usuario;
 import PacoteRegraDeNegocio.ValidarInformacoesUsuario;
+import java.awt.event.KeyEvent;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
@@ -38,10 +39,10 @@ public class PaginaAlterarDados extends javax.swing.JFrame {
         BotaoAlterarEmail = new javax.swing.JButton();
         PerguntasFrequentes = new javax.swing.JTextField();
         AlterarTelefoneTitulo = new javax.swing.JTextField();
-        CampoInserirEmail = new javax.swing.JTextField();
         CampoInserirTelefone = new javax.swing.JTextField();
         BotaoAlterarTelefone = new javax.swing.JButton();
         BotaoVoltar = new javax.swing.JButton();
+        CampoInserirEmail = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -110,14 +111,6 @@ public class PaginaAlterarDados extends javax.swing.JFrame {
             }
         });
 
-        CampoInserirEmail.setText("email@email.com");
-        CampoInserirEmail.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        CampoInserirEmail.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CampoInserirEmailActionPerformed(evt);
-            }
-        });
-
         CampoInserirTelefone.setText("(00) 90000-0000");
         CampoInserirTelefone.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         CampoInserirTelefone.addActionListener(new java.awt.event.ActionListener() {
@@ -147,6 +140,21 @@ public class PaginaAlterarDados extends javax.swing.JFrame {
             }
         });
 
+        CampoInserirEmail.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        CampoInserirEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CampoInserirEmailActionPerformed(evt);
+            }
+        });
+        CampoInserirEmail.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                CampoInserirEmailKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                CampoInserirEmailKeyTyped(evt);
+            }
+        });
+
         javax.swing.GroupLayout JPanelHOMELayout = new javax.swing.GroupLayout(JPanelHOME);
         JPanelHOME.setLayout(JPanelHOMELayout);
         JPanelHOMELayout.setHorizontalGroup(
@@ -170,7 +178,7 @@ public class PaginaAlterarDados extends javax.swing.JFrame {
                         .addComponent(NomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(270, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelHOMELayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(511, Short.MAX_VALUE)
                 .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelHOMELayout.createSequentialGroup()
                         .addComponent(PerguntasFrequentes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -195,8 +203,8 @@ public class PaginaAlterarDados extends javax.swing.JFrame {
                 .addComponent(AlterarEmailTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CampoInserirEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BotaoAlterarEmail))
+                    .addComponent(BotaoAlterarEmail)
+                    .addComponent(CampoInserirEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22)
                 .addComponent(AlterarTelefoneTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -261,10 +269,6 @@ public class PaginaAlterarDados extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_AlterarTelefoneTituloActionPerformed
 
-    private void CampoInserirEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoInserirEmailActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CampoInserirEmailActionPerformed
-
     private void CampoInserirTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoInserirTelefoneActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_CampoInserirTelefoneActionPerformed
@@ -279,6 +283,27 @@ public class PaginaAlterarDados extends javax.swing.JFrame {
         PaginaHome p1 = new PaginaHome();
         p1.setVisible(true);
     }//GEN-LAST:event_BotaoVoltarActionPerformed
+
+    private void CampoInserirEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoInserirEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CampoInserirEmailActionPerformed
+
+    private void CampoInserirEmailKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CampoInserirEmailKeyPressed
+        // TODO add your handling code here:
+        if(evt.isControlDown() && evt.getKeyCode() == KeyEvent.VK_V){
+            evt.consume();
+        }
+    }//GEN-LAST:event_CampoInserirEmailKeyPressed
+
+    private void CampoInserirEmailKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CampoInserirEmailKeyTyped
+        // TODO add your handling code here:
+        char caractere = evt.getKeyChar();
+        if(!Character.isLetter(caractere) && !Character.isDigit(caractere)){
+            if(!(caractere == '@' || caractere =='.')){
+                evt.consume();
+            }
+        }
+    }//GEN-LAST:event_CampoInserirEmailKeyTyped
 
     /**
      * @param args the command line arguments
