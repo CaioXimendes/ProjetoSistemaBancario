@@ -141,7 +141,17 @@ public class PaginaPagar extends javax.swing.JFrame {
         }
         CampoInserirCodigoBoletoFORMATADO.setToolTipText("inserir codigo boleto");
 
-        CampoInserirQuantiaDeposito.setToolTipText("Inserir Quantia para Depositar");
+        try {
+            CampoInserirQuantiaDeposito.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#******")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        CampoInserirQuantiaDeposito.setToolTipText("Inserir Quantia");
+        CampoInserirQuantiaDeposito.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                CampoInserirQuantiaDepositoKeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout JPanelHOMELayout = new javax.swing.GroupLayout(JPanelHOME);
         JPanelHOME.setLayout(JPanelHOMELayout);
@@ -171,11 +181,11 @@ public class PaginaPagar extends javax.swing.JFrame {
                                         .addComponent(CampoInserirCodigoBoletoFORMATADO, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
                                         .addComponent(BotaoPagarViaBoleto))
+                                    .addComponent(PagamentoBoletoTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(JPanelHOMELayout.createSequentialGroup()
                                         .addComponent(CampoInserirQuantiaDeposito, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
-                                        .addComponent(BotaoGerarBoletoDeposito))
-                                    .addComponent(PagamentoBoletoTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(BotaoGerarBoletoDeposito)))
                                 .addGap(0, 230, Short.MAX_VALUE)))))
                 .addGap(16, 16, 16))
         );
@@ -286,6 +296,19 @@ public class PaginaPagar extends javax.swing.JFrame {
         PaginaHome p1 = new PaginaHome();
         p1.setVisible(true);
     }//GEN-LAST:event_BotaoVoltarActionPerformed
+
+    private void CampoInserirQuantiaDepositoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CampoInserirQuantiaDepositoKeyTyped
+        // TODO add your handling code here:
+        char caractere = evt.getKeyChar();
+        if(caractere == '.' && CampoInserirQuantiaDeposito.getText().contains(".")){
+            evt.consume();
+        }
+        if(!Character.isDigit(caractere)){
+            if(!(caractere == '.')){
+                evt.consume();
+            }
+        }
+    }//GEN-LAST:event_CampoInserirQuantiaDepositoKeyTyped
 
     /**
      * @param args the command line arguments
