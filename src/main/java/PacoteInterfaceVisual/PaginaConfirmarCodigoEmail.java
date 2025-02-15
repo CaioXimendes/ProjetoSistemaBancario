@@ -31,8 +31,8 @@ public class PaginaConfirmarCodigoEmail extends javax.swing.JFrame {
 
         JPanelPedirSenha = new javax.swing.JPanel();
         DigitarCodigoTitulo = new javax.swing.JTextField();
-        CampoInserirCodigo = new javax.swing.JTextField();
         BotaoConfirmarCodigo = new javax.swing.JButton();
+        CampoInserirCodigo = new javax.swing.JFormattedTextField();
         PainelLogoPedirSenha = new javax.swing.JPanel();
         TituloBancoJava = new javax.swing.JTextField();
         ImagemLogoJava = new javax.swing.JLabel();
@@ -55,15 +55,6 @@ public class PaginaConfirmarCodigoEmail extends javax.swing.JFrame {
             }
         });
 
-        CampoInserirCodigo.setText(" 0000");
-        CampoInserirCodigo.setToolTipText("");
-        CampoInserirCodigo.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        CampoInserirCodigo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CampoInserirCodigoActionPerformed(evt);
-            }
-        });
-
         BotaoConfirmarCodigo.setBackground(new java.awt.Color(204, 0, 0));
         BotaoConfirmarCodigo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         BotaoConfirmarCodigo.setForeground(new java.awt.Color(255, 255, 255));
@@ -75,6 +66,12 @@ public class PaginaConfirmarCodigoEmail extends javax.swing.JFrame {
             }
         });
 
+        try {
+            CampoInserirCodigo.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
         javax.swing.GroupLayout JPanelPedirSenhaLayout = new javax.swing.GroupLayout(JPanelPedirSenha);
         JPanelPedirSenha.setLayout(JPanelPedirSenhaLayout);
         JPanelPedirSenhaLayout.setHorizontalGroup(
@@ -82,10 +79,10 @@ public class PaginaConfirmarCodigoEmail extends javax.swing.JFrame {
             .addGroup(JPanelPedirSenhaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(JPanelPedirSenhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(DigitarCodigoTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 329, Short.MAX_VALUE)
                     .addGroup(JPanelPedirSenhaLayout.createSequentialGroup()
                         .addComponent(CampoInserirCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 109, Short.MAX_VALUE))
-                    .addComponent(DigitarCodigoTitulo))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(JPanelPedirSenhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelPedirSenhaLayout.createSequentialGroup()
@@ -182,10 +179,6 @@ public class PaginaConfirmarCodigoEmail extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_DigitarCodigoTituloActionPerformed
 
-    private void CampoInserirCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoInserirCodigoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CampoInserirCodigoActionPerformed
-
     private void BotaoConfirmarCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoConfirmarCodigoActionPerformed
         // TODO add your handling code here:
         if(Integer.valueOf(CampoInserirCodigo.getText()) == Usuario.getCodigoRecuperacao()){
@@ -251,7 +244,7 @@ public class PaginaConfirmarCodigoEmail extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotaoConfirmarCodigo;
-    private javax.swing.JTextField CampoInserirCodigo;
+    private javax.swing.JFormattedTextField CampoInserirCodigo;
     private javax.swing.JTextField DigitarCodigoTitulo;
     private javax.swing.JLabel ImagemLogoJava;
     private javax.swing.JPanel JPanelPedirSenha;
