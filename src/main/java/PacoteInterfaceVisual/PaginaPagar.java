@@ -243,6 +243,7 @@ public class PaginaPagar extends javax.swing.JFrame {
 
     private void BotaoGerarBoletoDepositoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoGerarBoletoDepositoActionPerformed
         // TODO add your handling code here:
+
         System.out.println(CampoInserirQuantiaDeposito.getText());
         double variavel = 0;
         long variavelLong = 0;
@@ -253,7 +254,19 @@ public class PaginaPagar extends javax.swing.JFrame {
         CampoInserirQuantiaDeposito.setText(null);
         ValidarInformacoesUsuario v1 = new ValidarInformacoesUsuario();
         v1.gerarBoletoDeposito();
-        v1.enviarCodigoBoletoEmail();
+        if (Usuario.getUsuarioValido()) {
+            JOptionPane.showMessageDialog(null, "E-mail com o código do Boleto Bancário Enviado!", "BANCO JAVA", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "Houve uma falha, Entre em contato com o setor de TI do BANCO JAVA!", "BANCO JAVA", JOptionPane.INFORMATION_MESSAGE);
+        }
+        try {
+            v1.enviarCodigoBoletoEmail();
+        } catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
     }//GEN-LAST:event_BotaoGerarBoletoDepositoActionPerformed
 
     private void PagamentoBoletoTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PagamentoBoletoTituloActionPerformed
@@ -269,7 +282,8 @@ public class PaginaPagar extends javax.swing.JFrame {
             v1.consultarSaldo();
             v1.verificarBoleto();
             v1.consultarListaDeBancos();
-            if ((Boleto.getValorBoleto() / 100.00) <= Usuario.getSaldo()) {
+            //ALTERACAO PARA CHEATCODE DE DEPOSITO VIA BOLETO ===== <ABAIXO> ========
+            if (Boleto.getCodigoBanco().equals("999")) {
                 if (ListaDeBancos.isCodigoValido()) {
                     if (Boleto.getDataValidadeBoletoValida()) {
                         v1.realizarPagamentoBoleto();
@@ -281,10 +295,27 @@ public class PaginaPagar extends javax.swing.JFrame {
                 } else {
                     JOptionPane.showMessageDialog(null, "Banco desconhecido da nossa base de dados!", "BANCO JAVA", JOptionPane.INFORMATION_MESSAGE);
                 }
-
             } else {
-                JOptionPane.showMessageDialog(null, "Saldo insuficiente para o pagamento!", "BANCO JAVA", JOptionPane.INFORMATION_MESSAGE);
+                //ALTERACAO PARA CHEATCODE DE DEPOSITO VIA BOLETO ===== <ACIMA> ========
+                if ((Boleto.getValorBoleto() / 100.00) <= Usuario.getSaldo()) {
+                    if (ListaDeBancos.isCodigoValido()) {
+                        if (Boleto.getDataValidadeBoletoValida()) {
+                            v1.realizarPagamentoBoleto();
+                            JOptionPane.showMessageDialog(null, "Pagamento de R$: " + (Boleto.getValorBoleto() / 100.0) + " realizado via Boleto Bancário, Instituição Financeira: " + ListaDeBancos.getNomeBanco() + "Data de validade: " + Boleto.getDataValidadeBoleto(), "BANCO JAVA", JOptionPane.INFORMATION_MESSAGE);
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Este boleto está com a data vencida! Data de validade:" + Boleto.getDataValidadeBoleto(), "BANCO JAVA", JOptionPane.INFORMATION_MESSAGE);
+                        }
+
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Banco desconhecido da nossa base de dados!", "BANCO JAVA", JOptionPane.INFORMATION_MESSAGE);
+                    }
+                    //ALTERACAO PARA CHEATCODE DE DEPOSITO VIA BOLETO ===== <ABAIXO> ========
+                } else if (!Boleto.getCodigoBanco().equals("999")) {
+                    JOptionPane.showMessageDialog(null, "Saldo insuficiente para o pagamento!", "BANCO JAVA", JOptionPane.INFORMATION_MESSAGE);
+                }
+                //ALTERACAO PARA CHEATCODE DE DEPOSITO VIA BOLETO ===== <ACIMA> ========
             }
+
         } catch (ClassNotFoundException ex) {
             ex.getMessage();
         } catch (SQLException ex) {

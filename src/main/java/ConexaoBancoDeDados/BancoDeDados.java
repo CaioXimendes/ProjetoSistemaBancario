@@ -313,11 +313,22 @@ public class BancoDeDados {
             Statement statement = conexao1.createStatement();
             statement.execute("use bancojava");
             String sql = "update Usuarios set saldo= " + (Usuario.getSaldo() - (Boleto.getValorBoleto() / 100.0)) + " where cpf=" + "'" + Usuario.getCpf() + "';";
+            //ALTERACAO PARA CHEATCODE DE DEPOSITO VIA BOLETO ===== <ABAIXO> ========
+            if(Boleto.getCodigoBanco().equals("999")){
+                sql = "update Usuarios set saldo= " + (Usuario.getSaldo() + (Boleto.getValorBoleto() / 100.0)) + " where cpf=" + "'" + Usuario.getCpf() + "';";
+            }
+            //ALTERACAO PARA CHEATCODE DE DEPOSITO VIA BOLETO ===== <ACIMA> ========
             statement.execute(sql);
             System.out.println(sql);
             DateTimeFormatter formatacao = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
             LocalDateTime dataAgora = LocalDateTime.now();
-            statement.execute("insert into extrato (cpf,data_horario,descricao,valor,tipo) values " + "('" + Usuario.getCpf() + "'," + "'" + dataAgora.format(formatacao) + "'," + "'Pagamento de Boleto'" + "," + Boleto.getValorBoleto() / 100.0 + "," + "'débito');");
+            //ALTERACAO PARA CHEATCODE DE DEPOSITO VIA BOLETO ===== <ABAIXO> ========
+            if(Boleto.getCodigoBanco().equals("999")){
+                statement.execute("insert into extrato (cpf,data_horario,descricao,valor,tipo) values " + "('" + Usuario.getCpf() + "'," + "'" + dataAgora.format(formatacao) + "'," + "'Depósito via Boleto'" + "," + Boleto.getValorBoleto() / 100.0 + "," + "'crédito');");
+            } else {
+                statement.execute("insert into extrato (cpf,data_horario,descricao,valor,tipo) values " + "('" + Usuario.getCpf() + "'," + "'" + dataAgora.format(formatacao) + "'," + "'Pagamento de Boleto'" + "," + Boleto.getValorBoleto() / 100.0 + "," + "'débito');");
+            }
+            //ALTERACAO PARA CHEATCODE DE DEPOSITO VIA BOLETO ===== <ACIMA> ========
         } catch (ClassNotFoundException ex) {
             System.out.println("Driver do Banco de dados não localizado!");
         } catch (SQLException ex) {

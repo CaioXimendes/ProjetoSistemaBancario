@@ -171,7 +171,7 @@ public class ValidarInformacoesUsuario {
         b1.consultarNomeUsuarioPeloBancoDeDados();
     }
 
-    public void enviarExtratoPeloEmail() throws ClassNotFoundException, SQLException{
+    public void enviarExtratoPeloEmail() throws ClassNotFoundException, SQLException {
         BancoDeDados b1 = new BancoDeDados();
         b1.consultarEmailUsuarioPeloBancoDeDados();
         if (Usuario.getUsuarioValido()) {
@@ -183,14 +183,14 @@ public class ValidarInformacoesUsuario {
             try {
                 e1.setFrom("caioximendes1@gmail.com");
                 e1.setSubject("BANCO JAVA: E-mail de Consulta de Extrato");
-                e1.setMsg("Olá, "+Usuario.getNome()+", você está recebendo este e-mail com o seu Extrato Bancário, segue em anexo: ");
+                e1.setMsg("Olá, " + Usuario.getNome() + ", você está recebendo este e-mail com o seu Extrato Bancário, segue em anexo: ");
                 e1.addTo(Usuario.getEmail());
                 //ENVIAR ANEXO DO EXTRATO
                 EmailAttachment attachment = new EmailAttachment();
-                attachment.setPath("C:\\Users\\caiox\\Desktop\\ExtratoDe"+Usuario.getNome()+".pdf");
+                attachment.setPath("C:\\Users\\caiox\\Desktop\\ExtratoDe" + Usuario.getNome() + ".pdf");
                 attachment.setDisposition(EmailAttachment.ATTACHMENT);
-                attachment.setDescription("Extrato de "+Usuario.getNome());
-                attachment.setName("ExtratoDe"+Usuario.getNome()+".pdf");
+                attachment.setDescription("Extrato de " + Usuario.getNome());
+                attachment.setName("ExtratoDe" + Usuario.getNome() + ".pdf");
                 e1.attach(attachment);
                 e1.send();
                 System.out.println("Email enviado!");
@@ -199,21 +199,27 @@ public class ValidarInformacoesUsuario {
             }
         }
     }
-    public void gerarBoletoDeposito(){
+
+    public void gerarBoletoDeposito() {
+        Boleto.setCodigoBanco("999");
         LocalDate dataBancoCentral = LocalDate.of(1997, 10, 7);
         LocalDate dataAtual = LocalDate.now();
         long diferencaDias = ChronoUnit.DAYS.between(dataBancoCentral, dataAtual);
-        long dataValidade = diferencaDias+1;
-        long qtdAlgarismosZerosValorBoleto = Long.toString(Boleto.getValorBoleto()).length();
+        long dataValidade = diferencaDias + 1;
+        long qtdAlgarismosValorBoleto = Long.toString(Boleto.getValorBoleto()).length();
         String algarismosZeros = "";
-        for(int x=0;x<qtdAlgarismosZerosValorBoleto;x++){
+        for (int x = 0; x < (10-qtdAlgarismosValorBoleto); x++) {
             algarismosZeros = algarismosZeros + "0";
         }
-        Boleto.setCodigoBoleto("999"+"111111111111111111111111111111"+dataValidade+algarismosZeros+Boleto.getValorBoleto());
-        
+        Boleto.setCodigoBoleto("999" + "111111111111111111111111111111" + dataValidade + algarismosZeros + Boleto.getValorBoleto());
+
     }
-    public void enviarCodigoBoletoEmail(){
+
+    public void enviarCodigoBoletoEmail() throws ClassNotFoundException, SQLException {
+        BancoDeDados b1 = new BancoDeDados();
+        b1.consultarEmailUsuarioPeloBancoDeDados();
         SimpleEmail e1 = new SimpleEmail();
+        if (Usuario.getUsuarioValido()) {
             e1.setHostName("smtp.gmail.com");
             e1.setSmtpPort(465);
             e1.setAuthenticator(new DefaultAuthenticator("caioximendes1@gmail.com", "uzip qush rdzs bijo"));
@@ -223,12 +229,13 @@ public class ValidarInformacoesUsuario {
                 e1.setFrom("caioximendes1@gmail.com");
                 e1.setSubject("BANCO JAVA: E-mail de Envio de Código de Boleto Bancário");
                 Usuario.setCodigoRecuperacao(1000 + random.nextInt(9000));
-                e1.setMsg("Olá, você está recebendo este e-mail com o código do seu Boleto Bancário gerado por você.\nSeu Código de Boleto Bancário é: " + Boleto.getCodigoBoleto()+"\n\n"+"A data de validade deste boleto é de 1 dia após a emissão.");
+                e1.setMsg("Olá, você está recebendo este e-mail com o código do seu Boleto Bancário gerado por você.\nSeu Código de Boleto Bancário é: " + Boleto.getCodigoBoleto() + "\n\n" + "A data de validade deste boleto é de 1 dia após a emissão.");
                 e1.addTo(Usuario.getEmail());
                 e1.send();
                 System.out.println("Email enviado!");
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
+        }
     }
 }
