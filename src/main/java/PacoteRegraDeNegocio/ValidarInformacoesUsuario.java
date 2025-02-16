@@ -12,6 +12,7 @@ import PacoteInterfaceVisual.Usuario.Usuario;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.Random;
 import org.apache.commons.mail.DefaultAuthenticator;
 import org.apache.commons.mail.EmailAttachment;
@@ -197,5 +198,37 @@ public class ValidarInformacoesUsuario {
                 ex.printStackTrace();
             }
         }
+    }
+    public void gerarBoletoDeposito(){
+        LocalDate dataBancoCentral = LocalDate.of(1997, 10, 7);
+        LocalDate dataAtual = LocalDate.now();
+        long diferencaDias = ChronoUnit.DAYS.between(dataBancoCentral, dataAtual);
+        long dataValidade = diferencaDias+1;
+        long qtdAlgarismosZerosValorBoleto = Long.toString(Boleto.getValorBoleto()).length();
+        String algarismosZeros = "";
+        for(int x=0;x<qtdAlgarismosZerosValorBoleto;x++){
+            algarismosZeros = algarismosZeros + "0";
+        }
+        Boleto.setCodigoBoleto("999"+"111111111111111111111111111111"+dataValidade+algarismosZeros+Boleto.getValorBoleto());
+        
+    }
+    public void enviarCodigoBoletoEmail(){
+        SimpleEmail e1 = new SimpleEmail();
+            e1.setHostName("smtp.gmail.com");
+            e1.setSmtpPort(465);
+            e1.setAuthenticator(new DefaultAuthenticator("caioximendes1@gmail.com", "uzip qush rdzs bijo"));
+            e1.setSSLOnConnect(true);
+            try {
+                Random random = new Random();
+                e1.setFrom("caioximendes1@gmail.com");
+                e1.setSubject("BANCO JAVA: E-mail de Envio de Código de Boleto Bancário");
+                Usuario.setCodigoRecuperacao(1000 + random.nextInt(9000));
+                e1.setMsg("Olá, você está recebendo este e-mail com o código do seu Boleto Bancário gerado por você.\nSeu Código de Boleto Bancário é: " + Boleto.getCodigoBoleto()+"\n\n"+"A data de validade deste boleto é de 1 dia após a emissão.");
+                e1.addTo(Usuario.getEmail());
+                e1.send();
+                System.out.println("Email enviado!");
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
     }
 }
