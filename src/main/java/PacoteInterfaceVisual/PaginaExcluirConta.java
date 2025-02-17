@@ -4,7 +4,12 @@
  */
 package PacoteInterfaceVisual;
 
+import java.sql.SQLException;
+
+import javax.swing.JOptionPane;
+
 import PacoteInterfaceVisual.Usuario.Usuario;
+import PacoteRegraDeNegocio.ValidarInformacoesUsuario;
 
 /**
  *
@@ -191,6 +196,31 @@ public class PaginaExcluirConta extends javax.swing.JFrame {
 
     private void BotaoConfirmarExcluirContaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoConfirmarExcluirContaActionPerformed
         // TODO add your handling code here:
+    	ValidarInformacoesUsuario v1 = new ValidarInformacoesUsuario();
+    	
+    	try {
+    		v1.excluirContaUsuario();
+    	} catch (ClassNotFoundException ex) {
+    		System.out.println(ex.getMessage());
+    	} catch (SQLException ex) {
+    		System.out.println(ex.getMessage());
+    	} 
+    	Usuario.setCpf(null);
+    	Usuario.setNome(null);
+    	Usuario.setEmail(null);
+    	Usuario.setSaldo(0);
+    	Usuario.setSenha(null);
+    	Usuario.setSenha4Digitos(0);
+    	Usuario.setNumeroConta(0);
+    	Usuario.setUsuarioValido(false);
+    	Usuario.setUsuarioRealizouCadastro(false);
+    	Usuario.setCodigoRecuperacao(0);
+    	Usuario.setEmailNaoExistenteBanco(true);
+    	
+    	JOptionPane.showMessageDialog(null, "Sua conta foi excluida com sucesso!","BANCO JAVA",JOptionPane.INFORMATION_MESSAGE);
+    	this.dispose();
+    	PaginaInicialCPF p1 = new PaginaInicialCPF();
+    	p1.setVisible(true);
     }//GEN-LAST:event_BotaoConfirmarExcluirContaActionPerformed
 
     /**
