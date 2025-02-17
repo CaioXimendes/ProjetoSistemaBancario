@@ -238,4 +238,15 @@ public class ValidarInformacoesUsuario {
             }
         }
     }
+    
+    
+    public void excluirContaUsuario() throws ClassNotFoundException, SQLException {
+        BancoDeDados b1 = new BancoDeDados();
+        b1.excluirContaNoBancoDeDados();
+    }
+    
+    public void buscarNumeroConta() throws ClassNotFoundException, SQLException {
+        BancoDeDados b1 = new BancoDeDados();
+        b1.buscarNumeroContaPeloBancoDeDados();
+    }
 }

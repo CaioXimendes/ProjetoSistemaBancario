@@ -4,6 +4,8 @@
  */
 package PacoteInterfaceVisual;
 
+import PacoteInterfaceVisual.Usuario.Usuario;
+
 /**
  *
  * @author CaioFSX
@@ -46,7 +48,7 @@ public class PaginaDadosPessoais extends javax.swing.JFrame {
         NomeCliente.setEditable(false);
         NomeCliente.setBackground(new java.awt.Color(255, 255, 255));
         NomeCliente.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        NomeCliente.setText("NomeCliente");
+        NomeCliente.setText(Usuario.getNome());
         NomeCliente.setBorder(null);
         NomeCliente.setFocusable(false);
         NomeCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -91,7 +93,8 @@ public class PaginaDadosPessoais extends javax.swing.JFrame {
         NumeroDaContaTitulo.setEditable(false);
         NumeroDaContaTitulo.setBackground(new java.awt.Color(255, 255, 255));
         NumeroDaContaTitulo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        NumeroDaContaTitulo.setText("Número da Conta:");
+        String numConta = String.valueOf(Usuario.getNumeroConta());
+        NumeroDaContaTitulo.setText(numConta);
         NumeroDaContaTitulo.setBorder(null);
         NumeroDaContaTitulo.setFocusable(false);
         NumeroDaContaTitulo.addActionListener(new java.awt.event.ActionListener() {
