@@ -249,4 +249,11 @@ public class ValidarInformacoesUsuario {
         BancoDeDados b1 = new BancoDeDados();
         b1.buscarNumeroContaPeloBancoDeDados();
     }
+    
+   
+    public void buscarNomeUsuario() throws ClassNotFoundException, SQLException {
+        BancoDeDados b1 = new BancoDeDados();
+        b1.buscarNomeUsuarioPeloBancoDeDados();
+    }
+    
 }

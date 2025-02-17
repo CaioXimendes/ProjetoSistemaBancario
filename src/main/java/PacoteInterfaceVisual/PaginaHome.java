@@ -20,6 +20,16 @@ public class PaginaHome extends javax.swing.JFrame {
      */
     public PaginaHome() {
         initComponents();
+        ValidarInformacoesUsuario v1 = new ValidarInformacoesUsuario();
+        
+        try {
+        	v1.buscarNomeUsuario();
+        } catch (ClassNotFoundException ex) {
+        	System.out.println(ex.getMessage());
+        } catch (SQLException ex) {
+        	System.out.println(ex.getMessage());
+        } 
+        NomeCliente.setText(Usuario.getNome());
     }
 
     /**
