@@ -376,7 +376,7 @@ public class BancoDeDados {
             conexao1 = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/?user=root", "root", "1234");
             Statement statement = conexao1.createStatement();
             statement.execute("use bancojava");
-            String sql = "select email from Usuarios where email= " + "'" + Usuario.getEmail() + "';";
+            String sql = "select email from Usuarios where cpf= " + "'" + Usuario.getCpf() + "';";
             resultSet = statement.executeQuery(sql);
             System.out.println(sql);
             if (resultSet.next()) {
