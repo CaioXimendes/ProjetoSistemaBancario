@@ -500,7 +500,7 @@ public class BancoDeDados {
             conexao1 = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/?user=root", "root", "1234");
             Statement statement = conexao1.createStatement();
             statement.execute("use bancojava");
-            String sql = "update Usuarios set saldo= " + (Usuario.getSaldo()-Usuario.getValorRecarga) + " where cpf=" + "'" + Usuario.getCpf() + "';";
+            String sql = "update Usuarios set saldo= " + (Usuario.getSaldo()-Usuario.getValorRecarga()) + " where cpf=" + "'" + Usuario.getCpf() + "';";
             statement.execute(sql);
             System.out.println(sql);
         } catch (ClassNotFoundException ex) {
@@ -511,6 +511,6 @@ public class BancoDeDados {
             if (conexao1 != null) {
                 conexao1.close();
             }
-        }
-    }
+        }
+    }
 }

@@ -7,6 +7,7 @@ package PacoteInterfaceVisual;
 import java.awt.Desktop;
 import java.net.URL;
 import java.net.URI;
+
 /**
  *
  * @author CaioFSX
@@ -50,11 +51,7 @@ public class PaginaTermosCondicoes extends javax.swing.JFrame {
         PerfilConfiguracoes.setFocusable(false);
         PerfilConfiguracoes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-            	try {
-                    Desktop.getDesktop().browse(new URL("https://drive.google.com/drive/folders/1Uk-ERLKRKn_tOUjgyjCzYJ7jDpbZUkIc?usp=sharing").toURI());
-                } catch(Exception e){
-                    e.printStackTrace();
-                }
+                PerfilConfiguracoesActionPerformed(evt);
             }
         });
 
@@ -185,6 +182,11 @@ public class PaginaTermosCondicoes extends javax.swing.JFrame {
 
     private void BotaoTermosCondicoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoTermosCondicoesActionPerformed
         // TODO add your handling code here:
+        try {
+            Desktop.getDesktop().browse(new URL("https://drive.google.com/drive/folders/1Uk-ERLKRKn_tOUjgyjCzYJ7jDpbZUkIc?usp=sharing").toURI());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_BotaoTermosCondicoesActionPerformed
 
     private void PerguntasFrequentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PerguntasFrequentesActionPerformed

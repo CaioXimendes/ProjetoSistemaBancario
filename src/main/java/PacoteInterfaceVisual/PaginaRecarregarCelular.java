@@ -4,6 +4,9 @@
  */
 package PacoteInterfaceVisual;
 
+import PacoteInterfaceVisual.Usuario.Usuario;
+import PacoteRegraDeNegocio.ValidarInformacoesUsuario;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 /**
@@ -192,27 +195,25 @@ public class PaginaRecarregarCelular extends javax.swing.JFrame {
     private void BotaoRecarregarCelularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoRecarregarCelularActionPerformed
         // TODO add your handling code here:
         //System.out.println(Math.rint(Double.parseDouble(CampoInserirQuantiaRecargaCelular.getText())));
-        
+
         //MOSTRE UM JOptionPane quando fizer a recarga com sucesso, senão mostre outro JOPtionPane
         //Com uma mensagem de ERRO.
         //ISSO AQUI É PRA APAGAR O CAMPO DEPOIS DE APERTAR O BOTÃO, NÃO IMPLEMENTAR JUNTO AO CODIGO
-    	
-    	ValidarInformacoesUsuario v1 = new ValidarInformacoesUsuario;
-        Usuario.setValorRecarga(Double.parseDouble(CampoInserirQuantiaRecargaCelular.getText())));
-        try{
+        ValidarInformacoesUsuario v1 = new ValidarInformacoesUsuario();
+        Usuario.setValorRecarga(Double.parseDouble(CampoInserirQuantiaRecargaCelular.getText()));
+        try {
             v1.consultarSaldo();
-            if(Double.parseDouble(CampoInserirQuantiaRecargaCelular.getText() < Usuario.getSaldo){ 
-            v1.recarregarCelular();
-            JOptionPane.showMessageDialog(null, "Recarga Realizada com sucesso!","BANCO JAVA",JOptionPane.INFORMATION_MESSAGE);
-        } else {
-                JOptionPane.showMessageDialog(null, "Saldo insuficiente para recarga!","BANCO JAVA",JOptionPane.INFORMATION_MESSAGE);
-            }   
-        }catch(ClassNotFoundException ex){
+            if (Double.parseDouble(CampoInserirQuantiaRecargaCelular.getText()) < Usuario.getSaldo()) {
+                v1.recarregarCelular();
+                JOptionPane.showMessageDialog(null, "Recarga Realizada com sucesso!", "BANCO JAVA", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(null, "Saldo insuficiente para recarga!", "BANCO JAVA", JOptionPane.INFORMATION_MESSAGE);
+            }
+        } catch (ClassNotFoundException ex) {
             ex.printStackTrace();
-        } catch(SQLException ex){
+        } catch (SQLException ex) {
             ex.printStackTrace();
-        }
-        
+        }
         CampoInserirNumeroCelular.setText(null);
         CampoInserirQuantiaRecargaCelular.setText(null);
     }//GEN-LAST:event_BotaoRecarregarCelularActionPerformed
@@ -255,7 +256,7 @@ public class PaginaRecarregarCelular extends javax.swing.JFrame {
         if (CampoInserirQuantiaRecargaCelular.getText().length() > 5) {
             evt.consume();
         }
-        if (CampoInserirQuantiaRecargaCelular.getText().length() == 0 && caractere =='.') {
+        if (CampoInserirQuantiaRecargaCelular.getText().length() == 0 && caractere == '.') {
             evt.consume();
         }
     }//GEN-LAST:event_CampoInserirQuantiaRecargaCelularKeyTyped
