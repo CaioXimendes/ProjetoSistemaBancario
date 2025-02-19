@@ -20,6 +20,16 @@ public class PaginaHome extends javax.swing.JFrame {
      */
     public PaginaHome() {
         initComponents();
+        ValidarInformacoesUsuario v1 = new ValidarInformacoesUsuario();
+        
+        try {
+        	v1.buscarNomeUsuario();
+        } catch (ClassNotFoundException ex) {
+        	System.out.println(ex.getMessage());
+        } catch (SQLException ex) {
+        	System.out.println(ex.getMessage());
+        } 
+        NomeCliente.setText(Usuario.getNome());
     }
 
     /**
@@ -65,7 +75,7 @@ public class PaginaHome extends javax.swing.JFrame {
         NomeCliente.setEditable(false);
         NomeCliente.setBackground(new java.awt.Color(255, 255, 255));
         NomeCliente.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        NomeCliente.setText("NomeCliente");
+        NomeCliente.setText(Usuario.getNome());
         NomeCliente.setBorder(null);
         NomeCliente.setFocusable(false);
         NomeCliente.addActionListener(new java.awt.event.ActionListener() {

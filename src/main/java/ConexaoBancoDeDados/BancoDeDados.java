@@ -513,4 +513,83 @@ public class BancoDeDados {
             }
         }
     }
+    
+    
+    public void buscarNumeroContaPeloBancoDeDados() throws ClassNotFoundException, SQLException {
+        try {
+            ResultSet resultSet;
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            conexao1 = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/?user=root", "root", "1234");
+            Statement statement = conexao1.createStatement();
+            statement.execute("use bancojava");
+            String sql = "select numeroConta from Usuarios where cpf=" + "'" + Usuario.getCpf() + "';";
+            resultSet = statement.executeQuery(sql);
+            System.out.println(sql);
+            if (resultSet.next()) {
+                Usuario.setNumeroConta(resultSet.getInt("numeroConta"));
+                System.out.println("Usuario com CPF: " + Usuario.getCpf() + " e numeroConta: " + resultSet.getInt("numeroConta"));
+            } else {
+                Usuario.setUsuarioValido(false);
+            }
+
+        } catch (ClassNotFoundException ex) {
+            System.out.println("Driver do Banco de dados não localizado!");
+        } catch (SQLException ex) {
+            System.out.println("Erro durante a conexão com o banco de dados! Erro:" + ex.getMessage());
+        } finally {
+            if (conexao1 != null) {
+                conexao1.close();
+            }
+        }
+    }
+    
+    
+    public void excluirContaNoBancoDeDados() throws ClassNotFoundException, SQLException {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            conexao1 = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/?user=root", "root", "1234");
+            Statement statement = conexao1.createStatement();
+            statement.execute("use bancojava");
+            String sql = "DELETE FROM Usuarios WHERE cpf=" + "'" + Usuario.getCpf() + "';";
+            statement.execute(sql);
+            System.out.println(sql);
+            
+        } catch (ClassNotFoundException ex) {
+            System.out.println("Driver do Banco de dados não localizado!");
+        } catch (SQLException ex) {
+            System.out.println("Erro durante a conexão com o banco de dados! Erro:" + ex.getMessage());
+        } finally {
+            if (conexao1 != null) {
+                conexao1.close();
+            }
+        }
+    }
+    
+    
+    public void buscarNomeUsuarioPeloBancoDeDados() throws ClassNotFoundException, SQLException {
+        try {
+            ResultSet resultSet;
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            conexao1 = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/?user=root", "root", "1234");
+            Statement statement = conexao1.createStatement();
+            statement.execute("use bancojava");
+            String sql = "select nome from Usuarios where cpf=" + "'" + Usuario.getCpf() + "';";
+            resultSet = statement.executeQuery(sql);
+            System.out.println(sql);
+            if (resultSet.next()) {
+                Usuario.setNome(resultSet.getString("nome"));
+                System.out.println("Usuario com CPF: " + Usuario.getCpf() + " e nome: " + resultSet.getString("nome"));
+            } 
+
+        } catch (ClassNotFoundException ex) {
+            System.out.println("Driver do Banco de dados não localizado!");
+        } catch (SQLException ex) {
+            System.out.println("Erro durante a conexão com o banco de dados! Erro:" + ex.getMessage());
+        } finally {
+            if (conexao1 != null) {
+                conexao1.close();
+            }
+        }
+    }
+    
 }
