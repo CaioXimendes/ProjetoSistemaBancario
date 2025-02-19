@@ -380,7 +380,7 @@ public class BancoDeDados {
             resultSet = statement.executeQuery(sql);
             System.out.println(sql);
             if (resultSet.next()) {
-                statement.execute("update Usuarios set email= " + Usuario.getEmail() + " where cpf=" + "'" + Usuario.getCpf() + "';");
+                statement.execute("update Usuarios set email= " + "'" + Usuario.getEmail() + "'" + " where cpf=" + "'" + Usuario.getCpf() + "';");
 //                Usuario.setUsuarioValido(true);
 //                System.out.println("Usuario com CPF: "+Usuario.getCpf()+" e senha: "+resultSet.getString("senha")+" logado com sucesso!");
                 Usuario.setEmailNaoExistenteBanco(false);
