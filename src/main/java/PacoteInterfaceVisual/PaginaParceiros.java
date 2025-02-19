@@ -5,6 +5,9 @@
 package PacoteInterfaceVisual;
 
 import PacoteInterfaceVisual.Usuario.Usuario;
+import java.awt.Desktop;
+import java.net.URL;
+import java.net.URI;
 
 /**
  *
@@ -62,9 +65,9 @@ public class PaginaParceiros extends javax.swing.JFrame {
         BotaoCacauShow.setText("CacauShow");
         BotaoCacauShow.setBorderPainted(false);
         BotaoCacauShow.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+           public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotaoCacauShowActionPerformed(evt);
-            }
+        	}
         });
 
         IconeLogo.setIcon(new javax.swing.ImageIcon("C:\\NetBeansProjects\\sistema-bancario\\src\\main\\resources\\images\\logoCircular2.png")); // NOI18N
@@ -88,9 +91,9 @@ public class PaginaParceiros extends javax.swing.JFrame {
         BotaoSpotify.setText("Spotify");
         BotaoSpotify.setBorderPainted(false);
         BotaoSpotify.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+           public void actionPerformed(java.awt.event.ActionEvent evt) {    
                 BotaoSpotifyActionPerformed(evt);
-            }
+        	}
         });
 
         BotaoMcDonalds.setBackground(new java.awt.Color(204, 0, 0));
@@ -101,7 +104,7 @@ public class PaginaParceiros extends javax.swing.JFrame {
         BotaoMcDonalds.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotaoMcDonaldsActionPerformed(evt);
-            }
+        	}
         });
 
         PerguntasFrequentes.setEditable(false);
@@ -124,7 +127,7 @@ public class PaginaParceiros extends javax.swing.JFrame {
         BotaoUber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotaoUberActionPerformed(evt);
-            }
+        	}
         });
 
         BotaoVoltar.setBackground(new java.awt.Color(204, 0, 0));
@@ -223,6 +226,11 @@ public class PaginaParceiros extends javax.swing.JFrame {
 
     private void BotaoCacauShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoCacauShowActionPerformed
         // TODO add your handling code here:
+        try {
+            Desktop.getDesktop().browse(new URL("https://www.cacaushow.com.br/").toURI());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_BotaoCacauShowActionPerformed
 
     private void NomeClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NomeClienteActionPerformed
@@ -231,10 +239,20 @@ public class PaginaParceiros extends javax.swing.JFrame {
 
     private void BotaoSpotifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoSpotifyActionPerformed
         // TODO add your handling code here:
+        try {
+            Desktop.getDesktop().browse(new URL("https://open.spotify.com/").toURI());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_BotaoSpotifyActionPerformed
 
     private void BotaoMcDonaldsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoMcDonaldsActionPerformed
         // TODO add your handling code here:
+        try {
+            Desktop.getDesktop().browse(new URL("https://www.mcdonalds.com.br/").toURI());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_BotaoMcDonaldsActionPerformed
 
     private void PerguntasFrequentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PerguntasFrequentesActionPerformed
@@ -243,6 +261,11 @@ public class PaginaParceiros extends javax.swing.JFrame {
 
     private void BotaoUberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoUberActionPerformed
         // TODO add your handling code here:
+        try {
+            Desktop.getDesktop().browse(new URL("https://www.uber.com/").toURI());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_BotaoUberActionPerformed
 
     private void BotaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoVoltarActionPerformed
