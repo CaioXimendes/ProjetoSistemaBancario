@@ -238,4 +238,9 @@ public class ValidarInformacoesUsuario {
             }
         }
     }
+    
+    public void recarregarCelular() throws ClassNotFoundException, SQLException{
+        BancoDeDados b1 = new BancoDeDados();
+        b1.recarregarCelularPeloBancoDeDados();
+    }
 }

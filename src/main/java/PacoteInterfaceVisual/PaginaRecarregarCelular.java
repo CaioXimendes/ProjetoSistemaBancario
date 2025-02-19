@@ -196,6 +196,23 @@ public class PaginaRecarregarCelular extends javax.swing.JFrame {
         //MOSTRE UM JOptionPane quando fizer a recarga com sucesso, senão mostre outro JOPtionPane
         //Com uma mensagem de ERRO.
         //ISSO AQUI É PRA APAGAR O CAMPO DEPOIS DE APERTAR O BOTÃO, NÃO IMPLEMENTAR JUNTO AO CODIGO
+    	
+    	ValidarInformacoesUsuario v1 = new ValidarInformacoesUsuario;
+        Usuario.setValorRecarga(Double.parseDouble(CampoInserirQuantiaRecargaCelular.getText())));
+        try{
+            v1.consultarSaldo();
+            if(Double.parseDouble(CampoInserirQuantiaRecargaCelular.getText() < Usuario.getSaldo){ 
+            v1.recarregarCelular();
+            JOptionPane.showMessageDialog(null, "Recarga Realizada com sucesso!","BANCO JAVA",JOptionPane.INFORMATION_MESSAGE);
+        } else {
+                JOptionPane.showMessageDialog(null, "Saldo insuficiente para recarga!","BANCO JAVA",JOptionPane.INFORMATION_MESSAGE);
+            }   
+        }catch(ClassNotFoundException ex){
+            ex.printStackTrace();
+        } catch(SQLException ex){
+            ex.printStackTrace();
+        }
+        
         CampoInserirNumeroCelular.setText(null);
         CampoInserirQuantiaRecargaCelular.setText(null);
     }//GEN-LAST:event_BotaoRecarregarCelularActionPerformed

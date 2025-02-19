@@ -4,6 +4,10 @@
  */
 package PacoteInterfaceVisual;
 
+import java.awt.Desktop;
+import java.net.URL;
+import java.net.URI;
+
 /**
  *
  * @author CaioFSX
@@ -60,9 +64,13 @@ public class PaginaParceiros extends javax.swing.JFrame {
         BotaoCacauShow.setText("CacauShow");
         BotaoCacauShow.setBorderPainted(false);
         BotaoCacauShow.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotaoCacauShowActionPerformed(evt);
-            }
+           public void BotaoCacauShowPerformed(java.awt.event.ActionEvent evt) {                                       
+        	    try {
+        	        Desktop.getDesktop().browse(new URL("https://www.cacaushow.com.br/").toURI());
+        	    } catch (Exception e) {
+        	    	e.printStackTrace();
+        	    }
+        	}
         });
 
         IconeLogo.setIcon(new javax.swing.ImageIcon("C:\\NetBeansProjects\\sistema-bancario\\src\\main\\resources\\images\\logoCircular2.png")); // NOI18N
@@ -86,9 +94,13 @@ public class PaginaParceiros extends javax.swing.JFrame {
         BotaoSpotify.setText("Spotify");
         BotaoSpotify.setBorderPainted(false);
         BotaoSpotify.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotaoSpotifyActionPerformed(evt);
-            }
+           public void BotaoSpotifyPerformed(java.awt.event.ActionEvent evt) {                                       
+        	    try {
+        	        Desktop.getDesktop().browse(new URL("https://open.spotify.com/").toURI());
+        	    } catch (Exception e) {
+        	    	e.printStackTrace();
+        	    }
+        	}
         });
 
         BotaoMcDonalds.setBackground(new java.awt.Color(204, 0, 0));
@@ -97,9 +109,13 @@ public class PaginaParceiros extends javax.swing.JFrame {
         BotaoMcDonalds.setText("McDonalds");
         BotaoMcDonalds.setBorderPainted(false);
         BotaoMcDonalds.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotaoMcDonaldsActionPerformed(evt);
-            }
+            public void BotaoMcDonaldsPerformed(java.awt.event.ActionEvent evt) {                                       
+        	    try {
+        	        Desktop.getDesktop().browse(new URL("https://www.mcdonalds.com.br/").toURI());
+        	    } catch (Exception e) {
+        	    	e.printStackTrace();
+        	    }
+        	}
         });
 
         PerguntasFrequentes.setEditable(false);
@@ -120,9 +136,13 @@ public class PaginaParceiros extends javax.swing.JFrame {
         BotaoUber.setText("Uber");
         BotaoUber.setBorderPainted(false);
         BotaoUber.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotaoUberActionPerformed(evt);
-            }
+            public void BotaoUberPerformed(java.awt.event.ActionEvent evt) {                                       
+        	    try {
+        	        Desktop.getDesktop().browse(new URL("https://www.uber.com/").toURI());
+        	    } catch (Exception e) {
+        	    	e.printStackTrace();
+        	    }
+        	}
         });
 
         BotaoVoltar.setBackground(new java.awt.Color(204, 0, 0));

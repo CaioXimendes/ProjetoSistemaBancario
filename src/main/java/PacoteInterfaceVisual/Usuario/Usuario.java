@@ -20,6 +20,7 @@ public class Usuario {
     private static boolean usuarioRealizouCadastro;
     private static int codigoRecuperacao;
     private static boolean emailNaoExistenteBanco;
+    private static double valorRecarga;
     
     public static String getCpf() {
         return cpf;
@@ -103,5 +104,13 @@ public class Usuario {
     }
     public static void setEmailNaoExistenteBanco(boolean emailNaoExistenteBanco){
         Usuario.emailNaoExistenteBanco = emailNaoExistenteBanco;
+    }
+    
+    public static double getValorRecarga() {
+        return valorRecarga;
+    }
+    
+    public static void setValorRecarga(double valorRecarga) {
+        Usuario.valorRecarga = valorRecarga;
     }
 }
