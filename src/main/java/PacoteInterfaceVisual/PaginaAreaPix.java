@@ -293,45 +293,49 @@ public class PaginaAreaPix extends javax.swing.JFrame {
         ValidarInformacoesUsuario v1 = new ValidarInformacoesUsuario();
         try {
             v1.consultarSaldo();
-            if (Double.parseDouble(CampoInserirQuantiaTransferenciaPix.getText()) <= Usuario.getSaldo()) {
-                if (Integer.parseInt(CampoInserirSenha4Digitos.getText()) == Usuario.getSenha4Digitos()) {
-                    v1.transferirViaPix();
-                    if (OperacoesBancarias.getChavePixValida()) {
-                        JOptionPane.showMessageDialog(null, "Pix de R$ " + OperacoesBancarias.getQuantiaTransferencia() + " realizado para a chave pix: " + OperacoesBancarias.getChavePixCpf(), "BANCO JAVA", JOptionPane.INFORMATION_MESSAGE);
-                        ConfirmarSenha4DigitosTitulo.setEnabled(false);
-                        CampoInserirSenha4Digitos.setEnabled(false);
-                        BotaoConfirmarPix.setEnabled(false);
-                        TransferenciaPixTitulo.setEnabled(true);
-                        CampoInserirQuantiaTransferenciaPix.setEnabled(true);
-                        BotaoTransferirPix.setEnabled(true);
-                        TransferenciaPixTitulo.setEnabled(true);
-                        CampoInserirChavePix.setEnabled(true);
-                    } else {
-                        JOptionPane.showMessageDialog(null, "Não encontramos essa chave pix cadastrada no nosso banco!", "BANCO JAVA", JOptionPane.INFORMATION_MESSAGE);
-                        ConfirmarSenha4DigitosTitulo.setEnabled(false);
-                        CampoInserirSenha4Digitos.setEnabled(false);
-                        BotaoConfirmarPix.setEnabled(false);
-                        TransferenciaPixTitulo.setEnabled(true);
-                        CampoInserirQuantiaTransferenciaPix.setEnabled(true);
-                        BotaoTransferirPix.setEnabled(true);
-                        TransferenciaPixTitulo.setEnabled(true);
-                        CampoInserirChavePix.setEnabled(true);
+            if (!CampoInserirChavePix.getText().equals(Usuario.getCpf())) {
+                if (Double.parseDouble(CampoInserirQuantiaTransferenciaPix.getText()) <= Usuario.getSaldo()) {
+                    if (Integer.parseInt(CampoInserirSenha4Digitos.getText()) == Usuario.getSenha4Digitos()) {
+                        v1.transferirViaPix();
+                        if (OperacoesBancarias.getChavePixValida()) {
+                            JOptionPane.showMessageDialog(null, "Pix de R$ " + OperacoesBancarias.getQuantiaTransferencia() + " realizado para a chave pix: " + OperacoesBancarias.getChavePixCpf(), "BANCO JAVA", JOptionPane.INFORMATION_MESSAGE);
+                            ConfirmarSenha4DigitosTitulo.setEnabled(false);
+                            CampoInserirSenha4Digitos.setEnabled(false);
+                            BotaoConfirmarPix.setEnabled(false);
+                            TransferenciaPixTitulo.setEnabled(true);
+                            CampoInserirQuantiaTransferenciaPix.setEnabled(true);
+                            BotaoTransferirPix.setEnabled(true);
+                            TransferenciaPixTitulo.setEnabled(true);
+                            CampoInserirChavePix.setEnabled(true);
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Não encontramos essa chave pix cadastrada no nosso banco!", "BANCO JAVA", JOptionPane.INFORMATION_MESSAGE);
+                            ConfirmarSenha4DigitosTitulo.setEnabled(false);
+                            CampoInserirSenha4Digitos.setEnabled(false);
+                            BotaoConfirmarPix.setEnabled(false);
+                            TransferenciaPixTitulo.setEnabled(true);
+                            CampoInserirQuantiaTransferenciaPix.setEnabled(true);
+                            BotaoTransferirPix.setEnabled(true);
+                            TransferenciaPixTitulo.setEnabled(true);
+                            CampoInserirChavePix.setEnabled(true);
+                        }
+                    } else if (Integer.parseInt(CampoInserirSenha4Digitos.getText()) != Usuario.getSenha4Digitos()) {
+                        JOptionPane.showMessageDialog(null, "Senha de 4 dígitos incorreta!", "BANCO JAVA", JOptionPane.INFORMATION_MESSAGE);
+                    } else if (Usuario.getSenha4Digitos() == 0) {
+                        JOptionPane.showMessageDialog(null, "Você não cadastrou uma senha de 4 dígitos!", "BANCO JAVA", JOptionPane.INFORMATION_MESSAGE);
                     }
-                } else if (Integer.parseInt(CampoInserirSenha4Digitos.getText()) != Usuario.getSenha4Digitos()) {
-                    JOptionPane.showMessageDialog(null, "Senha de 4 dígitos incorreta!", "BANCO JAVA", JOptionPane.INFORMATION_MESSAGE);
-                } else if (Usuario.getSenha4Digitos() == 0) {
-                    JOptionPane.showMessageDialog(null, "Você não cadastrou uma senha de 4 dígitos!", "BANCO JAVA", JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Saldo insuficiente para realizar a transferência!", "BANCO JAVA", JOptionPane.INFORMATION_MESSAGE);
+                    ConfirmarSenha4DigitosTitulo.setEnabled(false);
+                    CampoInserirSenha4Digitos.setEnabled(false);
+                    BotaoConfirmarPix.setEnabled(false);
+                    TransferenciaPixTitulo.setEnabled(true);
+                    CampoInserirQuantiaTransferenciaPix.setEnabled(true);
+                    BotaoTransferirPix.setEnabled(true);
+                    TransferenciaPixTitulo.setEnabled(true);
+                    CampoInserirChavePix.setEnabled(true);
                 }
             } else {
-                JOptionPane.showMessageDialog(null, "Saldo insuficiente para realizar a transferência!", "BANCO JAVA", JOptionPane.INFORMATION_MESSAGE);
-                ConfirmarSenha4DigitosTitulo.setEnabled(false);
-                CampoInserirSenha4Digitos.setEnabled(false);
-                BotaoConfirmarPix.setEnabled(false);
-                TransferenciaPixTitulo.setEnabled(true);
-                CampoInserirQuantiaTransferenciaPix.setEnabled(true);
-                BotaoTransferirPix.setEnabled(true);
-                TransferenciaPixTitulo.setEnabled(true);
-                CampoInserirChavePix.setEnabled(true);
+                JOptionPane.showMessageDialog(null, "Não é permitido realizar transferência para a mesma chave PIX!", "BANCO JAVA", JOptionPane.INFORMATION_MESSAGE);
             }
 
         } catch (ClassNotFoundException ex) {
@@ -346,11 +350,11 @@ public class PaginaAreaPix extends javax.swing.JFrame {
     private void CampoInserirQuantiaTransferenciaPixKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CampoInserirQuantiaTransferenciaPixKeyTyped
         // TODO add your handling code here:
         char caractere = evt.getKeyChar();
-        if(caractere == '.' && CampoInserirQuantiaTransferenciaPix.getText().contains(".")){
+        if (caractere == '.' && CampoInserirQuantiaTransferenciaPix.getText().contains(".")) {
             evt.consume();
         }
-        if(!Character.isDigit(caractere)){
-            if(!(caractere == '.')){
+        if (!Character.isDigit(caractere)) {
+            if (!(caractere == '.')) {
                 evt.consume();
             }
         }
