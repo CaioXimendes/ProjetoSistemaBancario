@@ -315,6 +315,17 @@ public class PaginaPerfilConfiguracoes extends javax.swing.JFrame {
         this.dispose();
         PaginaInicialCPF p1 = new PaginaInicialCPF();
         p1.setVisible(true);
+        Usuario.setCpf(null);
+    	Usuario.setNome(null);
+    	Usuario.setEmail(null);
+    	Usuario.setSaldo(0);
+    	Usuario.setSenha(null);
+    	Usuario.setSenha4Digitos(0);
+    	Usuario.setNumeroConta(0);
+    	Usuario.setUsuarioValido(false);
+    	Usuario.setUsuarioRealizouCadastro(false);
+    	Usuario.setCodigoRecuperacao(0);
+    	Usuario.setEmailNaoExistenteBanco(true);
     }//GEN-LAST:event_BotaoSairActionPerformed
 
     private void BotaoExcluirContaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoExcluirContaActionPerformed
