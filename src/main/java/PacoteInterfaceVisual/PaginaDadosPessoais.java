@@ -48,7 +48,7 @@ public class PaginaDadosPessoais extends javax.swing.JFrame {
         NomeCliente.setEditable(false);
         NomeCliente.setBackground(new java.awt.Color(255, 255, 255));
         NomeCliente.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        NomeCliente.setText("NomeCliente");
+        NomeCliente.setText(Usuario.getNome());
         NomeCliente.setBorder(null);
         NomeCliente.setFocusable(false);
         NomeCliente.addActionListener(new java.awt.event.ActionListener() {
