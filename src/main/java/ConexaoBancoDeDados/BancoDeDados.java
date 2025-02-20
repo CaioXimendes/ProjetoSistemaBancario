@@ -557,6 +557,7 @@ public class BancoDeDados {
             String sql = "DELETE FROM Usuarios WHERE cpf=" + "'" + Usuario.getCpf() + "';";
             statement.execute(sql);
             System.out.println(sql);
+            statement.execute("DELETE FROM extrato WHERE cpf=" + "'" + Usuario.getCpf() + "';");
             
         } catch (ClassNotFoundException ex) {
             System.out.println("Driver do Banco de dados não localizado!");
