@@ -130,7 +130,7 @@ public class PaginaPedirSenhaLogin extends javax.swing.JFrame {
             }
         });
 
-        ImagemLogoJava.setIcon(new javax.swing.ImageIcon("C:\\NetBeansProjects\\sistema-bancario\\src\\main\\resources\\images\\java-logo-black-and-white-1.png")); // NOI18N
+        ImagemLogoJava.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/java-logo-black-and-white-1.png"))); // NOI18N
         ImagemLogoJava.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         javax.swing.GroupLayout PainelLogoPedirSenhaLayout = new javax.swing.GroupLayout(PainelLogoPedirSenha);
