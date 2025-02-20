@@ -204,10 +204,10 @@ public class PaginaAlterarDados extends javax.swing.JFrame {
             Usuario.setEmail(CampoInserirEmail.getText());
             v1.alterarEmailUsuario();
             if(Usuario.getEmailNaoExistenteBanco()){
-                JOptionPane.showMessageDialog(null, "Não foi possivel alterar o E-mail, consulte o setor de TI!","BANCO JAVA",JOptionPane.INFORMATION_MESSAGE);
-            } else {
                 JOptionPane.showMessageDialog(null, "E-mail alterado com sucesso!","BANCO JAVA",JOptionPane.INFORMATION_MESSAGE);
                 CampoInserirEmail.setText(null);
+            } else {
+                JOptionPane.showMessageDialog(null, "Não foi possivel alterar o E-mail, pois já está cadastrado na nossa base de dados!","BANCO JAVA",JOptionPane.INFORMATION_MESSAGE);
             }
         } catch (ClassNotFoundException ex) {
             ex.getMessage();

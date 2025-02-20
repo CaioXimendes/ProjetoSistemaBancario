@@ -376,16 +376,15 @@ public class BancoDeDados {
             conexao1 = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/?user=root", "root", "1234");
             Statement statement = conexao1.createStatement();
             statement.execute("use bancojava");
-            String sql = "select email from Usuarios where cpf= " + "'" + Usuario.getCpf() + "';";
+            String sql = "select email from Usuarios where email= " + "'" + Usuario.getEmail() + "';";
             resultSet = statement.executeQuery(sql);
             System.out.println(sql);
             if (resultSet.next()) {
-                statement.execute("update Usuarios set email= " + "'" + Usuario.getEmail() + "'" + " where cpf=" + "'" + Usuario.getCpf() + "';");
 //                Usuario.setUsuarioValido(true);
 //                System.out.println("Usuario com CPF: "+Usuario.getCpf()+" e senha: "+resultSet.getString("senha")+" logado com sucesso!");
                 Usuario.setEmailNaoExistenteBanco(false);
             } else {
-                
+                statement.execute("update Usuarios set email= " + "'" + Usuario.getEmail() + "'" + " where cpf=" + "'" + Usuario.getCpf() + "';");
                 Usuario.setEmailNaoExistenteBanco(true);
             }
 
