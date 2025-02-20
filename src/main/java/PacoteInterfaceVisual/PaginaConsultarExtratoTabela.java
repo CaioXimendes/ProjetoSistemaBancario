@@ -16,8 +16,10 @@ import com.itextpdf.text.pdf.PdfWriter;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -325,7 +327,9 @@ public class PaginaConsultarExtratoTabela extends javax.swing.JFrame {
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             try {
                 //CRIANDO O LOGO DO PDF
-                Image logoBancoJava = Image.getInstance("C:\\NetBeansProjects\\sistema-bancario\\src\\main\\resources\\images\\logoBancoJava.PNG");
+                URL urlLogoJava = getClass().getClassLoader().getResource("images/logoBancoJava.PNG");
+                //URL urlDocumentoExtrato = getClass().getClassLoader().getResource("documents/ExtratoDe" + Usuario.getNome() + ".pdf");
+                Image logoBancoJava = Image.getInstance(urlLogoJava);
                 ImageIO.write(img, "png", baos);
                 byte[] bytesImagem = baos.toByteArray();
                 Image imagemPdf = Image.getInstance(bytesImagem);
@@ -334,7 +338,11 @@ public class PaginaConsultarExtratoTabela extends javax.swing.JFrame {
                 ValidarInformacoesUsuario v1 = new ValidarInformacoesUsuario();
                 v1.consultarNomeUsuario();
                 Document document = new Document(PageSize.A4);
-                PdfWriter.getInstance(document, new FileOutputStream("C:\\Users\\caiox\\Desktop\\ExtratoDe" + Usuario.getNome() + ".pdf"));
+                File diretorioDocuments = new File("documents");
+                if (!diretorioDocuments.exists()) {
+                    diretorioDocuments.mkdirs(); // Criar o diretorio documents
+                }
+                PdfWriter.getInstance(document, new FileOutputStream("documents/ExtratoDe" + Usuario.getNome() + ".pdf"));
                 document.open();
                 document.add(logoBancoJava);
                 document.add(imagemPdf);
@@ -358,8 +366,6 @@ public class PaginaConsultarExtratoTabela extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(null, "Não foi possível gerar um PDF de extrato, pois seu extrato está vazio", "BANCO JAVA", JOptionPane.INFORMATION_MESSAGE);
         }
-
-
     }//GEN-LAST:event_BotaoGerarPDFActionPerformed
     public javax.swing.JTable getTabelaConsultaExtrato() {
         return TabelaConsultaExtrato;

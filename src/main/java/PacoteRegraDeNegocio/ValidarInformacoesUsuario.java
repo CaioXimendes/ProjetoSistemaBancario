@@ -9,6 +9,7 @@ import PacoteInterfaceVisual.PaginaCriarConta;
 import PacoteInterfaceVisual.PaginaPedirSenhaLogin;
 import PacoteInterfaceVisual.Usuario.Boleto;
 import PacoteInterfaceVisual.Usuario.Usuario;
+import java.nio.file.Paths;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -186,8 +187,11 @@ public class ValidarInformacoesUsuario {
                 e1.setMsg("Olá, " + Usuario.getNome() + ", você está recebendo este e-mail com o seu Extrato Bancário, segue em anexo: ");
                 e1.addTo(Usuario.getEmail());
                 //ENVIAR ANEXO DO EXTRATO
+                String diretorioAtual = System.getProperty("user.dir");
+                String caminhoDocuments = Paths.get(diretorioAtual, "documents").toString();
+                String caminhoPDF = Paths.get(caminhoDocuments, "ExtratoDe" + Usuario.getNome() + ".pdf").toString();
                 EmailAttachment attachment = new EmailAttachment();
-                attachment.setPath("C:\\Users\\caiox\\Desktop\\ExtratoDe" + Usuario.getNome() + ".pdf");
+                attachment.setPath(caminhoPDF);
                 attachment.setDisposition(EmailAttachment.ATTACHMENT);
                 attachment.setDescription("Extrato de " + Usuario.getNome());
                 attachment.setName("ExtratoDe" + Usuario.getNome() + ".pdf");
@@ -208,7 +212,7 @@ public class ValidarInformacoesUsuario {
         long dataValidade = diferencaDias + 1;
         long qtdAlgarismosValorBoleto = Long.toString(Boleto.getValorBoleto()).length();
         String algarismosZeros = "";
-        for (int x = 0; x < (10-qtdAlgarismosValorBoleto); x++) {
+        for (int x = 0; x < (10 - qtdAlgarismosValorBoleto); x++) {
             algarismosZeros = algarismosZeros + "0";
         }
         Boleto.setCodigoBoleto("999" + "111111111111111111111111111111" + dataValidade + algarismosZeros + Boleto.getValorBoleto());
@@ -238,23 +242,23 @@ public class ValidarInformacoesUsuario {
             }
         }
     }
-    
+
     public void excluirContaUsuario() throws ClassNotFoundException, SQLException {
         BancoDeDados b1 = new BancoDeDados();
         b1.excluirContaNoBancoDeDados();
     }
-    
+
     public void buscarNumeroConta() throws ClassNotFoundException, SQLException {
         BancoDeDados b1 = new BancoDeDados();
         b1.buscarNumeroContaPeloBancoDeDados();
     }
-    
+
     public void buscarNomeUsuario() throws ClassNotFoundException, SQLException {
         BancoDeDados b1 = new BancoDeDados();
         b1.buscarNomeUsuarioPeloBancoDeDados();
     }
-    
-    public void recarregarCelular() throws ClassNotFoundException, SQLException{
+
+    public void recarregarCelular() throws ClassNotFoundException, SQLException {
         BancoDeDados b1 = new BancoDeDados();
         b1.recarregarCelularPeloBancoDeDados();
     }
