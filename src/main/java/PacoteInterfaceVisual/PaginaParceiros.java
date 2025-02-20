@@ -65,18 +65,18 @@ public class PaginaParceiros extends javax.swing.JFrame {
         BotaoCacauShow.setText("CacauShow");
         BotaoCacauShow.setBorderPainted(false);
         BotaoCacauShow.addActionListener(new java.awt.event.ActionListener() {
-           public void actionPerformed(java.awt.event.ActionEvent evt) {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotaoCacauShowActionPerformed(evt);
-        	}
+            }
         });
 
-        IconeLogo.setIcon(new javax.swing.ImageIcon("C:\\NetBeansProjects\\sistema-bancario\\src\\main\\resources\\images\\logoCircular2.png")); // NOI18N
+        IconeLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logoCircular2.png"))); // NOI18N
         IconeLogo.setText("jLabel1");
 
         NomeCliente.setEditable(false);
         NomeCliente.setBackground(new java.awt.Color(255, 255, 255));
         NomeCliente.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        NomeCliente.setText(Usuario.getNome());
+        NomeCliente.setText("NomeCliente");
         NomeCliente.setBorder(null);
         NomeCliente.setFocusable(false);
         NomeCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -91,9 +91,9 @@ public class PaginaParceiros extends javax.swing.JFrame {
         BotaoSpotify.setText("Spotify");
         BotaoSpotify.setBorderPainted(false);
         BotaoSpotify.addActionListener(new java.awt.event.ActionListener() {
-           public void actionPerformed(java.awt.event.ActionEvent evt) {    
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotaoSpotifyActionPerformed(evt);
-        	}
+            }
         });
 
         BotaoMcDonalds.setBackground(new java.awt.Color(204, 0, 0));
@@ -104,7 +104,7 @@ public class PaginaParceiros extends javax.swing.JFrame {
         BotaoMcDonalds.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotaoMcDonaldsActionPerformed(evt);
-        	}
+            }
         });
 
         PerguntasFrequentes.setEditable(false);
@@ -127,7 +127,7 @@ public class PaginaParceiros extends javax.swing.JFrame {
         BotaoUber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotaoUberActionPerformed(evt);
-        	}
+            }
         });
 
         BotaoVoltar.setBackground(new java.awt.Color(204, 0, 0));

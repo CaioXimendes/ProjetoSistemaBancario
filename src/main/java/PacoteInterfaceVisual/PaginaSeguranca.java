@@ -50,13 +50,13 @@ public class PaginaSeguranca extends javax.swing.JFrame {
 
         JPanelHOME.setBackground(new java.awt.Color(255, 255, 255));
 
-        IconeLogo.setIcon(new javax.swing.ImageIcon("C:\\NetBeansProjects\\sistema-bancario\\src\\main\\resources\\images\\logoCircular2.png")); // NOI18N
+        IconeLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logoCircular2.png"))); // NOI18N
         IconeLogo.setText("jLabel1");
 
         NomeCliente.setEditable(false);
         NomeCliente.setBackground(new java.awt.Color(255, 255, 255));
         NomeCliente.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        NomeCliente.setText(Usuario.getNome());
+        NomeCliente.setText("NomeCliente");
         NomeCliente.setBorder(null);
         NomeCliente.setFocusable(false);
         NomeCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -195,13 +195,10 @@ public class PaginaSeguranca extends javax.swing.JFrame {
                                             .addComponent(CampoInserirConfirmacaoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(ConfirmarSenhaTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(18, 18, 18)
-                                        .addComponent(BotaoAlterarSenha)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 238, Short.MAX_VALUE))
-                            .addGroup(JPanelHOMELayout.createSequentialGroup()
-                                .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(BotaoAlterarSenha))
                                     .addComponent(AlterarSenhaTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(CampoInserirSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 238, Short.MAX_VALUE))))
                     .addGroup(JPanelHOMELayout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(PerguntasFrequentes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))

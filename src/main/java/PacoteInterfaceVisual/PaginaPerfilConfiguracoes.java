@@ -70,13 +70,13 @@ public class PaginaPerfilConfiguracoes extends javax.swing.JFrame {
             }
         });
 
-        IconeLogo.setIcon(new javax.swing.ImageIcon("C:\\NetBeansProjects\\sistema-bancario\\src\\main\\resources\\images\\logoCircular2.png")); // NOI18N
+        IconeLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logoCircular2.png"))); // NOI18N
         IconeLogo.setText("jLabel1");
 
         NomeCliente.setEditable(false);
         NomeCliente.setBackground(new java.awt.Color(255, 255, 255));
         NomeCliente.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        NomeCliente.setText(Usuario.getNome());
+        NomeCliente.setText("NomeCliente");
         NomeCliente.setBorder(null);
         NomeCliente.setFocusable(false);
         NomeCliente.addActionListener(new java.awt.event.ActionListener() {

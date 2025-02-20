@@ -50,13 +50,13 @@ public class PaginaPagar extends javax.swing.JFrame {
 
         JPanelHOME.setBackground(new java.awt.Color(255, 255, 255));
 
-        IconeLogo.setIcon(new javax.swing.ImageIcon("C:\\NetBeansProjects\\sistema-bancario\\src\\main\\resources\\images\\logoCircular2.png")); // NOI18N
+        IconeLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logoCircular2.png"))); // NOI18N
         IconeLogo.setText("jLabel1");
 
         NomeCliente.setEditable(false);
         NomeCliente.setBackground(new java.awt.Color(255, 255, 255));
         NomeCliente.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        NomeCliente.setText(Usuario.getNome());
+        NomeCliente.setText("NomeCliente");
         NomeCliente.setBorder(null);
         NomeCliente.setFocusable(false);
         NomeCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -191,12 +191,11 @@ public class PaginaPagar extends javax.swing.JFrame {
                             .addComponent(IconeLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(NomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(8, 8, 8)
-                        .addComponent(AlterarEmailTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                        .addComponent(AlterarEmailTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(JPanelHOMELayout.createSequentialGroup()
                         .addGap(30, 30, 30)
-                        .addComponent(PerguntasFrequentes, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)))
+                        .addComponent(PerguntasFrequentes, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(BotaoGerarBoletoDeposito)
                     .addComponent(CampoInserirQuantiaDeposito, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))

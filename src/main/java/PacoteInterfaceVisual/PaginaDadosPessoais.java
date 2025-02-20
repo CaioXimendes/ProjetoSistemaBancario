@@ -42,13 +42,13 @@ public class PaginaDadosPessoais extends javax.swing.JFrame {
 
         JPanelHOME.setBackground(new java.awt.Color(255, 255, 255));
 
-        IconeLogo.setIcon(new javax.swing.ImageIcon("C:\\NetBeansProjects\\sistema-bancario\\src\\main\\resources\\images\\logoCircular2.png")); // NOI18N
+        IconeLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logoCircular2.png"))); // NOI18N
         IconeLogo.setText("jLabel1");
 
         NomeCliente.setEditable(false);
         NomeCliente.setBackground(new java.awt.Color(255, 255, 255));
         NomeCliente.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        NomeCliente.setText(Usuario.getNome());
+        NomeCliente.setText("NomeCliente");
         NomeCliente.setBorder(null);
         NomeCliente.setFocusable(false);
         NomeCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -93,7 +93,7 @@ public class PaginaDadosPessoais extends javax.swing.JFrame {
         NumeroDaContaTitulo.setEditable(false);
         NumeroDaContaTitulo.setBackground(new java.awt.Color(255, 255, 255));
         NumeroDaContaTitulo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        NumeroDaContaTitulo.setText("Numero da Conta: ");
+        NumeroDaContaTitulo.setText("Número da Conta:");
         NumeroDaContaTitulo.setBorder(null);
         NumeroDaContaTitulo.setFocusable(false);
         NumeroDaContaTitulo.addActionListener(new java.awt.event.ActionListener() {
@@ -105,8 +105,7 @@ public class PaginaDadosPessoais extends javax.swing.JFrame {
         CampoNumeroConta.setEditable(false);
         CampoNumeroConta.setBackground(new java.awt.Color(255, 255, 255));
         CampoNumeroConta.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        String numConta = String.valueOf(Usuario.getNumeroConta());
-        CampoNumeroConta.setText(numConta);
+        CampoNumeroConta.setText("NúmeroConta");
         CampoNumeroConta.setBorder(null);
         CampoNumeroConta.setFocusable(false);
         CampoNumeroConta.addActionListener(new java.awt.event.ActionListener() {
