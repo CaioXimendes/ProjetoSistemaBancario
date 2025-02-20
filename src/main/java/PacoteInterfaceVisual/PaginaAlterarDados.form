@@ -56,16 +56,10 @@
                   <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Component id="CampoInserirTelefone" min="-2" pref="220" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="BotaoAlterarTelefone" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
                           <Component id="CampoInserirEmail" min="-2" pref="220" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="BotaoAlterarEmail" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="AlterarTelefoneTitulo" min="-2" max="-2" attributes="0"/>
                       <Component id="AlterarEmailTitulo" min="-2" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="IconeLogo" min="-2" pref="80" max="-2" attributes="0"/>
@@ -73,7 +67,7 @@
                           <Component id="NomeCliente" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="270" max="32767" attributes="0"/>
+                  <EmptySpace pref="288" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace pref="511" max="32767" attributes="0"/>
@@ -113,14 +107,7 @@
                       <Component id="BotaoAlterarEmail" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="CampoInserirEmail" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                  <Component id="AlterarTelefoneTitulo" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="CampoInserirTelefone" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
-                      <Component id="BotaoAlterarTelefone" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace pref="98" max="32767" attributes="0"/>
+                  <EmptySpace pref="205" max="32767" attributes="0"/>
                   <Component id="BotaoVoltar" min="-2" pref="40" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
               </Group>
@@ -211,56 +198,6 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PerguntasFrequentesActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JTextField" name="AlterarTelefoneTitulo">
-          <Properties>
-            <Property name="editable" type="boolean" value="false"/>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="24" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Alterar Telefone"/>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="null"/>
-            </Property>
-            <Property name="focusable" type="boolean" value="false"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AlterarTelefoneTituloActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JTextField" name="CampoInserirTelefone">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="(00) 90000-0000"/>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
-                <BevelBorder/>
-              </Border>
-            </Property>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CampoInserirTelefoneActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="BotaoAlterarTelefone">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="cc" type="rgb"/>
-            </Property>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="18" style="1"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="alterar telefone"/>
-            <Property name="borderPainted" type="boolean" value="false"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotaoAlterarTelefoneActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="BotaoVoltar">
