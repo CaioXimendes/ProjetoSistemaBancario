@@ -31,7 +31,6 @@ public class PaginaDadosPessoais extends javax.swing.JFrame {
         JPanelHOME = new javax.swing.JPanel();
         IconeLogo = new javax.swing.JLabel();
         NomeCliente = new javax.swing.JTextField();
-        BotaoDadosPessoais = new javax.swing.JButton();
         PerguntasFrequentes = new javax.swing.JTextField();
         BotaoVoltar = new javax.swing.JButton();
         NumeroDaContaTitulo = new javax.swing.JTextField();
@@ -54,17 +53,6 @@ public class PaginaDadosPessoais extends javax.swing.JFrame {
         NomeCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 NomeClienteActionPerformed(evt);
-            }
-        });
-
-        BotaoDadosPessoais.setBackground(new java.awt.Color(204, 0, 0));
-        BotaoDadosPessoais.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        BotaoDadosPessoais.setForeground(new java.awt.Color(255, 255, 255));
-        BotaoDadosPessoais.setText("Dados Pessoais");
-        BotaoDadosPessoais.setBorderPainted(false);
-        BotaoDadosPessoais.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotaoDadosPessoaisActionPerformed(evt);
             }
         });
 
@@ -105,7 +93,7 @@ public class PaginaDadosPessoais extends javax.swing.JFrame {
         CampoNumeroConta.setEditable(false);
         CampoNumeroConta.setBackground(new java.awt.Color(255, 255, 255));
         CampoNumeroConta.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        CampoNumeroConta.setText("NúmeroConta");
+        CampoNumeroConta.setText(String.valueOf(Usuario.getNumeroConta()));
         CampoNumeroConta.setBorder(null);
         CampoNumeroConta.setFocusable(false);
         CampoNumeroConta.addActionListener(new java.awt.event.ActionListener() {
@@ -129,10 +117,9 @@ public class PaginaDadosPessoais extends javax.swing.JFrame {
                         .addComponent(NumeroDaContaTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(CampoNumeroConta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 315, Short.MAX_VALUE))
+                        .addGap(0, 324, Short.MAX_VALUE))
                     .addGroup(JPanelHOMELayout.createSequentialGroup()
-                        .addComponent(BotaoDadosPessoais, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(BotaoVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(17, 17, 17))
                     .addGroup(JPanelHOMELayout.createSequentialGroup()
@@ -161,9 +148,7 @@ public class PaginaDadosPessoais extends javax.swing.JFrame {
                 .addGroup(JPanelHOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(NumeroDaContaTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(CampoNumeroConta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 204, Short.MAX_VALUE)
-                .addComponent(BotaoDadosPessoais, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
+                .addGap(22, 272, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -187,10 +172,6 @@ public class PaginaDadosPessoais extends javax.swing.JFrame {
     private void NomeClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NomeClienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_NomeClienteActionPerformed
-
-    private void BotaoDadosPessoaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoDadosPessoaisActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BotaoDadosPessoaisActionPerformed
 
     private void PerguntasFrequentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PerguntasFrequentesActionPerformed
         // TODO add your handling code here:
@@ -263,7 +244,6 @@ public class PaginaDadosPessoais extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BotaoDadosPessoais;
     private javax.swing.JButton BotaoVoltar;
     private javax.swing.JTextField CampoNumeroConta;
     private javax.swing.JLabel IconeLogo;
